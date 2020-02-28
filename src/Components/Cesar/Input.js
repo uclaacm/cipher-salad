@@ -26,15 +26,12 @@ class GetInput extends Component{
                 right: 'on'
             })
         }
-        console.log(this.state)
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state)
         
         var amount = parseInt(this.state.shiftAmount, 10);
         if(this.state.right === 'on') amount = -amount;
-        console.log("Shift amount: " + amount + "\n");
         var strOut = "";
         var str = this.state.inputStr;
 
@@ -45,27 +42,21 @@ class GetInput extends Component{
                 let code = str.charCodeAt(i); // Get its code
 			    // Uppercase letters
 			    if ((code >= 65) && (code <= 90)){
-                    console.log("before adding: ", code);
                     code += amount;
-                    console.log("after: ", code)
                     if(code < 65) code += 26;
                     if (code > 90) code -= 26;
-                    console.log("after: ", code)
                     c = String.fromCharCode(code);
                 }
 			    // Lowercase letters
 			    else if ((code >= 97) && (code <= 122)){
-                    console.log("before adding: ", code);
                     code += amount;
                     if(code < 97) code += 26;
                     if (code > 122) code -= 26;
-                    console.log("after: ", code)
                     c = String.fromCharCode(code);
                 }
 		    }
 		    strOut += c;
         }
-        console.log("strOut is: " + strOut + "\n");
         this.setState({
             outputStr: strOut
         })
@@ -73,6 +64,7 @@ class GetInput extends Component{
     render(){
         return(
             <div>
+                <p>CESAR CIPHER:</p>
                 <form onSubmit={this.handleSubmit}>
                     <p>~Shift Direction~</p>
                     <label htmlFor="leftShift">Left</label>
@@ -88,7 +80,7 @@ class GetInput extends Component{
                     <p></p>
                     <button>Submit</button>
                 </form>
-                <p>Your ciphered text is: {this.state.outputStr}</p>
+                <p>Your ciphered cesar text is: {this.state.outputStr}</p>
             </div>
         )
     }
