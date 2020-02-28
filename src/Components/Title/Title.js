@@ -6,7 +6,7 @@ const Pagewrap = styled("div")`
   align-items: center;
   text-align: center;
   margin: auto;
-  position: absolute;
+  /* position: absolute; */
   background-image: url("/cryptography.jpg");
 `;
 
@@ -15,7 +15,7 @@ const TitleDesign = styled("div")`
   font-size: 100px;
   color: white;
   font-family: Avenir;
-  margin-top: 200px;
+  padding-top: 200px;
 `;
 
 const Desc = styled("div")`

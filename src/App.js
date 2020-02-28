@@ -1,16 +1,19 @@
 import React from "react";
 import "./App.css";
 import Title from "./Components/Title/Title";
+import GetInput from "./Components/Cesar/Input.js";
 
-function App() {
-  return (
-    <div className="App">
-      <Title />
-
-      <text> Hello adding more junk </text>
-      <text> adding more stuff yayayaya</text>
-    </div>
-  );
+class App extends React.Component {
+  handleInput = e => {};
+  submitted = e => {};
+  render = () => {
+    return (
+      <div className="App">
+        <Title />
+        <GetInput />
+      </div>
+    );
+  };
 }
 
 export default App;
