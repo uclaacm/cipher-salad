@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import LetterBox from "../LetterBox.js"
 
 class Atbash extends Component{
     state = {
@@ -41,10 +42,23 @@ class Atbash extends Component{
             outputStr: strOut
         })
     }
+
+    backwardsAlpha= () => {
+        var i;
+        let letters = ""
+        for(i = 25; i >= 0; i--) {
+            letters+=String.fromCharCode(i+65);
+        }
+        console.log(letters)
+        return letters
+    } 
+
     render(){
         return(
-            <div>
-            <p>ATBASH CIPHER: </p>
+            <div className="container">
+            <p class="title">ATBASH CIPHER: </p>
+                <LetterBox default={true} offset={0}></LetterBox>
+                <LetterBox default={false} offset={0} length={17} letters={this.backwardsAlpha()}></LetterBox>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="input">Input your plain text: </label>
                     <input type="text" id="inputStr" onChange={this.handleChange} />
