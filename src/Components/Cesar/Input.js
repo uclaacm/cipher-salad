@@ -1,17 +1,39 @@
 import React, { Component } from "react";
+import TextInput from "../TextInput.js";
+import LetterBox from "../LetterBox.js";
 
 class GetInput extends Component {
-  state = {
-    left: null,
-    right: null,
-    shiftAmount: null,
-    inputStr: null,
-    outputStr: null
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      left: null,
+      right: null,
+      shiftAmount: 0,
+      offset: 0,
+      inputStr: null,
+      outputStr: null
+    };
+  }
+
+  caesarShift = (plaintext) => {
+    var c;
+    let cipher = ""
+    console.log(plaintext)
+    for (var p = 0; p < plaintext.length; p++) {
+      c = (plaintext.charCodeAt(p) + this.state.offset)
+      if (c < 65) c += 26;
+      if (c > 90) c -= 26;
+      cipher += String.fromCharCode(c)
+    }
+    console.log(cipher)
+    this.setState({ outputStr: cipher })
+  }
+
   handleChange = e => {
     this.setState({
-      [e.target.id]: e.target.value
+      [e.target.id]: e.target.value.toUpperCase()
     });
+    this.caesarShift(e.target.value.toUpperCase())
   };
   toggleDirection = e => {
     if (e.target.id === "left") {
@@ -70,35 +92,98 @@ class GetInput extends Component {
       outputStr: strOut
     });
   };
+
+  updatePlaintext = (plaintext) => {
+    if (plaintext.length === 0)
+      return
+    this.setState({ inputStr: plaintext });
+  }
+
+  renderLetterBox = () => {
+    let inp = true
+    if(this.state.inputStr !== null && this.state.inputStr.length > 0) {
+      inp = false
+    }
+    console.log(inp)
+    return(
+      <LetterBox default={inp} letters={this.state.inputStr}> </LetterBox>
+    )
+  }
+
+  incOffset = (n) => {
+    var off = this.state.offset + n
+    this.setState({ offset: off })
+  }
+
+  leftShift = () => {
+    this.incOffset(-1)
+  }
+
+  rightShift = () => {
+    this.incOffset(1)
+  }
+
+  // considering caesar cipher component to constantly track offset and input
+
   render() {
     return (
-      <div>
+      <div class="container">
+        <p class="title">Caesar Cipher</p>
+        <LetterBox default={true} offset={0}></LetterBox>
+        <div class="field is-grouped">
+            <button class="button is-light" onClick={this.leftShift}>
+              <span class="icon is-small">
+                <i class="fa fa-arrow-left"></i>
+              </span>
+            </button>
+          <LetterBox default={true} offset={this.state.offset} debug={true}></LetterBox>
+          <button class="button is-light" onClick={this.rightShift}>
+            <span class="icon is-small">
+              <i class="fa fa-arrow-right"></i>
+            </span>
+            </button>
+        </div>
+        <label htmlFor="input">Input your plain text: </label>
+          <input class="input" type="text" id="inputStr" onChange={this.handleChange} />
+        <br/>
+        <p>Your ciphered text is: {this.state.outputStr}</p> 
+
+        {/*
         <form onSubmit={this.handleSubmit}>
-          <p>~Shift Direction~</p>
-          <label htmlFor="leftShift">Left</label>
-          <input
-            type="radio"
-            name="shift"
-            id="left"
-            onChange={this.toggleDirection}
-          />
-          <label htmlFor="rightShift">Right</label>
-          <input
-            type="radio"
-            name="shift"
-            id="right"
-            onChange={this.toggleDirection}
-          />
-          <p>~Shift Amount (1 to 26)~</p>
-          <label htmlFor="amount">Amount: </label>
-          <input type="text" id="shiftAmount" onChange={this.handleChange} />
+          <p class="subtitle">~Shift Direction~</p>
+          <div class="field">
+            <div class="control">
+              <label htmlFor="leftShift">Left</label>
+                <input
+                  type="radio"
+                  name="shift"
+                  id="left"
+                  onChange={this.toggleDirection}
+                />
+              <label htmlFor="rightShift">Right</label>
+              <input 
+                type="radio"
+                name="shift"
+                id="right"
+                onChange={this.toggleDirection}
+              />
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <p>~Shift Amount (1 to 26)~</p>
+              <label htmlFor="amount">Amount: </label>
+              <input class="input" type="text" id="shiftAmount" onChange={this.handleChange} />
+            </div>
+          </div>
           <p></p>
           <label htmlFor="input">Input your plain text: </label>
-          <input type="text" id="inputStr" onChange={this.handleChange} />
+          <input class="input" type="text" id="inputStrR" onChange={this.handleChange} />
           <p></p>
-          <button>Submit</button>
+          <button class="button is-primary">Submit</button>
         </form>
         <p>Your ciphered text is: {this.state.outputStr}</p>
+        */}
       </div>
     );
   }
