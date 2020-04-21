@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TextInput from "../TextInput.js";
 import LetterBox from "../LetterBox.js";
+import { findByLabelText } from "@testing-library/react";
 
 class GetInput extends Component {
   constructor(props) {
@@ -18,14 +19,14 @@ class GetInput extends Component {
   caesarShift = (plaintext) => {
     var c;
     let cipher = ""
-    console.log(plaintext)
+    console.log("offset b4 cipher: " + this.state.offset);
     for (var p = 0; p < plaintext.length; p++) {
       c = (plaintext.charCodeAt(p) + this.state.offset)
       if (c < 65) c += 26;
       if (c > 90) c -= 26;
       cipher += String.fromCharCode(c)
     }
-    console.log(cipher)
+    console.log("cipher: "+cipher);
     this.setState({ outputStr: cipher })
   }
 
@@ -35,6 +36,7 @@ class GetInput extends Component {
     });
     this.caesarShift(e.target.value.toUpperCase())
   };
+  /*
   toggleDirection = e => {
     if (e.target.id === "left") {
       this.setState({
@@ -109,10 +111,15 @@ class GetInput extends Component {
       <LetterBox default={inp} letters={this.state.inputStr}> </LetterBox>
     )
   }
-
+*/
   incOffset = (n) => {
-    var off = this.state.offset + n
-    this.setState({ offset: off })
+    this.setState((state, props) => ({
+      offset: state.offset + n
+    }));
+
+    //var off = this.state.offset + n
+    //this.setState({ offset: off });
+    this.caesarShift(document.getElementById('inputStr').value.toUpperCase()); 
   }
 
   leftShift = () => {
@@ -126,8 +133,9 @@ class GetInput extends Component {
   // considering caesar cipher component to constantly track offset and input
 
   render() {
+    console.log("input offset: " + this.state.offset);
     return (
-      <div class="container">
+      <div class="container" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
         <p class="title">Caesar Cipher</p>
         <LetterBox default={true} offset={0}></LetterBox>
         <div class="field is-grouped">
@@ -143,11 +151,16 @@ class GetInput extends Component {
             </span>
             </button>
         </div>
-        <label htmlFor="input">Input your plain text: </label>
-          <input class="input" type="text" id="inputStr" onChange={this.handleChange} />
-        <br/>
-        <p>Your ciphered text is: {this.state.outputStr}</p> 
-
+        <div class="columns" style={{width: '100%'}}>
+          <div class="column is-half">
+            <label htmlFor="input">Input your plain text: </label>
+              <input class="input" type="text" id="inputStr" onChange={this.handleChange} />
+          </div>
+          <div class="column is-half">
+            <p>Your ciphered text is:</p>
+            <p class= "has-text-weight-semibold is-size-4">{this.state.outputStr}</p>
+          </div>
+        </div>
         {/*
         <form onSubmit={this.handleSubmit}>
           <p class="subtitle">~Shift Direction~</p>
