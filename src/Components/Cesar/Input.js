@@ -2,40 +2,61 @@ import React, { Component } from "react";
 import TextInput from "../TextInput.js";
 import LetterBox from "../LetterBox.js";
 import { findByLabelText } from "@testing-library/react";
+import './input.css';
 
 class GetInput extends Component {
   constructor(props) {
     super(props);
+    
+    this.inputClicked = false; 
+    let offset = Math.floor(Math.random() * 25) + 1;
+    let inputStr = 'Click here to type!';
+    let outputStr = this.caesarShift(inputStr.toUpperCase(), offset);
+    
     this.state = {
-      left: null,
-      right: null,
-      shiftAmount: 0,
-      offset: 0,
-      inputStr: null,
-      outputStr: null
+      //left: null,
+      //right: null,
+      //shiftAmount: 0,
+      offset: offset,
+      inputStr: inputStr,
+      outputStr: outputStr
     };
   }
 
-  caesarShift = (plaintext) => {
+  caesarShift = (plaintext, offset) => {
     var c;
     let cipher = ""
-    console.log("offset b4 cipher: " + this.state.offset);
+    let char;
     for (var p = 0; p < plaintext.length; p++) {
-      c = (plaintext.charCodeAt(p) + this.state.offset)
-      if (c < 65) c += 26;
-      if (c > 90) c -= 26;
-      cipher += String.fromCharCode(c)
+      char = plaintext[p];
+      if (char.match(/[a-z]/i)) {
+        c = (plaintext.charCodeAt(p) + offset)
+        if (c < 65) c += 26;
+        if (c > 90) c -= 26;
+        char = String.fromCharCode(c)
+      }
+      cipher += char;
     }
-    console.log("cipher: "+cipher);
-    this.setState({ outputStr: cipher })
+    return cipher;
   }
 
   handleChange = e => {
+    let value = e.target.value;
+    let plaintext = value.toUpperCase();
+    let ciphertext = this.caesarShift(plaintext, this.state.offset);
     this.setState({
-      [e.target.id]: e.target.value.toUpperCase()
+      inputStr: value,
+      outputStr: ciphertext
     });
-    this.caesarShift(e.target.value.toUpperCase())
   };
+
+  handleClick = () => {
+    if (!this.inputClicked) {
+      this.inputClicked = true;
+      this.setState({inputStr: '', outputStr: null});
+    }
+  }
+
   /*
   toggleDirection = e => {
     if (e.target.id === "left") {
@@ -113,13 +134,10 @@ class GetInput extends Component {
   }
 */
   incOffset = (n) => {
-    this.setState((state, props) => ({
-      offset: state.offset + n
-    }));
-
-    //var off = this.state.offset + n
-    //this.setState({ offset: off });
-    this.caesarShift(document.getElementById('inputStr').value.toUpperCase()); 
+    let off = this.state.offset + n;
+    let plaintext = document.getElementById('inputStr').value.toUpperCase();
+    let ciphertext = this.caesarShift(plaintext, off); 
+    this.setState({ outputStr: ciphertext, offset: off });
   }
 
   leftShift = () => {
@@ -133,9 +151,20 @@ class GetInput extends Component {
   // considering caesar cipher component to constantly track offset and input
 
   render() {
-    console.log("input offset: " + this.state.offset);
+    /*
+    let inputElement;
+    if (this.inputClicked) {
+      console.log('hi');
+      inputElement = <input class="input" type="text" id="inputStr" onChange={this.handleChange}/>;
+    }
+    else {
+      console.log('hello');
+      inputElement = <input class="input" type="text" id="inputStr" value="Click here to type!" onChange={this.handleChange} onClick={this.handleClick}/>;
+    }
+    */
+
     return (
-      <div class="container" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+      <div class="container center-content">
         <p class="title">Caesar Cipher</p>
         <LetterBox default={true} offset={0}></LetterBox>
         <div class="field is-grouped">
@@ -151,10 +180,10 @@ class GetInput extends Component {
             </span>
             </button>
         </div>
-        <div class="columns" style={{width: '100%'}}>
+        <div class="columns increase-width">
           <div class="column is-half">
             <label htmlFor="input">Input your plain text: </label>
-              <input class="input" type="text" id="inputStr" onChange={this.handleChange} />
+            <input class="input" type="text" id="inputStr" value={this.state.inputStr} onChange={this.handleChange} onClick={this.handleClick}/>
           </div>
           <div class="column is-half">
             <p>Your ciphered text is:</p>

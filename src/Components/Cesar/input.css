@@ -1,0 +1,9 @@
+.center-content {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+.increase-width {
+    width: 100%
+}

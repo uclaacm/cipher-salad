@@ -41,7 +41,7 @@ class LetterBox extends Component {
         if(this.props.letters !== prevProps.letters) {
             this.setState({ letters: this.props.default ? "" : this.props.letters})
         }
-        if(this.props.offset && this.props.offset !== prevProps.offset) {
+        if(this.props.offset !== prevProps.offset) { 
             this.setState({ offset: this.props.offset })
         }
     }
