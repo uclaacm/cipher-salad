@@ -93,10 +93,10 @@ class Vigenere extends Component {
 
     render() {
         return(
-            <div className="container">
+            <div className="container" id="vigenere_cipher">
                 <p class="title">Vigenere Cipher</p>
                 <div className="columns">
-                    <div className="is-one-third">
+                    <div className="column is-one-third">
                         <label htmlFor="inputStrr">Your message:</label>
                         <input class="input" name="inputStrr" id="inputID" placeholder="Your original message here" onChange={this.update} />
                         <br/>

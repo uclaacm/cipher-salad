@@ -127,7 +127,7 @@ class GetInput extends Component {
 
   render() {
     return (
-      <div class="container">
+      <div class="container" id="caesar_cipher">
         <p class="title">Caesar Cipher</p>
         <LetterBox default={true} offset={0}></LetterBox>
         <div class="field is-grouped">
