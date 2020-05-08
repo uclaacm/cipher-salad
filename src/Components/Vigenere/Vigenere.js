@@ -10,74 +10,31 @@ class Vigenere extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputStr: "input",
-            keyStr: "keyke",
-            outputStr: "",
-            cipherStr: ""
+            inputStr: "INPUT",
+            keyStr: "KEYKE",
+            cipherStr: "SRNEX"
         }
-    }
-
-    handleSubmit = () => {
-
-    }
-
-    handleInputChange = e => {
-        this.setState({
-            inputStr: e.target.value.toUpperCase()
-          });
-    }
-
-    handleKeyChange = e => {
-        let plaintextlen = this.state.inputStr.length;
-        console.log(e.target.value)
-        let key = e.target.value.toUpperCase();
-        let keylen = key.length+1;
-        console.log(keylen)
-        if(key === "") {
-            this.setState({
-                keyStr: ""
-            });
-            return
-        }
-        var i;
-        for (i = 0; i < plaintextlen + 1; i++) {
-            console.log(i)
-            if(i > key.length) {
-                console.log(key[(i - (keylen)) % keylen])
-                key += key[(i - (keylen)) % keylen]
-            }
-        }
-        console.log(key)
-        this.setState({
-            keyStr: key
-        });
-        console.log(this.state.keyStr)
     }
 
     vigenere = (input, key) => {
-        console.log(key)
         let inCode = input.charCodeAt(0)
-        let keyCode = key.charCodeAt(0) - CAPITAL_A + 1
+        let keyCode = key.charCodeAt(0) - CAPITAL_A
         let outCode = inCode + keyCode
         let outchar = outCode > CAPITAL_Z ? String.fromCharCode(outCode - 26) : String.fromCharCode(outCode);
         return outchar
     }
 
     renderLetters = () => {
-        console.log(this.state.inputStr)
         let plaintext = this.state.inputStr.toUpperCase();
         let key = this.state.keyStr.toUpperCase();
         let keylen = key.length+1;
         var i;
-        console.log(plaintext.length)
+
         for (i = 0; i < plaintext.length + 1; i++) {
-            console.log(i)
             if(i > key.length) {
-                console.log(key[(i - (keylen)) % keylen])
                 key += key[(i - (keylen)) % keylen]
             }
         }
-        console.log(key)
         let ciphertext = ""
         for (i = 0; i < plaintext.length; i++) {
             ciphertext += this.vigenere(plaintext[i], key[i])
@@ -87,19 +44,67 @@ class Vigenere extends Component {
         })
     }
 
+    updateState = (inputid, keyid) =>{
+        let plaintextlen = inputid.length;
+        let key = keyid.toUpperCase();
+        let keylen = key.length;
+        if(key === "") {
+            this.setState({
+                inputStr: inputid.toUpperCase(),
+                keyStr: this.state.keyStr,
+            }, function(){this.renderLetters();}); // 
+            return
+        }
+        if(inputid === "") {
+            this.setState({
+                inputStr: this.state.inputStr,
+                keyStr: key,
+            }, function(){this.renderLetters();});
+            return
+        }
+        if(keylen < plaintextlen){ //make keys wrap around itself
+            var j = 0;
+            for (var i = 0; i < plaintextlen+1; i++) {
+                if(i > key.length) {
+                    if(j === keylen){j = 0;}
+                    key += key[j];
+                    j +=1;
+                }
+            }
+            console.log("key: " + this.state.keyStr);
+            console.log(plaintextlen+" "+keylen);
+        }
+        if(keylen > plaintextlen) { key = key.slice(0, plaintextlen);} 
+        this.setState({
+            keyStr: key,
+            inputStr: inputid.toUpperCase(),
+        }, function(){
+            this.renderLetters();
+        });
+    }
+
+    update = () =>{
+        let inputid = document.getElementById('inputID').value
+        let keyid = document.getElementById('keyID').value
+        if(inputid !== this.state.inputStr || keyid !== this.state.keyStr){
+            this.updateState(inputid, keyid);
+        }
+    }
+
     render() {
         return(
-            <div className="container">
+            <div className="container" id="vigenere_cipher">
                 <p class="title">Vigenere Cipher</p>
                 <div className="columns">
                     <div className="column is-one-third">
                         <label htmlFor="inputStrr">Your message:</label>
-                        <input class="input" name="inputStrr" placeholder="Your original message here" onChange={this.handleInputChange} />
+                        <input class="input" name="inputStrr" id="inputID" placeholder="Your original message here" onChange={this.update} />
                         <br/>
                         <label htmlFor="keyStr">Your key:</label>
-                        <input class="input" name="keyStr" placeholder="Your key here" onChange={this.handleKeyChange} />
+                        <input class="input" name="keyStr" id="keyID" placeholder="Your key here" onChange={this.update} />
+                        <br/>
+                        <br/>
                         <p>Your cipher text is.... {}</p>
-                        <button class="button" onClick={this.renderLetters}>Scramble it!</button>
                     </div>
                     <div className="column is-two-thirds">
                         <LetterBox default={false} length={11} offset={0} letters={this.state.inputStr}></LetterBox>

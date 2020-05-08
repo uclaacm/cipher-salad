@@ -1,8 +1,8 @@
 import React from 'react';
-//import logo from './logo.svg';
 import './App.css';
 import './App.sass';
-import Title from "./Components/Title/Title";
+import Title from "./Components/Title/Title.js";
+import Closing from "./Components/Title/Closing.js";
 import GetInput from './Components/Cesar/Input.js'
 import AtbashInput from './Components/Atbash/AtbashInput.js'
 import Vigenere from './Components/Vigenere/Vigenere.js'
@@ -23,6 +23,7 @@ class App extends React.Component {
       <section class="section">
         <Vigenere />
       </section>
+      <Closing />
     </div>
   );
   }
