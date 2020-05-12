@@ -95,6 +95,33 @@ class Vigenere extends Component {
         return(
             <div className="container" id="vigenere_cipher">
                 <p class="title">Vigenere Cipher</p>
+                <div className="col">
+                    <div className="row_center">
+                        <img src="/vigenere_1.png" alt="A picture of caesar cipher" className="image width30"/>
+                        <div className="wide_paragraph content">
+                            So we’ve seen the ancient ciphers. 
+                            In 1553, an Italian guy named Giovan thought this wasn’t enough. 
+                            And he made the caesar cipher more secure by giving each letter a different shift.
+                        </div>
+                    </div>
+                    <div className="row_center">
+                        <div className="wide_paragraph content">
+                            He would code each shift in a letter - A equals 0, B equals 1, z equals 25 .... 
+                            and this would be the *key* to decoding his message.
+                            <br />
+                            Many ciphers use “keys,” an extra piece of information, to encrypt messages.
+                            <br />
+                            And then for some reason,a French guy named Vigenere got the credit for this. 
+                            Now you’ve learned the Vigenere cipher
+                        </div>
+                        <img src="/vigenere_2.png" alt="A picture introducing vigenere cipher" className="image width50"/>
+                    </div> 
+                    <div className="row_center">
+                        <div className="wide_paragraph content">
+                            Try it yourself!
+                        </div>
+                    </div>
+                </div>
                 <div className="columns">
                     <div className="column is-one-third">
                         <label htmlFor="inputStrr">Your message:</label>

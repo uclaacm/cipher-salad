@@ -13,7 +13,7 @@ class Title extends React.Component {
           </div>
         </div>
         <div className="page_wrap">
-          <div className="paragraph"> 
+          <div className="paragraph content"> 
               <div>
                 What is encryption? 
                 How does ZHOFRPH WR JUDYLWB IDOOV turn into WELCOME TO GRAVITY FALLS? 
