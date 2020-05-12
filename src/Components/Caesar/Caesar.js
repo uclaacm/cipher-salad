@@ -48,11 +48,11 @@ class Caesar extends Component {
                         </div>
                     </div> 
                     <div className="vertical-spacing">
-                        <button className="button has-background-grey-light is-static">Brutus homie what is up</button>
+                        <button className="button message-button has-background-grey-light is-static">Brutus homie what is up</button>
                         <span className="icon is-medium">
                             <i className="fa fa-long-arrow-right fa-2x"></i>
                         </span>
-                        <button className="button has-background-grey-light is-static">EUXWXV KRPLH ZKDW LV XS</button>
+                        <button className="button message-button has-background-grey-light is-static">EUXWXV KRPLH ZKDW LV XS</button>
                     </div>
                     <div className="vertical-spacing">
                         <p>The Caesar cipher came up when Julius Caesar wanted a method to send secret messages to his people.</p>
