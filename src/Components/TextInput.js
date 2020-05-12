@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
 export default ({ type, placeholder, data, onChange }) => (
-    <div class="field">
-        <div class="control">
+    <div className="field">
+        <div className="control">
             <input 
-                class="input"
+                className="input"
                 type="text"
                 name={type}
                 placeholder={placeholder}
