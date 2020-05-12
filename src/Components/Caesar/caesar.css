@@ -1,0 +1,12 @@
+.vertical-spacing {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.vertical-spacing-bottom-only {
+    margin-bottom: 5%
+}
+
+.button {
+    height: 5em;
+}

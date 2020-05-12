@@ -14,8 +14,8 @@ const LOWER_A = 97;
 
 function Letter ({ key, char }) {
     return(
-    <div class="control" key={key}>
-    <button class="button is-static is-medium" style={{width:58+'px'}}>
+    <div className="control" key={key}>
+    <button className="button is-static is-medium" style={{width:58+'px'}}>
         <p>{char}</p>
     </button>
     </div>
@@ -80,7 +80,7 @@ class LetterBox extends Component {
     render() {
         console.log("letterbox offset: " + this.state.offset);
         return(
-            <div class="field has-addons" style={{justifyContent: "space-evenly"}}> 
+            <div className="field has-addons" style={{justifyContent: "space-evenly"}}> 
                 {this.writeLetters()}
             </div>
         )

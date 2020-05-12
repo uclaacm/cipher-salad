@@ -90,16 +90,16 @@ class Vigenere extends Component {
     render() {
         return(
             <div className="container">
-                <p class="title">Vigenere Cipher</p>
+                <p className="title">Vigenere Cipher</p>
                 <div className="columns">
                     <div className="column is-one-third">
                         <label htmlFor="inputStrr">Your message:</label>
-                        <input class="input" name="inputStrr" placeholder="Your original message here" onChange={this.handleInputChange} />
+                        <input className="input" name="inputStrr" placeholder="Your original message here" onChange={this.handleInputChange} />
                         <br/>
                         <label htmlFor="keyStr">Your key:</label>
-                        <input class="input" name="keyStr" placeholder="Your key here" onChange={this.handleKeyChange} />
+                        <input className="input" name="keyStr" placeholder="Your key here" onChange={this.handleKeyChange} />
                         <p>Your cipher text is.... {}</p>
-                        <button class="button" onClick={this.renderLetters}>Scramble it!</button>
+                        <button className="button" onClick={this.renderLetters}>Scramble it!</button>
                     </div>
                     <div className="column is-two-thirds">
                         <LetterBox default={false} length={11} offset={0} letters={this.state.inputStr}></LetterBox>
