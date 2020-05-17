@@ -56,7 +56,7 @@ class Atbash extends Component{
     render(){
         return(
             <div className="container" id="atbash_cipher">
-            <p class="title">ATBASH CIPHER: </p>
+            <p className="title">Atbash Cipher: </p>
                 <LetterBox default={true} offset={0}></LetterBox>
                 <LetterBox default={false} offset={0} length={17} letters={this.backwardsAlpha()}></LetterBox>
                 <form onSubmit={this.handleSubmit}>

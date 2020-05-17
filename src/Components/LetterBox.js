@@ -14,8 +14,8 @@ const LOWER_A = 97;
 
 function Letter ({ key, char }) {
     return(
-    <div class="control" key={key}>
-    <button class="button is-static is-medium" style={{width:58+'px'}}>
+    <div className="control" key={key}>
+    <button className="button is-static is-medium" style={{width:58+'px'}}>
         <p>{char}</p>
     </button>
     </div>
@@ -35,13 +35,13 @@ class LetterBox extends Component {
     }
 
     componentDidUpdate = (prevProps, prevState) => {
-        if(this.props.default != prevProps.default) {
+        if(this.props.default !== prevProps.default) {
             this.setState({ default: this.props.default })
         }
-        if(this.props.letters != prevProps.letters) {
+        if(this.props.letters !== prevProps.letters) {
             this.setState({ letters: this.props.default ? "" : this.props.letters})
         }
-        if(this.props.offset && this.props.offset !== prevProps.offset) {
+        if(this.props.offset !== prevProps.offset) { 
             this.setState({ offset: this.props.offset })
         }
     }
@@ -63,7 +63,7 @@ class LetterBox extends Component {
             }
         }
         else {
-            let letters = this.state.letters
+            let letters = this.state.letters;
             while (letters.length < this.state.length && !this.state.repeat) {
                 letters += " "
             }
@@ -78,8 +78,9 @@ class LetterBox extends Component {
     }
 
     render() {
+        console.log("letterbox offset: " + this.state.offset);
         return(
-            <div class="field has-addons" style={{justifyContent: "space-evenly"}}> 
+            <div className="field has-addons" style={{justifyContent: "space-evenly"}}> 
                 {this.writeLetters()}
             </div>
         )

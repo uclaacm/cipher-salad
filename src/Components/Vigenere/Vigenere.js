@@ -94,7 +94,7 @@ class Vigenere extends Component {
     render() {
         return(
             <div className="container" id="vigenere_cipher">
-                <p class="title">Vigenere Cipher</p>
+                <p className="title">Vigenere Cipher</p>
                 <div className="col">
                     <div className="row_center">
                         <img src="/vigenere_1.png" alt="A picture of caesar cipher" className="image width30"/>
@@ -125,10 +125,10 @@ class Vigenere extends Component {
                 <div className="columns">
                     <div className="column is-one-third">
                         <label htmlFor="inputStrr">Your message:</label>
-                        <input class="input" name="inputStrr" id="inputID" placeholder="Your original message here" onChange={this.update} />
+                        <input className="input" name="inputStrr" id="inputID" placeholder="Your original message here" onChange={this.update} />
                         <br/>
                         <label htmlFor="keyStr">Your key:</label>
-                        <input class="input" name="keyStr" id="keyID" placeholder="Your key here" onChange={this.update} />
+                        <input className="input" name="keyStr" id="keyID" placeholder="Your key here" onChange={this.update} />
                         <br/>
                         <br/>
                         <p>Your cipher text is.... {}</p>

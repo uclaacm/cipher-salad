@@ -97,10 +97,14 @@ body{
 .wide_paragraph{
     font-size: 24px;
     padding: 50px;
-    width: 70%;
+    width: 80%;
     margin: none;
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+.mid_font{
+    font-size: 24px;
 }
 
 @media (max-width: 850px) {
@@ -128,6 +132,10 @@ body{
     .width50{
         width: 40vw;
         height: auto;
+    }
+
+    .mid_font{
+        font-size: 18px;
     }
 }
 
