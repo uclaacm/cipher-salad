@@ -1,9 +1,12 @@
 .page_wrap{
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin: auto;
     vertical-align: middle; 
+    align-content: center;
 }
 
 .row_center{
@@ -28,27 +31,32 @@
   
 .title_img{
     background-image: url("/cryptography.jpg");
+    height: 100vh;
 }
 
 .title_design{
     font-weight: bold;
     font-size: 100px;
     color: white;
-    font-family: Avenir;
-    padding-top: 200px;
+    font-family: 'Roboto Mono', Avenir;
+    width: 1000px;
+    margin: auto;
+    line-height: 1.1;
+    padding: 50px;
+
 }
 
 .desc{
-    font-weight: normal;
-    font-family: Avenir;
+    font-weight: bold;
+    font-family: 'Roboto Mono', Avenir;
     font-size: 48px;
     color: white;
     padding: 50px;
-    width: 60%;
+    width: 1000px;
     margin: auto;
     position: relative;
     text-align: center;
-    padding-bottom: 350px;
+    line-height: 1.1;
 }
 
 .image{
@@ -61,7 +69,7 @@
 
 .paragraph{
     font-weight: bold;
-    font-family: Avenir;
+    font-family: 'Roboto Mono', Avenir;
     font-size: 36px;
     color: cipher-gold;
     padding: 50px;
@@ -71,11 +79,12 @@
     text-align: center;
     padding-top: 150px;
     padding-bottom: 100px;
+    line-height: 1.1;
 }
 
 .mini_paragraph{
     font-weight: bold;
-    font-family: Avenir;
+    font-family: 'Roboto Mono', Avenir;
     font-size: 24px;
     color: cipher-gold;
     padding: 50px;
@@ -85,6 +94,11 @@
     text-align: center;
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+.button-font {
+    font-family: 'Roboto Mono', Roboto;
+    font-weight: bold;
 }
 
 @media (max-width: 850px) {
@@ -97,5 +111,4 @@
         height: auto;
     }
 }
-
   

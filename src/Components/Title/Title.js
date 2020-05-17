@@ -29,13 +29,13 @@ class Title extends React.Component {
         </div>
         <div className="row_space">
           <a href="#caesar_cipher">
-            <button class="button is-static is-large">Caesar Cipher</button>
+            <button class="button is-static is-large button-font">Caesar Cipher</button>
           </a>
           <a href="#atbash_cipher">
-            <button class="button is-static is-large">Atbash Cipher</button>
+            <button class="button is-static is-large button-font">Atbash Cipher</button>
           </a>
           <a href="#vigenere_cipher">
-            <button class="button is-static is-large">Vigenere Cipher</button>
+            <button class="button is-static is-large button-font">Vigenere Cipher</button>
           </a>
         </div>
       </div>
