@@ -48,9 +48,17 @@ class Caesar extends Component {
                             <img src={brutus} alt="Brutus"/>
                         </div>
                     </div> 
+<<<<<<< HEAD
                     <div className="columns is-centered is-vcentered vertical-spacing">
                         <button className="button message-button has-background-grey-light is-static">Brutus homie what is up</button>
                         <img src={arrow} alt="arrow"/>
+=======
+                    <div className="vertical-spacing">
+                        <button className="button message-button has-background-grey-light is-static">Brutus homie what is up</button>
+                        <span className="icon is-medium">
+                            <i className="fa fa-long-arrow-right fa-2x"></i>
+                        </span>
+>>>>>>> e0370a17159978198aa7cab417e9025cdf6edcbf
                         <button className="button message-button has-background-grey-light is-static">EUXWXV KRPLH ZKDW LV XS</button>
                     </div>
                     <div className="vertical-spacing">

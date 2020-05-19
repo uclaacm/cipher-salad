@@ -34,6 +34,7 @@ class Title extends React.Component {
         </div>
         <div className="row_space">
           <a href="#caesar_cipher">
+<<<<<<< HEAD
             <button class="button is-static is-large is-family-secondary has-text-weight-bold">Caesar Cipher</button>
           </a>
           <a href="#atbash_cipher">
@@ -41,6 +42,15 @@ class Title extends React.Component {
           </a>
           <a href="#vigenere_cipher">
             <button class="button is-static is-large is-family-secondary has-text-weight-bold">Vigenere Cipher</button>
+=======
+            <button class="button is-static is-large button-font">Caesar Cipher</button>
+          </a>
+          <a href="#atbash_cipher">
+            <button class="button is-static is-large button-font">Atbash Cipher</button>
+          </a>
+          <a href="#vigenere_cipher">
+            <button class="button is-static is-large button-font">Vigenere Cipher</button>
+>>>>>>> e0370a17159978198aa7cab417e9025cdf6edcbf
           </a>
         </div>
       </div>
