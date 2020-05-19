@@ -5,18 +5,16 @@ class Title extends React.Component {
   render() {
     return (
       <div>
-
         <div className="hero is-fullheight title_img">
           <div className="hero-body">
             <div className="container">
               <p className="title is-spaced is-family-secondary has-text-weight-bold has-text-white title_design">What is Cryptography?</p>
-              <p className="subtitle is-family-secondary has-text-weight-bold has-text-white desc">
-                The art of writing messages <br/> with a hidden meaning, or of writing and solving code
+              <p className="title is-size-3 is-family-secondary has-text-weight-bold has-text-white desc container">
+                The art of writing messages with a hidden meaning, or of writing and solving code
               </p>
             </div>
           </div>
         </div>
-
         <div className="page_wrap">
           <div className="paragraph"> 
               <div>

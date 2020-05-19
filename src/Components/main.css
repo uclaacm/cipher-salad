@@ -34,12 +34,12 @@
 }
 
 .title_design{
-    font-size: 120px;
+    font-size: 5rem;
 }
 
 .desc{
-    font-size: 48px;
-    padding-top: 65px;
+    padding-top: 60px;
+    width: 60%
 }
 
 .image{
