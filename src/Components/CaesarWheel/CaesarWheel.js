@@ -21,9 +21,9 @@ class CaesarWheel extends Component {
         let coords = this.adjustCoords(e.clientX, e.clientY);
         this.angle = this.atanDegrees(coords.adjustedX, coords.adjustedY);
         
-        let body = document.getElementsByTagName('body')[0];
-        body.onmouseup = this.dragMouseUp;
-        body.onmousemove = this.dragMouseMove;
+        let section = document.getElementById('caesar_cipher');
+        section.onmouseup = this.dragMouseUp;
+        section.onmousemove = this.dragMouseMove;
     }
 
     dragMouseMove = e => {
@@ -40,9 +40,9 @@ class CaesarWheel extends Component {
     }
 
     dragMouseUp = () => {
-        let body = document.getElementsByTagName('body')[0];
-        body.onmouseup = null;
-        body.onmousemove = null;
+        let section = document.getElementById('caesar_cipher');
+        section.onmouseup = null;
+        section.onmousemove = null;
     }
     
     adjustCoords = (x, y) => {

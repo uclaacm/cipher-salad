@@ -1,9 +1,12 @@
 .page_wrap{
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin: auto;
     vertical-align: middle; 
+    align-content: center;
 }
 
 .row_center{
@@ -31,24 +34,12 @@
 }
 
 .title_design{
-    font-weight: bold;
-    font-size: 100px;
-    color: white;
-    font-family: Avenir;
-    padding-top: 200px;
+    font-size: 120px;
 }
 
 .desc{
-    font-weight: normal;
-    font-family: Avenir;
     font-size: 48px;
-    color: white;
-    padding: 50px;
-    width: 60%;
-    margin: auto;
-    position: relative;
-    text-align: center;
-    padding-bottom: 350px;
+    padding-top: 65px;
 }
 
 .image{
@@ -61,7 +52,7 @@
 
 .paragraph{
     font-weight: bold;
-    font-family: Avenir;
+    font-family: 'Roboto Mono', Avenir;
     font-size: 36px;
     color: cipher-gold;
     padding: 50px;
@@ -71,11 +62,12 @@
     text-align: center;
     padding-top: 150px;
     padding-bottom: 100px;
+    line-height: 1.1;
 }
 
 .mini_paragraph{
     font-weight: bold;
-    font-family: Avenir;
+    font-family: 'Roboto Mono', Avenir;
     font-size: 24px;
     color: cipher-gold;
     padding: 50px;
@@ -97,5 +89,4 @@
         height: auto;
     }
 }
-
   
