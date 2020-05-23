@@ -4,6 +4,7 @@ import CaesarWheel from '../CaesarWheel/CaesarWheel.js'
 import CaesarButtons from '../CaesarButtons/CaesarButtons.js'
 import caesar from './caesar.png'
 import brutus from './brutus.png'
+import arrow from './arrow.png'
 import "./caesar.css"
 
 class Caesar extends Component {
@@ -27,7 +28,7 @@ class Caesar extends Component {
 
     render() {
         return (
-            <div className="section">
+            <div className="section" id="caesar_cipher">
                 <div className="container">
                     <div className="columns is-centered">
                         <div className="column is-half">
@@ -47,11 +48,9 @@ class Caesar extends Component {
                             <img src={brutus} alt="Brutus"/>
                         </div>
                     </div> 
-                    <div className="vertical-spacing">
+                    <div className="columns is-centered is-vcentered vertical-spacing">
                         <button className="button message-button has-background-grey-light is-static">Brutus homie what is up</button>
-                        <span className="icon is-medium">
-                            <i className="fa fa-long-arrow-right fa-2x"></i>
-                        </span>
+                        <img src={arrow} alt="arrow"/>
                         <button className="button message-button has-background-grey-light is-static">EUXWXV KRPLH ZKDW LV XS</button>
                     </div>
                     <div className="vertical-spacing">
@@ -74,5 +73,3 @@ class Caesar extends Component {
 }
 
 export default Caesar;
-
-// <CaesarButtons offset={this.state.offset} onOffsetChange={this.handleOffsetChange} />
