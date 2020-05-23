@@ -36,7 +36,6 @@ class CaesarWheel extends Component {
         let caesarOffset = newOffset * 26/360;
         caesarOffset = Math.round(caesarOffset);
         this.props.onOffsetChange(caesarOffset);
-        //console.log("angle " + newOffset + "\ncasearOffset: " + caesarOffset);
     }
 
     dragMouseUp = () => {
