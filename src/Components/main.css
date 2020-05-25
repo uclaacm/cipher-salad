@@ -1,5 +1,6 @@
 body{
-    font-family: Avenir;
+    font-family: 'Roboto Mono', Avenir;
+    font-weight: bold;
 }
 
 .title_img{
@@ -7,22 +8,14 @@ body{
 }
 
 .title_design{
-    font-weight: bold;
-    font-size: 100px;
-    color: white;
-    padding-top: 200px;
+    font-size: 5rem;
+    padding-top: 100px;
 }
 
 .desc{
-    font-weight: normal;
-    font-size: 48px;
-    color: white;
-    padding: 50px;
+    padding-top: 60px;
+    padding-bottom: 150px;
     width: 60%;
-    margin: auto;
-    position: relative;
-    text-align: center;
-    padding-bottom: 350px;
 }
 
 .content{
@@ -30,21 +23,13 @@ body{
     font-weight: bold;
     text-align: center;
     position: relative;
+    padding: 50px;
 }
 
 .page_wrap{
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: auto;
-    vertical-align: middle; 
-}
-
-.row_center{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    margin: 15px 0px;
-    align-items: center;
 }
 
 .row_space{
@@ -54,53 +39,15 @@ body{
     align-items: center;
 }
 
-.col{
-    display: flex;
-    flex-direction: column;
-	justify-content: space-around;
-}
-
-.image{
-    display: block;
-    height: auto;
-    border-radius: 5%;
-}
-
-.width30{
-    width: 30vw;
-    max-width: 22em;
-}
-
-.width50{
-    width: 50vw;
-    max-width: 28em;
+.img{
+    border-radius: 30px;
 }
 
 .paragraph{
     font-size: 36px;
-    padding: 50px;
     width: 70%;
-    margin: auto;
-    padding-top: 150px;
-    padding-bottom: 100px;
-}
-
-.mini_paragraph{
-    font-size: 24px;
-    padding: 50px;
-    width: 30%;
-    margin: none;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-.wide_paragraph{
-    font-size: 24px;
-    padding: 50px;
-    width: 80%;
-    margin: none;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 120px;
+    padding-bottom: 120px;
 }
 
 .mid_font{
@@ -119,24 +66,13 @@ body{
         font-size: 24px;
     }
 
-    .mini_paragraph{
-        width: 60%;
-        font-size: 18px;
-    }
-
     .wide_paragraph{
         width: 80%;
         font-size: 18px;
-    }
-
-    .width50{
-        width: 40vw;
-        height: auto;
     }
 
     .mid_font{
         font-size: 18px;
     }
 }
-
   

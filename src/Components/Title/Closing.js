@@ -16,23 +16,32 @@ class Closing extends React.Component {
                 Stay tuned to learn how ciphers turned into cryptography :OOO
               </div>
           </div>
-          <div className="col">
-              <div className="row_center">
-                <img src="/enigma.png" alt="A picture of Enigma machine" className="image width30"/>
-                <div className="mini_paragraph content">
-                    Fun fact:
-                    <br />
-                    The Enigma machine in WW2 was actually just multiple layers of this type of cipher!
+          <div className="vertical-spacing"></div>
+          <div className="vertical-spacing"></div>
+          <div className="container">
+            <div className="column">
+                <div className="columns is-vcenterd">
+                  <div className="column is-one-third">
+                    <img src="/enigma.png" alt="A picture of Enigma machine" className="img"/>
+                  </div>
+                  <div className="subtitle mid_font content column is-two-thirds">
+                      Fun fact:
+                      <br />
+                      The Enigma machine in WW2 was actually just multiple layers of this type of Vigenere cipher!
+                  </div>
                 </div>
-              </div>
-              <div className="row_center"></div>
-              <div className="row_center">
-                <div className="mini_paragraph content">
-                    Other fun fact:
-                    <br />
-                    Any salad can be a caesar salad if you put it through the March of Ides!
+                <div className="vertical-spacing"></div>
+                <div className="columns is-vcentered">
+                  <div className="subtitle mid_font content column is-two-thirds">
+                      Other fun fact:
+                      <br />
+                      Any salad can be a caesar salad if you put it through the March of Ides!
+                  </div>
+                  <div className="column is-one-third">
+                    <img src="/caesar_salad.jpg" alt="A picture of salad" className="img"/>
+                  </div>
                 </div>
-                <img src="/caesar_salad.jpg" alt="A picture of salad" className="image width30"/>
+                <div className="vertical-spacing"></div>
               </div>
           </div>
         </div>

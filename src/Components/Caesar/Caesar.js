@@ -4,6 +4,7 @@ import CaesarWheel from '../CaesarWheel/CaesarWheel.js'
 import CaesarButtons from '../CaesarButtons/CaesarButtons.js'
 import caesar from './caesar.png'
 import brutus from './brutus.png'
+import arrow from './arrow.png'
 import "./caesar.css"
 
 class Caesar extends Component {
@@ -27,13 +28,11 @@ class Caesar extends Component {
 
     render() {
         return (
-            <div className="section">
-                <p className="title" id="caesar_cipher">Caesar Cipher</p>
-                <br />
+            <div className="section" id="caesar_cipher">
                 <div className="container">
                     <div className="columns is-centered">
-                        <div className="column is-half">
-                            <p className="subtitle content mid_font">The Year is 39 B.C., and Roman general Julius Caesar wants to send a secret note to his friend Brutus.</p>
+                        <div className="column">
+                            <p className="content mid_font">The Year is 39 B.C., and Roman general Julius Caesar wants to send a secret note to his friend Brutus.</p>
                         </div>
                     </div>
                     <div className="columns is-vcentered">
@@ -49,25 +48,21 @@ class Caesar extends Component {
                             <img src={brutus} alt="Brutus"/>
                         </div>
                     </div> 
-                    <div className="vertical-spacing">
+                    <div className="columns is-centered is-vcentered vertical-spacing">
                         <button className="button message-button has-background-grey-light is-static">Brutus homie what is up</button>
-                        <span className="icon is-medium">
-                            <i className="fa fa-long-arrow-right fa-2x"></i>
-                        </span>
+                        <img src={arrow} alt="arrow"/>
                         <button className="button message-button has-background-grey-light is-static">EUXWXV KRPLH ZKDW LV XS</button>
                     </div>
-                    <div className="row_center">
-                        <div className="wide_paragraph content">
-                        The Caesar cipher came up when Julius Caesar wanted a method to send secret messages to his people.
-                        <br />
-                        <br />
-                        He "shifted" each letter by 3 to throw unsuspecting readers off.
-                        <br />
-                        <br />
-                        Now, we can encrypt letters by any number of shifts and use our own Caesar cipher. Try it yourself!
+                    <div className="columns">
+                        <div className="subtitle mid_font content column">
+                            The Caesar cipher came up when Julius Caesar wanted a method to send secret messages to his people.
+                            <div className="vertical-spacing"></div>
+                            He "shifted" each letter by 3 to throw unsuspecting readers off.
+                            <div className="vertical-spacing"></div>
+                            Now, we can encrypt letters by any number of shifts and use our own Caesar cipher. Try it yourself!
                         </div>
                     </div> 
-                    <div className="vertical-spacing content mid_font">
+                    <div className="vertical-spacing mid_font">
                         
                     </div>
                 </div>
@@ -85,5 +80,3 @@ class Caesar extends Component {
 }
 
 export default Caesar;
-
-// <CaesarButtons offset={this.state.offset} onOffsetChange={this.handleOffsetChange} />
