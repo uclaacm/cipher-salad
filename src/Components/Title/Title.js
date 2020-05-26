@@ -15,19 +15,24 @@ class Title extends React.Component {
             </div>
           </div>
         </div>
-        <div className="page_wrap">
-          <div className="paragraph content"> 
-              <div>
-                What is encryption? 
-                How does ZHOFRPH WR JUDYLWB IDOOV turn into WELCOME TO GRAVITY FALLS? 
-                And how is that related to computers??  
+        <div className="container">
+          <div className="column">
+              <div className="columns is-vcentered container">
+                <div className="large_font content column container">
+                  <br />
+                  What is encryption? 
+                  How does ZHOFRPH WR JUDYLWB IDOOV turn into WELCOME TO GRAVITY FALLS? 
+                  And how is that related to computers??  
+                </div>
               </div>
-              <br />
-              <div>
-                Computers use cryptography all the time. 
-                Humankind has encrypted messages since as early as 1500 B.C. 
-                Let’s start from the beginning...
-              </div>
+              <div className="columns is-vcentered container">
+                <div className="large_font content column container">
+                  Computers use cryptography all the time. 
+                  Humankind has encrypted messages since as early as 1500 B.C. 
+                  Let’s start from the beginning... 
+                  <br /><br />
+                 </div>
+              </div> 
           </div>
         </div>
         <div className="row_space">

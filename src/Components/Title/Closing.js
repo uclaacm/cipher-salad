@@ -5,26 +5,32 @@ class Closing extends React.Component {
   render() {
     return (
       <div>
-        <div className="page_wrap">
-          <div className="paragraph content"> 
-              <div>
-                Yay you’re a cipher chef now!
-              </div>
-              <br />
-              <div>
-                Ciphers are a key ingredient in the cryptography kitchen. 
-                Stay tuned to learn how ciphers turned into cryptography :OOO
-              </div>
+        <div className="container">
+            <div className="column">
+                <div className="columns is-vcentered container">
+                  <div className="large_font content column container">
+                    <br />
+                    Yay you’re a cipher chef now!
+                  </div>
+                </div>
+                <div className="columns is-vcentered container">
+                  <div className="large_font content column">
+                  Ciphers are a key ingredient in the cryptography kitchen. 
+                  Stay tuned to learn how ciphers turned into cryptography :OOO
+                    <br /><br />
+                  </div>
+                </div> 
+            </div>
           </div>
           <div className="vertical-spacing"></div>
           <div className="vertical-spacing"></div>
           <div className="container">
             <div className="column">
-                <div className="columns is-vcenterd">
+                <div className="columns is-vcenterd container">
                   <div className="column is-one-third">
                     <img src="/enigma.png" alt="A picture of Enigma machine" className="img"/>
                   </div>
-                  <div className="subtitle mid_font content column is-two-thirds">
+                  <div className="subtitle mid_font content column is-two-thirds container">
                       Fun fact:
                       <br />
                       The Enigma machine in WW2 was actually just multiple layers of this type of Vigenere cipher!
@@ -45,7 +51,6 @@ class Closing extends React.Component {
               </div>
           </div>
         </div>
-      </div>
     );
   }
 }

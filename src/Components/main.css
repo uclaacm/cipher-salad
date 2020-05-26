@@ -26,12 +26,6 @@ body{
     padding: 50px;
 }
 
-.page_wrap{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
 .row_space{
     display: flex;
     justify-content: space-evenly;
@@ -43,36 +37,28 @@ body{
     border-radius: 30px;
 }
 
-.paragraph{
-    font-size: 36px;
-    width: 70%;
-    padding-top: 120px;
-    padding-bottom: 120px;
+.mid_font{
+    font-size: 1.5rem;
 }
 
-.mid_font{
-    font-size: 24px;
+.large_font{
+    font-size: 2rem;
 }
 
 @media (max-width: 850px) {
     .title_design{
-        font-size: 78px;
+        font-size: 4.875rem;
     }
     .desc{
-        font-size: 32px;
-    }
-
-    .paragraph{
-        font-size: 24px;
-    }
-
-    .wide_paragraph{
-        width: 80%;
-        font-size: 18px;
+        font-size: 2rem;
     }
 
     .mid_font{
-        font-size: 18px;
+        font-size: 1.125rem;
+    }
+
+    .large_font{
+        font-size: 1.5rem;
     }
 }
   
