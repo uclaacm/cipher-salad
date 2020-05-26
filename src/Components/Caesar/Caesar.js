@@ -61,6 +61,7 @@ class Caesar extends Component {
                 </div>
                 <div className="container">
                     <p className="title">Try it!</p>
+                    <p className="subtitle is-6">Click and rotate the outer wheel to shift the letters!</p>
                     <CaesarWheel
                         onOffsetChange={this.handleOffsetChangeWheel} 
                         offset = {this.state.offset} />
