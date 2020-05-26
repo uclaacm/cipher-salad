@@ -44,6 +44,10 @@ class CaesarWheel extends Component {
         section.onmousemove = null;
     }
     
+    innerHandleMouseDown = e => {
+        e.preventDefault();
+    }
+
     adjustCoords = (x, y) => {
         //return client coordinates relative to the center of the wheel, which are used for calculating offset angle of wheel
         let wheel = document.getElementById('wheel');
@@ -62,9 +66,9 @@ class CaesarWheel extends Component {
     render() {
         return (
             <div className="container">
-                <img className="center" id="wheel" src={outerwheel} alt="Outer wheel of the decoder; rotate to change the offset used in the Caesar cipher."
+                <img className="center round" id="wheel" src={outerwheel} alt="Outer wheel of the decoder; click and rotate to change the offset used in the Caesar cipher."
                     style={{transform: 'rotate(' + this.state.offset + 'deg)'}} onMouseDown={this.dragMouseDown} />
-                <img className="is-overlay center round" src={innerwheel} alt="Inner wheel of the decoder."/>
+                <img className="is-overlay center round move-up" src={innerwheel} alt="Inner wheel of the decoder." onMouseDown={this.innerHandleMouseDown}/>
             </div>
         );
     }
