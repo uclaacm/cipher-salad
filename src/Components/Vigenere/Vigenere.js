@@ -95,6 +95,42 @@ class Vigenere extends Component {
         return(
             <div className="container" id="vigenere_cipher">
                 <p className="title">Vigenere Cipher</p>
+                <div className="column">
+                    <div className="columns is-vcentered">
+                        <div className="column is-one-third">
+                            <img src="/vigenere_1.png" alt="A picture of caesar cipher" className="is-3by2"/>
+                        </div>
+                        <div className="is-two-thirds mid_font content column">
+                            So far we’ve seen the ancient caesar cipher and atbash cipher. 
+                            In 1553, an Italian guy named Giovan thought this wasn’t enough. 
+                            And he made the caesar cipher more secure by giving each letter a different shift.
+                        </div>
+                    </div>
+                    <div className="vertical-spacing"></div>
+                    <div className="columns is-vcentered">
+                        <div className="mid_font content column">
+                            He would code each shift in a letter - A equals 0, B equals 1, z equals 25 .... 
+                            and this would be the *key* to decoding his message.
+                            <br />
+                            Many ciphers use “keys,” an extra piece of information, to encrypt messages.
+                            <br />
+                            
+                        </div>
+                        <div className="column is-half">
+                            <img src="/vigenere_2.png" alt="A picture introducing vigenere cipher"/>
+                        </div>
+                    </div> 
+                    <div className="columns">
+                        <div className="subtitle mid_font content column">
+                            And then in the 19th century, the cipher was misattributed to a French guy named 
+                            Vigenere even though the idea was first described by Giovan. 
+                            <div className="vertical-spacing"></div>
+                            Now you’ve learned the Vigenere cipher and 
+                            <br />
+                            it's time to try it yourself!
+                        </div>
+                    </div>
+                </div>
                 <div className="columns">
                     <div className="column is-one-third">
                         <label htmlFor="inputStrr">Your message:</label>
