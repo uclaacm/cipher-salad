@@ -21,9 +21,9 @@ class CaesarWheel extends Component {
         let coords = this.adjustCoords(e.clientX, e.clientY);
         this.angle = this.atanDegrees(coords.adjustedX, coords.adjustedY);
         
-        let body = document.getElementsByTagName('body')[0];
-        body.onmouseup = this.dragMouseUp;
-        body.onmousemove = this.dragMouseMove;
+        let section = document.getElementById('caesar_cipher');
+        section.onmouseup = this.dragMouseUp;
+        section.onmousemove = this.dragMouseMove;
     }
 
     dragMouseMove = e => {
@@ -36,15 +36,18 @@ class CaesarWheel extends Component {
         let caesarOffset = newOffset * 26/360;
         caesarOffset = Math.round(caesarOffset);
         this.props.onOffsetChange(caesarOffset);
-        //console.log("angle " + newOffset + "\ncasearOffset: " + caesarOffset);
     }
 
     dragMouseUp = () => {
-        let body = document.getElementsByTagName('body')[0];
-        body.onmouseup = null;
-        body.onmousemove = null;
+        let section = document.getElementById('caesar_cipher');
+        section.onmouseup = null;
+        section.onmousemove = null;
     }
     
+    innerHandleMouseDown = e => {
+        e.preventDefault();
+    }
+
     adjustCoords = (x, y) => {
         //return client coordinates relative to the center of the wheel, which are used for calculating offset angle of wheel
         let wheel = document.getElementById('wheel');
@@ -63,9 +66,9 @@ class CaesarWheel extends Component {
     render() {
         return (
             <div className="container">
-                <img className="center" id="wheel" src={outerwheel} alt="Outer wheel of the decoder; rotate to change the offset used in the Caesar cipher."
+                <img className="center round" id="wheel" src={outerwheel} alt="Outer wheel of the decoder; click and rotate to change the offset used in the Caesar cipher."
                     style={{transform: 'rotate(' + this.state.offset + 'deg)'}} onMouseDown={this.dragMouseDown} />
-                <img className="is-overlay center round" src={innerwheel} alt="Inner wheel of the decoder."/>
+                <img className="is-overlay center round move-up" src={innerwheel} alt="Inner wheel of the decoder." onMouseDown={this.innerHandleMouseDown}/>
             </div>
         );
     }

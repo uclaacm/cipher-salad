@@ -5,37 +5,52 @@ class Closing extends React.Component {
   render() {
     return (
       <div>
-        <div className="page_wrap">
-          <div className="paragraph"> 
-              <div>
-                Yay you’re a cipher chef now!
-              </div>
-              <br />
-              <div>
-                Ciphers are a key ingredient in the cryptography kitchen. 
-                Stay tuned to learn how ciphers turned into cryptography :OOO
-              </div>
+        <div className="container">
+            <div className="column">
+                <div className="columns is-vcentered container">
+                  <div className="large_font content column container">
+                    <br />
+                    Yay you’re a cipher chef now!
+                  </div>
+                </div>
+                <div className="columns is-vcentered container">
+                  <div className="large_font content column">
+                  Ciphers are a key ingredient in the cryptography kitchen. 
+                  Stay tuned to learn how ciphers turned into cryptography :OOO
+                    <br /><br />
+                  </div>
+                </div> 
+            </div>
           </div>
-          <div className="col">
-              <div className="row_center">
-                <img src="/enigma.png" alt="A picture of Enigma machine" className="image"/>
-                <div className="mini_paragraph">
-                    Fun fact:
-                    <br />
-                    The Enigma machine in WW2 was actually just multiple layers of this type of cipher!
+          <div className="vertical-spacing"></div>
+          <div className="vertical-spacing"></div>
+          <div className="container">
+            <div className="column">
+                <div className="columns is-vcenterd container">
+                  <div className="column is-one-third">
+                    <img src="/enigma.png" alt="A picture of Enigma machine" className="img"/>
+                  </div>
+                  <div className="subtitle mid_font content column is-two-thirds container">
+                      Fun fact:
+                      <br />
+                      The Enigma machine in WW2 was actually just multiple layers of this type of Vigenere cipher!
+                  </div>
                 </div>
-              </div>
-              <div className="row_center">
-                <div className="mini_paragraph">
-                    Other fun fact:
-                    <br />
-                    Any salad can be a caesar salad if you put it through the March of Ides!
+                <div className="vertical-spacing"></div>
+                <div className="columns is-vcentered">
+                  <div className="subtitle mid_font content column is-two-thirds">
+                      Other fun fact:
+                      <br />
+                      Any salad can be a caesar salad if you put it through the March of Ides!
+                  </div>
+                  <div className="column is-one-third">
+                    <img src="/caesar_salad.jpg" alt="A picture of salad" className="img"/>
+                  </div>
                 </div>
-                <img src="/caesar_salad.jpg" alt="A picture of salad" className="image"/>
+                <div className="vertical-spacing"></div>
               </div>
           </div>
         </div>
-      </div>
     );
   }
 }
