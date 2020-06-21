@@ -45,6 +45,15 @@ body{
     font-size: 2rem;
 }
 
+.button{
+    background-color: #FFB800;
+}
+
+.button:hover{
+    border-color: lightgrey;
+    border-width: 0.3rem;
+}
+
 @media (max-width: 850px) {
     .title_design{
         font-size: 4.875rem;

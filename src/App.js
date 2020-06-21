@@ -6,6 +6,8 @@ import Closing from "./Components/Title/Closing.js";
 import AtbashInput from './Components/Atbash/AtbashInput.js'
 import Vigenere from './Components/Vigenere/Vigenere.js'
 import Caesar from './Components/Caesar/Caesar.js'
+import Recap from "./Components/Title/Recap.js";
+import Typing from "./Components/Title/Typing.js";
 
 class App extends React.Component {
   handleInput = e => {};
@@ -23,6 +25,8 @@ class App extends React.Component {
       <section className="section">
         <Vigenere />
       </section>
+      <Typing />
+      <Recap />
       <Closing />
     </div>
   );
