@@ -4,18 +4,9 @@ import './typed.css';
 
 class Typing extends React.Component {
     componentDidMount() {
+        const { strings } = this.props;
         const options = {
-            strings: [
-                'Ciphers', 
-                'are',
-                'very',
-                'super',
-                'extremely',
-                'fun',
-                'and',
-                'amazing!',
-                '**********'
-            ],
+            strings: strings,
             typeSpeed: 50,
             backSpeed: 50,
             loop: true,

@@ -25,7 +25,13 @@ class App extends React.Component {
       <section className="section">
         <Vigenere />
       </section>
-      <Typing />
+      <Typing strings={[
+        'ciphers are cool',
+        'xrksvih ziv xllo (atbash)',
+        'DJQIFST BSF DPPM (caesar)', // shifted by one
+        'mmnripc kvc msmv (vigenere)', // encoded by key "key"
+        '******* *** ****'
+      ]}/>
       <Recap />
       <Closing />
     </div>
