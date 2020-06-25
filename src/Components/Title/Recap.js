@@ -63,28 +63,28 @@ class Recap extends React.Component {
                     <div className="mid_font content column container">
                         <br />
                         Today we learned about 3 different ciphers: 
-                        1️⃣ Caesar cipher shift the input by a certain amount; 
-                        2️⃣ Atbash cipher reverse the letters; 
-                        and 3️⃣ Vigenere cipher encode every input with a specific key🔑. 
+                        <span role="img" aria-label="1"> 1️⃣</span> Caesar cipher shift the input by a certain amount; 
+                        <span role="img" aria-label="2"> 2️⃣</span> Atbash cipher reverse the letters; 
+                        and <span role="img" aria-label="3"> 3️⃣</span> Vigenere cipher encode every input with a specific key<span role="img" aria-label="key">🔑</span>. 
                     </div>
                     </div>
                     <div className="columns is-vcentered container">
                     <div className="mid_font content column">
-                        Computers💻 are key to both encryption🔒 and decryption🔓. 
+                        Computers<span role="img" aria-label="computers">💻</span> are key to both encryption<span role="img" aria-label="lock">🔒</span> and decryption<span role="img" aria-label="unlock">🔓</span>. 
                         In addition to the 3 ciphers, many more are used today 
-                        thanks to how fast⏱ computers can crunch the combinations. 
+                        thanks to how fast<span role="img" aria-label="fast">⏱</span> computers can crunch the combinations. 
                     </div>
                     </div> 
                     <div className="columns is-vcentered container">
                     <div className="mid_font content column">
                         Many ciphers, similar to the Vigenere cipher, 
-                        use keys🔑, but with even more complex math ➗➖✖️➕. 
-                        That’s where ciphers start to turn in cryptography🔐. 
+                        use keys<span role="img" aria-label="keys">🔑</span>, but with even more complex math <span role="img" aria-label="math">➗</span><span role="img" aria-label="math">➖</span><span role="img" aria-label="math">✖️</span><span role="img" aria-label="math">➕</span>. 
+                        That’s where ciphers start to turn in cryptography<span role="img" aria-label="cryptography">🔐</span>. 
                     </div>
                     </div> 
                     <div className="columns is-vcentered container">
                     <div className="mid_font content column">
-                        Today, you’ve made the first step in learning about them! 🎉 Congrats 🎉
+                        Today, you’ve made the first step in learning about them! <span role="img" aria-label="congrats">🎉</span> Congrats <span role="img" aria-label="congrats">🎉</span>
                     </div>
                     </div>
                     <div className="subtitle is-6"> ~ Hover to learn more ~ </div> 
