@@ -100,7 +100,7 @@ class Vigenere extends Component {
                         <div className="column is-one-third">
                             <img src="/vigenere_1.png" alt="A picture of caesar cipher" className="is-3by2"/>
                         </div>
-                        <div className="is-two-thirds mid_font content column">
+                        <div className="is-two-thirds is-size-4 content column">
                             So far we’ve seen the ancient caesar cipher and atbash cipher. 
                             In 1553, an Italian guy named Giovan thought this wasn’t enough. 
                             And he made the caesar cipher more secure by giving each letter a different shift.
@@ -108,7 +108,7 @@ class Vigenere extends Component {
                     </div>
                     <div className="vertical-spacing"></div>
                     <div className="columns is-vcentered">
-                        <div className="mid_font content column">
+                        <div className="is-size-4 content column">
                             He would code each shift in a letter - A equals 0, B equals 1, z equals 25 .... 
                             and this would be the *key* to decoding his message.
                             <br />
@@ -121,7 +121,7 @@ class Vigenere extends Component {
                         </div>
                     </div> 
                     <div className="columns">
-                        <div className="subtitle mid_font content column">
+                        <div className="subtitle is-size-4 content column">
                             And then in the 19th century, the cipher was misattributed to a French guy named 
                             Vigenere even though the idea was first described by Giovan. 
                             <div className="vertical-spacing"></div>

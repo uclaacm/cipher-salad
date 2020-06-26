@@ -18,7 +18,7 @@ class Title extends React.Component {
         <div className="container">
           <div className="column">
               <div className="columns is-vcentered container">
-                <div className="large_font content column container">
+                <div className="is-size-3 content column container">
                   <br />
                   What is encryption? 
                   How does ZHOFRPH WR JUDYLWB IDOOV turn into WELCOME TO GRAVITY FALLS? 
@@ -26,7 +26,7 @@ class Title extends React.Component {
                 </div>
               </div>
               <div className="columns is-vcentered container">
-                <div className="large_font content column container">
+                <div className="is-size-3 content column container">
                   Computers use cryptography all the time. 
                   Humankind has encrypted messages since as early as 1500 B.C. 
                   Let’s start from the beginning... 
