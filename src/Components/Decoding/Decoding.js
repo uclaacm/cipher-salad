@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import DecodingAnimation from '../DecodingAnimation/DecodingAnimation.js'
 import {caesarShift} from '../../caesarShift.js'
+import {atbashEncode} from '../../atbashEncode.js'
 import Anime from 'react-anime'
 import './decoding.css'
 
@@ -8,91 +9,149 @@ class Decoding extends Component {
     constructor(props) {
         super(props);
 
+        this.animating = false;
+        this.timerID = 0
+        this.curAnimation = 0;
+        this.curLetter = 0;
         this.offset = 0;
-        this.curKey = 0;
-        this.shifting = false;
-        this.timerID = 0;
 
-        this.key = Math.floor(Math.random() * 25) + 1;
+        this.correctKey = Math.floor(Math.random() * 25) + 1;
         let decodedMessage = "CONGRATS, NAME!"; //get name!!!
-        this.encodedMessage = caesarShift(decodedMessage, this.key);
+        this.encodedMessage = caesarShift(decodedMessage, this.correctKey);
+        this.wrongInterval = 500/this.encodedMessage.length;
+        this.rightInterval = 1000/this.correctKey;
 
-        this.key1 = Math.floor(Math.random() * 25) + 1;
-        this.key2 = Math.floor(Math.random() * 25) + 1;
-        while (this.key1 === this.key) {
-            this.key1 = Math.floor(Math.random() * 25) + 1;
+        this.wrongKey1 = Math.floor(Math.random() * 25) + 1;
+        this.wrongKey2 = Math.floor(Math.random() * 25) + 1;
+        while (this.wrongKey1 === this.correctKey) {
+            this.wrongKey1 = Math.floor(Math.random() * 25) + 1;
         }
-        while (this.key2 === this.key || this.key2 === this.key1) {
-            this.key2 = Math.floor(Math.random() * 25) + 1;
+        while (this.wrongKey2 === this.correctKey || this.wrongKey2 === this.wrongKey1) {
+            this.wrongKey2 = Math.floor(Math.random() * 25) + 1;
         }
 
+        this.wrongMessage1 = caesarShift(this.encodedMessage, -this.wrongKey1);
+        this.wrongMessage2 = atbashEncode(this.encodedMessage);
+        this.wrongMessage3 = caesarShift(this.encodedMessage, -this.wrongKey2);
+        
         this.state = { 
-            shiftedText: this.encodedMessage, 
-            shiftComplete: false
+            message: this.encodedMessage, 
+            guessAnimationComplete: false
         };
+
+        console.log("key1: "+this.wrongKey1);
+        console.log("key2: "+this.wrongKey2);
     }
 
-    shift = () => {
-        if (this.shifting) {
-            if (this.offset < this.curKey) { 
-                let shifted = caesarShift(this.state.shiftedText.toUpperCase(), -1);
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
+
+    correctDecodingAnimation = () => {
+        if (this.animating) {
+            if (this.offset < this.correctKey) { 
+                let shifted = caesarShift(this.state.message.toUpperCase(), -1);
                 this.setState({
-                    shiftedText: shifted
+                    message: shifted
                 });
                 this.offset++;
             }
             else {
                 this.setState({
-                    shiftComplete: true
+                    guessAnimationComplete: true
                 });
-                this.shifting = false;
+                this.animating = false;
+            }
+        }
+    }
+
+    wrongDecodingAnimation = () => {
+        if (this.animating) {
+            if (this.curLetter < this.encodedMessage.length) {
+                let decoded;
+                if (this.curAnimation === 1) {
+                    decoded = this.replaceCharAt(this.state.message, this.curLetter, this.wrongMessage1[this.curLetter]);
+                } else if (this.curAnimation === 2) {
+                    decoded = this.replaceCharAt(this.state.message, this.curLetter, this.wrongMessage2[this.curLetter]);
+                } else if (this.curAnimation === 3) {
+                    decoded = this.replaceCharAt(this.state.message, this.curLetter, this.wrongMessage3[this.curLetter]);
+                }
+                this.setState({
+                    message: decoded
+                });
+                this.curLetter++;
+            }
+            else {
+                this.setState({
+                    guessAnimationComplete: true
+                });
+                this.animating = false;
             }
         }
     }
 
     button1Click = () => {
-        this.shifting = true;
-        this.curKey = this.key1;
+        this.setState({
+            message: this.encodedMessage
+        });
+        this.animating = true;
+        this.curAnimation = 1;
+        this.curLetter = 0;
         if (this.timerID) {
             clearInterval(this.timerID);
         }
-        let interval = 1/this.key1 * 1000;
-        this.timerID = setInterval(this.shift, interval);
+        this.timerID = setInterval(this.wrongDecodingAnimation, this.wrongInterval);
     }
 
     button2Click = () => {
-        
-    }
-
-    button3Click = () => {
-        this.shifting = true;
-        this.curKey = this.key2;
+        this.setState({
+            message: this.encodedMessage
+        });
+        this.animating = true;
+        this.curAnimation = 2;
+        this.curLetter = 0;
         if (this.timerID) {
             clearInterval(this.timerID);
         }
-        let interval = 1/this.key2 * 1000;
-        this.timerID = setInterval(this.shift, interval);
+        this.timerID = setInterval(this.wrongDecodingAnimation, this.wrongInterval);
+    }
+
+    button3Click = () => {
+        this.setState({
+            message: this.encodedMessage
+        });
+        this.animating = true;
+        this.curAnimation = 3;
+        this.curLetter = 0;
+        if (this.timerID) {
+            clearInterval(this.timerID);
+        }
+        this.timerID = setInterval(this.wrongDecodingAnimation, this.wrongInterval);
+    }
+
+    replaceCharAt = (str, index, newChar) => {
+        return str.substr(0, index) + newChar + str.substr(index + 1);
     }
 
     render() {
-        let shiftedText = (<div className="is-size-3 vertical-spacing">{this.state.shiftedText}</div>);
-        let finalShiftedText;
-        if (this.state.shiftComplete) {
-            finalShiftedText = <Anime color="red" direction="alternate">
-                {shiftedText}
+        let message = (<div className="is-size-3 vertical-spacing">{this.state.message}</div>);
+        let finalmessage;
+        if (this.state.guessAnimationComplete) {
+            finalmessage = <Anime color="red" direction="alternate">
+                {message}
             </Anime>
         } else {
-            finalShiftedText = shiftedText;
+            finalmessage = message;
         }
 
-        let button1 = String.fromCharCode(this.key1 + 65);
-        let button3 = String.fromCharCode(this.key2 + 65);
+        let button1 = String.fromCharCode(this.wrongKey1 + 65);
+        let button3 = String.fromCharCode(this.wrongKey2 + 65);
 
         return (
             <div className="section">
                 <div className="container">
                     <p className="is-size-4">So, *need to get name*, you've learned 3 types of ciphers today! Can you decode what this message means?</p>
-                    {finalShiftedText}
+                    {finalmessage}
                     <p className="has-text-left hint">Hint &mdash; here's a couple options you can try:</p>
                     <div className="buttons is-centered">
                         <p className="control">
