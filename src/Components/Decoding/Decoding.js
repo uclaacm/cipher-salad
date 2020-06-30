@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-//import DecodingAnimation from '../DecodingAnimation/DecodingAnimation.js'
 import {caesarShift} from '../../caesarShift.js'
 import {atbashEncode} from '../../atbashEncode.js'
-import Anime from 'react-anime'
+import DecodingOptions from '../DecodingOptions/DecodingOptions.js'
+import Anime, {anime} from 'react-anime'
 import './decoding.css'
 
 class Decoding extends Component {
@@ -19,7 +19,7 @@ class Decoding extends Component {
         let decodedMessage = "CONGRATS, NAME!"; //get name!!!
         this.encodedMessage = caesarShift(decodedMessage, this.correctKey);
         this.wrongInterval = 500/this.encodedMessage.length;
-        this.rightInterval = 1000/this.correctKey;
+        this.correctInterval = 1000/this.correctKey;
 
         this.wrongKey1 = Math.floor(Math.random() * 25) + 1;
         this.wrongKey2 = Math.floor(Math.random() * 25) + 1;
@@ -36,11 +36,10 @@ class Decoding extends Component {
         
         this.state = { 
             message: this.encodedMessage, 
-            guessAnimationComplete: false
+            guessAnimationComplete: false,
+            correctAnimationComplete: false,
+            showFinalInfo: false
         };
-
-        console.log("key1: "+this.wrongKey1);
-        console.log("key2: "+this.wrongKey2);
     }
 
     componentWillUnmount() {
@@ -58,7 +57,7 @@ class Decoding extends Component {
             }
             else {
                 this.setState({
-                    guessAnimationComplete: true
+                    correctAnimationComplete: true
                 });
                 this.animating = false;
             }
@@ -90,7 +89,7 @@ class Decoding extends Component {
         }
     }
 
-    button1Click = () => {
+    button1OnClick = () => {
         this.setState({
             message: this.encodedMessage
         });
@@ -103,7 +102,7 @@ class Decoding extends Component {
         this.timerID = setInterval(this.wrongDecodingAnimation, this.wrongInterval);
     }
 
-    button2Click = () => {
+    button2OnClick = () => {
         this.setState({
             message: this.encodedMessage
         });
@@ -116,7 +115,7 @@ class Decoding extends Component {
         this.timerID = setInterval(this.wrongDecodingAnimation, this.wrongInterval);
     }
 
-    button3Click = () => {
+    button3OnClick = () => {
         this.setState({
             message: this.encodedMessage
         });
@@ -129,6 +128,21 @@ class Decoding extends Component {
         this.timerID = setInterval(this.wrongDecodingAnimation, this.wrongInterval);
     }
 
+    startCorrectDecodingAnimation = () => {
+        this.animating = true;
+        if (this.timerID) {
+            clearInterval(this.timerID);
+        }
+        this.timerID = setInterval(this.correctDecodingAnimation, this.correctInterval);
+    }
+
+    handleStartCorrectDecodingClick = () => {
+        this.setState({
+            message: this.encodedMessage,
+            guessAnimationComplete: false
+        });
+    }
+
     replaceCharAt = (str, index, newChar) => {
         return str.substr(0, index) + newChar + str.substr(index + 1);
     }
@@ -137,7 +151,11 @@ class Decoding extends Component {
         let message = (<div className="is-size-3 vertical-spacing">{this.state.message}</div>);
         let finalmessage;
         if (this.state.guessAnimationComplete) {
-            finalmessage = <Anime color="red" direction="alternate">
+            finalmessage = <Anime color="#c00" direction="alternate" duration="500" easing="easeInOutExpo">
+                {message}
+            </Anime>
+        } else if (this.state.correctAnimationComplete){
+            finalmessage = <Anime color="#6aa84f" direction="alternate" duration="500" easing="easeInOutExpo" complete={(anim) => {this.setState({showFinalInfo: true});}}>
                 {message}
             </Anime>
         } else {
@@ -152,20 +170,14 @@ class Decoding extends Component {
                 <div className="container">
                     <p className="is-size-4">So, *need to get name*, you've learned 3 types of ciphers today! Can you decode what this message means?</p>
                     {finalmessage}
-                    <p className="has-text-left hint">Hint &mdash; here's a couple options you can try:</p>
-                    <div className="buttons is-centered">
-                        <p className="control">
-                        <button className="button is-large is-family-secondary has-text-weight-bold" onClick={this.button1Click}>{`Caesar - ${button1}`}</button>
-                        </p>
-                        <p className="control">
-                            <button className="button is-large is-family-secondary has-text-weight-bold" onClick={this.button2Click}>Atbash</button>
-                        </p>
-                        <p className="control">
-                            <button className="button is-large is-family-secondary has-text-weight-bold" onClick={this.button3Click}>{`Caesar - ${button3}`}</button>
-                        </p>
-                    </div>
-                    <p className="is-size-4 vertical-spacing">It might be tedious to decode messages on your own, but watch how fast a computer can crack this!</p>
-                    
+                    <DecodingOptions startCorrectDecodingAnimation={this.startCorrectDecodingAnimation} onStartCorrectDecodingClick={this.handleStartCorrectDecodingClick}
+                        button1Shift={button1} button3Shift={button3} 
+                        button1OnClick={this.button1OnClick} button2OnClick={this.button2OnClick} button3OnClick={this.button3OnClick}/>
+                    {this.state.showFinalInfo && 
+                        <Anime opacity={[0,1]} translateY="-2em">
+                            <div className="is-size-4" style={{padding: '1.5em'}}>Crazy fast right?</div>
+                        </Anime>
+                    }
                 </div>
             </div>
         );

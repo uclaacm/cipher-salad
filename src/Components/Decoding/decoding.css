@@ -3,6 +3,11 @@
     margin-bottom: 30px;
 }
 
+.vertical-spacing-less-on-bottom {
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
 .hint {
     margin-bottom: 10px;
     width: 25%;
