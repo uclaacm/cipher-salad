@@ -12,3 +12,11 @@
     margin-bottom: 10px;
     width: 25%;
 }
+
+.container-min-height {
+    min-height: 500px;
+}
+
+#button2 {
+    width: 196px;
+}

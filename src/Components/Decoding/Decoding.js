@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {caesarShift} from '../../caesarShift.js'
 import {atbashEncode} from '../../atbashEncode.js'
 import DecodingOptions from '../DecodingOptions/DecodingOptions.js'
-import Anime, {anime} from 'react-anime'
+import Anime from 'react-anime'
 import './decoding.css'
 
 class Decoding extends Component {
@@ -21,24 +21,28 @@ class Decoding extends Component {
         this.wrongInterval = 500/this.encodedMessage.length;
         this.correctInterval = 1000/this.correctKey;
 
-        this.wrongKey1 = Math.floor(Math.random() * 25) + 1;
-        this.wrongKey2 = Math.floor(Math.random() * 25) + 1;
-        while (this.wrongKey1 === this.correctKey) {
-            this.wrongKey1 = Math.floor(Math.random() * 25) + 1;
+        let wrongKey2 = "Atbash"
+        let wrongKey1 = Math.floor(Math.random() * 25) + 1;
+        let wrongKey3 = Math.floor(Math.random() * 25) + 1;
+        while (wrongKey1 === this.correctKey) {
+            wrongKey1 = Math.floor(Math.random() * 25) + 1;
         }
-        while (this.wrongKey2 === this.correctKey || this.wrongKey2 === this.wrongKey1) {
-            this.wrongKey2 = Math.floor(Math.random() * 25) + 1;
+        while (wrongKey3 === this.correctKey || wrongKey3 === wrongKey1) {
+            wrongKey3 = Math.floor(Math.random() * 25) + 1;
         }
 
-        this.wrongMessage1 = caesarShift(this.encodedMessage, -this.wrongKey1);
+        this.wrongMessage1 = caesarShift(this.encodedMessage, -wrongKey1);
         this.wrongMessage2 = atbashEncode(this.encodedMessage);
-        this.wrongMessage3 = caesarShift(this.encodedMessage, -this.wrongKey2);
+        this.wrongMessage3 = caesarShift(this.encodedMessage, -wrongKey3);
         
         this.state = { 
             message: this.encodedMessage, 
             guessAnimationComplete: false,
             correctAnimationComplete: false,
-            showFinalInfo: false
+            showFinalInfo: false,
+            wrongKey1: wrongKey1,
+            wrongKey2: wrongKey2,
+            wrongKey3: wrongKey3
         };
     }
 
@@ -89,38 +93,19 @@ class Decoding extends Component {
         }
     }
 
-    button1OnClick = () => {
+    handleGuessButtonClick = (e) => {
         this.setState({
-            message: this.encodedMessage
+            message: this.encodedMessage,
+            guessAnimationComplete: false
         });
-        this.animating = true;
-        this.curAnimation = 1;
-        this.curLetter = 0;
-        if (this.timerID) {
-            clearInterval(this.timerID);
+        if (e.target.id === "button1") {
+            this.curAnimation = 1;
+        } else if (e.target.id === "button2") {
+            this.curAnimation = 2;
+        } else {
+            this.curAnimation = 3;
         }
-        this.timerID = setInterval(this.wrongDecodingAnimation, this.wrongInterval);
-    }
-
-    button2OnClick = () => {
-        this.setState({
-            message: this.encodedMessage
-        });
         this.animating = true;
-        this.curAnimation = 2;
-        this.curLetter = 0;
-        if (this.timerID) {
-            clearInterval(this.timerID);
-        }
-        this.timerID = setInterval(this.wrongDecodingAnimation, this.wrongInterval);
-    }
-
-    button3OnClick = () => {
-        this.setState({
-            message: this.encodedMessage
-        });
-        this.animating = true;
-        this.curAnimation = 3;
         this.curLetter = 0;
         if (this.timerID) {
             clearInterval(this.timerID);
@@ -137,9 +122,48 @@ class Decoding extends Component {
     }
 
     handleStartCorrectDecodingClick = () => {
+        this.animating = false;
         this.setState({
             message: this.encodedMessage,
             guessAnimationComplete: false
+        });
+    }
+
+    handleShowCiphertext = () => {
+        this.animating = false;
+        this.setState ({
+            message: this.encodedMessage,
+            guessAnimationComplete: false
+        });
+    }
+
+    handleRefreshOptions = () => {
+        this.animating = false;
+        let prevAndCurKeys = new Set([this.correctKey, this.state.wrongKey1, this.state.wrongKey2, this.state.wrongKey3]);
+        let wrongKey1 = Math.floor(Math.random() * 25) + 1;
+        let wrongKey2 = Math.floor(Math.random() * 25) + 1;
+        let wrongKey3 = Math.floor(Math.random() * 25) + 1;
+        while (prevAndCurKeys.has(wrongKey1)) {
+            wrongKey1 = Math.floor(Math.random() * 25) + 1;
+        }
+        prevAndCurKeys.add(wrongKey1);
+        while (prevAndCurKeys.has(wrongKey2)) {
+            wrongKey2 = Math.floor(Math.random() * 25) + 1;
+        }
+        prevAndCurKeys.add(wrongKey2);
+        while (prevAndCurKeys.has(wrongKey3)) {
+            wrongKey3 = Math.floor(Math.random() * 25) + 1;
+        }
+        this.wrongMessage1 = caesarShift(this.encodedMessage, -wrongKey1);
+        this.wrongMessage2 = caesarShift(this.encodedMessage, -wrongKey2);
+        this.wrongMessage3 = caesarShift(this.encodedMessage, -wrongKey3);
+        this.setState({
+            wrongKey1: wrongKey1,
+            wrongKey2: wrongKey2,
+            wrongKey3: wrongKey3,
+            guessAnimationComplete: false,
+            message: this.encodedMessage
+
         });
     }
 
@@ -155,26 +179,32 @@ class Decoding extends Component {
                 {message}
             </Anime>
         } else if (this.state.correctAnimationComplete){
-            finalmessage = <Anime color="#6aa84f" direction="alternate" duration="500" easing="easeInOutExpo" complete={(anim) => {this.setState({showFinalInfo: true});}}>
+            finalmessage = <Anime color="#6aa84f" direction="alternate" duration="500" easing="easeInOutExpo">
                 {message}
             </Anime>
         } else {
             finalmessage = message;
         }
 
-        let button1 = String.fromCharCode(this.wrongKey1 + 65);
-        let button3 = String.fromCharCode(this.wrongKey2 + 65);
+        let button1Shift = String.fromCharCode(this.state.wrongKey1 + 65);
+        let button2Shift;
+        if (this.state.wrongKey2 !== "Atbash") {
+            button2Shift = String.fromCharCode(this.state.wrongKey2 + 65);
+        } else {
+            button2Shift = '';
+        }
+        let button3Shift = String.fromCharCode(this.state.wrongKey3 + 65);
 
         return (
             <div className="section">
-                <div className="container">
+                <div className="container container-min-height">
                     <p className="is-size-4">So, *need to get name*, you've learned 3 types of ciphers today! Can you decode what this message means?</p>
                     {finalmessage}
                     <DecodingOptions startCorrectDecodingAnimation={this.startCorrectDecodingAnimation} onStartCorrectDecodingClick={this.handleStartCorrectDecodingClick}
-                        button1Shift={button1} button3Shift={button3} 
-                        button1OnClick={this.button1OnClick} button2OnClick={this.button2OnClick} button3OnClick={this.button3OnClick}/>
-                    {this.state.showFinalInfo && 
-                        <Anime opacity={[0,1]} translateY="-2em">
+                        button1Shift={button1Shift} button2Shift={button2Shift} button3Shift={button3Shift} 
+                        onRefreshOptions={this.handleRefreshOptions} onShowCiphertext={this.handleShowCiphertext} guessButtonOnClick={this.handleGuessButtonClick}/>
+                    {this.state.correctAnimationComplete && 
+                        <Anime opacity={[0,1]} translateY="-2em" delay="1250">
                             <div className="is-size-4" style={{padding: '1.5em'}}>Crazy fast right?</div>
                         </Anime>
                     }
