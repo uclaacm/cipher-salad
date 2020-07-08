@@ -40,7 +40,7 @@ class DecodingOptions extends Component {
                             <button className="button is-large is-family-secondary has-text-weight-bold">{`Caesar - ${this.props.button1Shift}`}</button>
                         </p>
                         <p className="control">
-                            <button className="button is-large is-family-secondary has-text-weight-bold">{button2Text}</button>
+                            <button className="button is-large is-family-secondary has-text-weight-bold" id="button2">{button2Text}</button>
                         </p>
                         <p className="control">
                             <button className="button is-large is-family-secondary has-text-weight-bold">{`Caesar - ${this.props.button3Shift}`}</button>
@@ -68,7 +68,7 @@ class DecodingOptions extends Component {
                             <button className="button is-large is-family-secondary has-text-weight-bold" onClick={e => {this.props.guessButtonOnClick(e);}} id="button1">{`Caesar - ${this.props.button1Shift}`}</button>
                         </p>
                         <p className="control">
-                            <button className="button button2 is-large is-family-secondary has-text-weight-bold" onClick={e => {this.props.guessButtonOnClick(e);}} id="button2">{button2Text}</button>
+                            <button className="button is-large is-family-secondary has-text-weight-bold" onClick={e => {this.props.guessButtonOnClick(e);}} id="button2">{button2Text}</button>
                         </p>
                         <p className="control">
                             <button className="button is-large is-family-secondary has-text-weight-bold" onClick={e => {this.props.guessButtonOnClick(e);}} id="button3">{`Caesar - ${this.props.button3Shift}`}</button>
