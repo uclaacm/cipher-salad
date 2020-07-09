@@ -8,6 +8,7 @@ import Vigenere from './Components/Vigenere/Vigenere.js';
 import Caesar from './Components/Caesar/Caesar.js';
 import Decoding from './Components/Decoding/Decoding.js';
 import NameInput from './Components/NameInput/NameInput.js';
+import Intro from './Components/Intro/Intro.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class App extends React.Component {
     <div className="App">
       <Title />
       <NameInput handleSubmit={this.handleNameInputSubmit} />
+      <Intro />
       <section className="section">
         <Caesar />
       </section>
