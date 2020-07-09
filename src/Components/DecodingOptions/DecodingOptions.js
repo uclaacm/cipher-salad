@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Anime, {anime} from 'react-anime'
+import Anime, {anime} from 'react-anime';
 
 class DecodingOptions extends Component {
     constructor(props) {
@@ -9,7 +9,7 @@ class DecodingOptions extends Component {
 
         this.state = {
             startCorrectDecoding: false
-        }
+        };
     }
 
     startCorrectDecodingClick = () => {
@@ -61,7 +61,7 @@ class DecodingOptions extends Component {
         } 
         else {
             return (
-                <div>
+                <Anime>
                     <p className="has-text-left hint">Hint &mdash; here's a couple options you can try:</p>
                     <div className="buttons is-centered">
                         <p className="control">
@@ -84,7 +84,7 @@ class DecodingOptions extends Component {
                     </div>
                     <p className="is-size-4 vertical-spacing-less-on-bottom">It might be tedious to decode messages on your own, but watch how fast a computer can crack this!</p>
                     <button className="button is-large is-family-secondary has-text-weight-bold" onClick={this.startCorrectDecodingClick}>Go</button>
-                </div>
+                </Anime>
             );
         }
     }
