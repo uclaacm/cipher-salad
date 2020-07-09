@@ -9,6 +9,16 @@ class NameInput extends Component {
         };
     }
 
+    handleChange = e => {
+        this.setState({
+            name: e.target.value
+        });
+    }
+
+    handleSubmit = () => {
+        this.props.handleSubmit(this.state.name)
+    }
+
     render() {
         return (
             <section className="hero is-fullheight">
@@ -19,8 +29,11 @@ class NameInput extends Component {
                         </h1>
                         <div className="field">
                             <div className="control">
-                                <input className="input" type="text"/>
+                                <input className="input" type="text" value={this.state.value} onChange={this.handleChange}/>
                             </div>
+                        </div>
+                        <div className="buttons is-centered">
+                            <button className="button is-medium is-family-secondary has-text-weight-bold" onClick={this.handleSubmit}>Submit</button>
                         </div>
                     </div>
                 </div>

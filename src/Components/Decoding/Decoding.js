@@ -16,7 +16,7 @@ class Decoding extends Component {
         this.offset = 0;
 
         this.correctKey = Math.floor(Math.random() * 25) + 1;
-        let decodedMessage = "CONGRATS, NAME!"; //get name!!!
+        let decodedMessage = "CONGRATS!";
         this.encodedMessage = caesarShift(decodedMessage, this.correctKey);
         this.wrongInterval = 500/this.encodedMessage.length;
         this.correctInterval = 1000/this.correctKey;
@@ -44,6 +44,37 @@ class Decoding extends Component {
             wrongKey2: wrongKey2,
             wrongKey3: wrongKey3
         };
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.name !== prevProps.name) {
+            let decodedMessage;
+            if (this.props.name) {
+                decodedMessage = `CONGRATS, ${this.props.name.toUpperCase()}!`;
+            } else {
+                decodedMessage = "CONGRATS!";
+            }
+            let newMessage;
+            if (this.state.correctAnimationComplete) {
+                newMessage = decodedMessage;
+            } else {
+                this.encodedMessage = caesarShift(decodedMessage, this.correctKey);
+                this.wrongMessage1 = caesarShift(this.encodedMessage, -this.state.wrongKey1);
+                this.wrongMessage3 = caesarShift(this.encodedMessage, -this.state.wrongKey3);
+                if (this.state.wrongKey2 === "Atbash") {
+                    this.wrongMessage2 = atbashEncode(this.encodedMessage);
+                } else {
+                    this.wrongMessage2 = caesarShift(this.encodedMessage, -this.state.wrongKey2);
+                }
+                this.wrongInterval = 500/this.encodedMessage.length;
+                newMessage = this.encodedMessage;
+            }
+            this.animating = false;
+            this.setState ({
+                message: newMessage,
+                guessAnimationComplete: false
+            });
+        }
     }
 
     componentWillUnmount() {
@@ -195,10 +226,17 @@ class Decoding extends Component {
         }
         let button3Shift = String.fromCharCode(this.state.wrongKey3 + 65);
 
+        let name;
+        if (this.props.name) {
+            name = `${this.props.name},`;
+        } else {
+            name = '';
+        }
+
         return (
             <div className="section">
                 <div className="container container-min-height">
-                    <p className="is-size-4">So, *need to get name*, you've learned 3 types of ciphers today! Can you decode what this message means?</p>
+                    <p className="is-size-4">{`So, ${name} you've learned 3 types of ciphers today! Can you decode what this message means?`}</p>
                     {finalmessage}
                     <DecodingOptions startCorrectDecodingAnimation={this.startCorrectDecodingAnimation} onStartCorrectDecodingClick={this.handleStartCorrectDecodingClick}
                         button1Shift={button1Shift} button2Shift={button2Shift} button3Shift={button3Shift} 

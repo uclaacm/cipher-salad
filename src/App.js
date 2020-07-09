@@ -10,13 +10,25 @@ import Decoding from './Components/Decoding/Decoding.js';
 import NameInput from './Components/NameInput/NameInput.js';
 
 class App extends React.Component {
-  handleInput = e => {};
-  submitted = e => {};
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      name: ""
+    };
+  }
+
+  handleNameInputSubmit = (name) => {
+    this.setState({
+      name: name
+    });
+  }
+
   render = () => {
   return (
     <div className="App">
       <Title />
-      <NameInput />
+      <NameInput handleSubmit={this.handleNameInputSubmit} />
       <section className="section">
         <Caesar />
       </section>
@@ -27,7 +39,7 @@ class App extends React.Component {
         <Vigenere />
       </section>
       <section>
-        <Decoding />
+        <Decoding name={this.state.name}/>
       </section>
       <Closing />
     </div>
