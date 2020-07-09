@@ -3,10 +3,11 @@ import './App.css';
 import './App.sass';
 import Title from "./Components/Title/Title.js";
 import Closing from "./Components/Title/Closing.js";
-import AtbashInput from './Components/Atbash/AtbashInput.js'
-import Vigenere from './Components/Vigenere/Vigenere.js'
-import Caesar from './Components/Caesar/Caesar.js'
-import Decoding from './Components/Decoding/Decoding.js'
+import AtbashInput from './Components/Atbash/AtbashInput.js';
+import Vigenere from './Components/Vigenere/Vigenere.js';
+import Caesar from './Components/Caesar/Caesar.js';
+import Decoding from './Components/Decoding/Decoding.js';
+import NameInput from './Components/NameInput/NameInput.js';
 
 class App extends React.Component {
   handleInput = e => {};
@@ -15,6 +16,7 @@ class App extends React.Component {
   return (
     <div className="App">
       <Title />
+      <NameInput />
       <section className="section">
         <Caesar />
       </section>

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import GetInput from '../Input/Input.js'
 import CaesarWheel from '../CaesarWheel/CaesarWheel.js'
-import CaesarButtons from '../CaesarButtons/CaesarButtons.js'
 import caesar from './caesar.png'
 import brutus from './brutus.png'
 import arrow from './arrow.png'

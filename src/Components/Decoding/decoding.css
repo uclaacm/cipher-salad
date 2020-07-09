@@ -8,13 +8,17 @@
     margin-bottom: 5px;
 }
 
+.vertical-spacing-top {
+    margin-top: 10px;
+}
+
 .hint {
     margin-bottom: 10px;
     width: 25%;
 }
 
 .container-min-height {
-    min-height: 500px;
+    min-height: 620px;
 }
 
 #button2 {

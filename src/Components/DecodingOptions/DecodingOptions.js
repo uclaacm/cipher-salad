@@ -46,7 +46,7 @@ class DecodingOptions extends Component {
                             <button className="button is-large is-family-secondary has-text-weight-bold">{`Caesar - ${this.props.button3Shift}`}</button>
                         </p>
                     </div>
-                    <div className="buttons is-centered">
+                    <div className="buttons is-centered vertical-spacing-top">
                         <p className="control">
                             <button className="button is-family-secondary has-text-weight-bold">refresh options</button>
                         </p>
@@ -74,7 +74,7 @@ class DecodingOptions extends Component {
                             <button className="button is-large is-family-secondary has-text-weight-bold" onClick={e => {this.props.guessButtonOnClick(e);}} id="button3">{`Caesar - ${this.props.button3Shift}`}</button>
                         </p>
                     </div>
-                    <div className="buttons is-centered">
+                    <div className="buttons is-centered vertical-spacing-top">
                         <p className="control">
                             <button className="button is-family-secondary has-text-weight-bold" onClick={this.props.onRefreshOptions}>refresh options</button>
                         </p>

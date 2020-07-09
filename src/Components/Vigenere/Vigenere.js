@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import TextInput from "../TextInput.js";
 import LetterBox from "../LetterBox.js";
-import { string } from "prop-types";
 
 const CAPITAL_A = 65;
 const CAPITAL_Z = 90;
@@ -98,7 +96,7 @@ class Vigenere extends Component {
                 <div className="column">
                     <div className="columns is-vcentered">
                         <div className="column is-one-third">
-                            <img src="/vigenere_1.png" alt="A picture of caesar cipher" className="is-3by2"/>
+                            <img src="/vigenere_1.png" alt="caesar cipher encoding example" className="is-3by2"/>
                         </div>
                         <div className="is-two-thirds is-size-4 content column">
                             So far we’ve seen the ancient caesar cipher and atbash cipher. 
@@ -117,7 +115,7 @@ class Vigenere extends Component {
                             
                         </div>
                         <div className="column is-half">
-                            <img src="/vigenere_2.png" alt="A picture introducing vigenere cipher"/>
+                            <img src="/vigenere_2.png" alt="vigenere cipher encoding example"/>
                         </div>
                     </div> 
                     <div className="columns">
