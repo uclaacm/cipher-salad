@@ -1,0 +1,77 @@
+.typed-cursor{
+    opacity: 1;
+    animation: typedjsBlink 0.7s infinite;
+    -webkit-animation: typedjsBlink 0.7s infinite;
+    animation: typedjsBlink 0.7s infinite;
+}
+@keyframes typedjsBlink{
+    50% { opacity: 0.0; }
+}
+@-webkit-keyframes typedjsBlink{
+    0% { opacity: 1; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1; }
+}
+.typed-fade-out{
+    opacity: 0;
+    transition: opacity .25s;
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.congrats_emoji1{
+    animation: 1s infinite alternate shift1;
+}
+
+@keyframes shift1{
+    from { margin-left:5%; }
+    to { margin-left: 0%; }
+}
+
+.congrats_emoji2{
+    animation: 1s infinite alternate shift2;
+}
+
+@keyframes shift2{
+    from { margin-right:5%; }
+    to { margin-right: 0%; }
+}
+
+.blackbox_container{
+  position: relative;
+  text-align: center;
+  white-space: pre-wrap;
+  height: 90vh;
+  width: 100vw;
+}
+
+.img_5{
+  width: 5vw;
+  height: 5vw;
+}
+
+.img_10{
+  width: 10vw;
+  height: 10vw;
+}
+
+.img_15{
+  width: 15vw;
+  height: 15vw;
+}
+
+.img_alice_bob{
+  width: 70vw;
+  height: auto;
+  z-index: -1;
+}
+
+.text_narrow{
+  position: absolute;
+  width: 35%;
+}
+
+.text_wide{
+  position: absolute;
+  width: 80%;
+}

@@ -8,6 +8,7 @@ import Vigenere from './Components/Vigenere/Vigenere.js'
 import Caesar from './Components/Caesar/Caesar.js'
 import Recap from "./Components/Title/Recap.js";
 import Typing from "./Components/Title/Typing.js";
+import Blackbox from "./Components/Title/Blackbox.js";
 
 class App extends React.Component {
   handleInput = e => {};
@@ -33,6 +34,7 @@ class App extends React.Component {
         '******* *** ****'
       ]}/>
       <Recap />
+      <Blackbox />
       <Closing />
     </div>
   );

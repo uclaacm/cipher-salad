@@ -1,6 +1,6 @@
 import React from "react";
 import Typed from 'typed.js';
-import './typed.css';
+import './title.css';
 
 class Typing extends React.Component {
     componentDidMount() {
@@ -15,7 +15,7 @@ class Typing extends React.Component {
 
         this.typed = new Typed(this.el, options);
     }
-  
+
     componentWillUnmount() {
         this.typed.destroy();
     }
