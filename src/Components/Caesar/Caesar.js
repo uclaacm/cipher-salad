@@ -47,25 +47,22 @@ class Caesar extends Component {
                             <img src={brutus} alt="Brutus"/>
                         </div>
                     </div> 
-                    <div className="columns is-centered is-vcentered vertical-spacing">
+                    <div className="columns is-centered is-vcentered">
                         <button className="button message-button has-background-grey-light is-static">Brutus homie what is up</button>
                         <img src={arrow} alt="arrow"/>
                         <button className="button message-button has-background-grey-light is-static">EUXWXV KRPLH ZKDW LV XS</button>
                     </div>
-                    <div className="columns">
+                    <div className="columns mt-5">
                         <div className="subtitle is-size-4 content column">
                             The Caesar cipher came up when Julius Caesar wanted a method to send secret messages to his people.
-                            <div className="vertical-spacing"></div>
+                            <div className="my-5"></div>
                             He "shifted" each letter by 3 to throw unsuspecting readers off.
-                            <div className="vertical-spacing"></div>
+                            <div className="my-5"></div>
                             Now, we can encrypt letters by any number of shifts and use our own Caesar cipher. Try it yourself!
                         </div>
                     </div> 
-                    <div className="vertical-spacing is-size-4">
-                        
-                    </div>
                 </div>
-                <div className="container">
+                <div className="container mt-6">
                     <p className="title">Try it!</p>
                     <p className="subtitle is-6">Click and rotate the outer wheel to shift the letters!</p>
                     <CaesarWheel

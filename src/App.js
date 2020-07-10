@@ -29,7 +29,6 @@ class App extends React.Component {
   return (
     <div className="App">
       <Title />
-      <NameInput handleSubmit={this.handleNameInputSubmit} />
       <Intro />
       <section className="section">
         <Caesar />
@@ -40,7 +39,8 @@ class App extends React.Component {
       <section className="section">
         <Vigenere />
       </section>
-      <section>
+      <NameInput handleSubmit={this.handleNameInputSubmit} />
+      <section className="section">
         <Decoding name={this.state.name}/>
       </section>
       <Closing />

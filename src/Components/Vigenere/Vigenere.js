@@ -104,7 +104,6 @@ class Vigenere extends Component {
                             And he made the caesar cipher more secure by giving each letter a different shift.
                         </div>
                     </div>
-                    <div className="vertical-spacing"></div>
                     <div className="columns is-vcentered">
                         <div className="is-size-4 content column">
                             He would code each shift in a letter - A equals 0, B equals 1, z equals 25 .... 
@@ -122,7 +121,7 @@ class Vigenere extends Component {
                         <div className="subtitle is-size-4 content column">
                             And then in the 19th century, the cipher was misattributed to a French guy named 
                             Vigenere even though the idea was first described by Giovan. 
-                            <div className="vertical-spacing"></div>
+                            <div className="my-5"></div>
                             Now you’ve learned the Vigenere cipher and 
                             <br />
                             it's time to try it yourself!

@@ -22,8 +22,7 @@ class Closing extends React.Component {
                 </div> 
             </div>
           </div>
-          <div className="vertical-spacing"></div>
-          <div className="vertical-spacing"></div>
+          <div className="my-5"></div>
           <div className="container">
             <div className="column">
                 <div className="columns is-vcenterd container">
@@ -36,8 +35,7 @@ class Closing extends React.Component {
                       The Enigma machine in WW2 was actually just multiple layers of this type of Vigenere cipher!
                   </div>
                 </div>
-                <div className="vertical-spacing"></div>
-                <div className="columns is-vcentered">
+                <div className="columns is-vcentered my-5">
                   <div className="subtitle is-size-4 content column is-two-thirds">
                       Other fun fact:
                       <br />
@@ -47,7 +45,6 @@ class Closing extends React.Component {
                     <img src="/caesar_salad.jpg" alt="salad" className="img"/>
                   </div>
                 </div>
-                <div className="vertical-spacing"></div>
               </div>
           </div>
         </div>

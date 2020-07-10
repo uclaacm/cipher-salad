@@ -24,8 +24,11 @@ class NameInput extends Component {
             <section className="hero is-fullheight">
                 <div className="hero-body">
                     <div className="container">
-                        <h1 class="title">
-                            Enter your name
+                        <h1 class="title is-4">
+                            Now that we've seen a few ciphers, let's take a look at how we can crack one!
+                        </h1>
+                        <h1 class="title is-4">
+                            First, enter your name: 
                         </h1>
                         <div className="field">
                             <div className="control">

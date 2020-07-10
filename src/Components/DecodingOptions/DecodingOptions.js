@@ -34,7 +34,7 @@ class DecodingOptions extends Component {
         if (this.state.startCorrectDecoding) {
             return (
                 <Anime opacity={[1,0]} translateY='2em' delay={anime.stagger(100, {direction: 'reverse'})} complete={(anim) => {this.props.startCorrectDecodingAnimation(); this.showDecodingOptions = false;}}> 
-                    <p className="has-text-left hint">Hint &mdash; here's a couple options you can try:</p>
+                    <p className="has-text-left hint mb-2">Hint &mdash; here's a couple options you can try:</p>
                     <div className="buttons is-centered">
                         <p className="control">
                             <button className="button is-large is-family-secondary has-text-weight-bold">{`Caesar - ${this.props.button1Shift}`}</button>
@@ -46,7 +46,7 @@ class DecodingOptions extends Component {
                             <button className="button is-large is-family-secondary has-text-weight-bold">{`Caesar - ${this.props.button3Shift}`}</button>
                         </p>
                     </div>
-                    <div className="buttons is-centered vertical-spacing-top">
+                    <div className="buttons is-centered mt-2">
                         <p className="control">
                             <button className="button is-family-secondary has-text-weight-bold">refresh options</button>
                         </p>
@@ -54,7 +54,11 @@ class DecodingOptions extends Component {
                             <button className="button is-family-secondary has-text-weight-bold">show ciphertext</button>
                         </p>
                     </div>
-                    <p className="is-size-4 vertical-spacing-less-on-bottom">It might be tedious to decode messages on your own, but watch how fast a computer can crack this!</p>
+                    <p className="mt-large">
+                        Hint #2 &mdash; if you know what a particular part of the ciphertext looks like in plaintext, you can use that information to figure out the shift amount,
+                        or crack the cipher altogether! (This is what the Enigma Machine did in WWII!)
+                    </p>
+                    <p className="is-size-4 mt-5 mb-1">It might be tedious to decode messages on your own, but watch how fast a computer can crack this!</p>
                     <button className="button is-large is-family-secondary has-text-weight-bold">Go</button>
                 </Anime>
             );
@@ -62,7 +66,7 @@ class DecodingOptions extends Component {
         else {
             return (
                 <Anime>
-                    <p className="has-text-left hint">Hint &mdash; here's a couple options you can try:</p>
+                    <p className="has-text-left hint mb-2">Hint &mdash; here's a couple options you can try:</p>
                     <div className="buttons is-centered">
                         <p className="control">
                             <button className="button is-large is-family-secondary has-text-weight-bold" onClick={e => {this.props.guessButtonOnClick(e);}} id="button1">{`Caesar - ${this.props.button1Shift}`}</button>
@@ -74,7 +78,7 @@ class DecodingOptions extends Component {
                             <button className="button is-large is-family-secondary has-text-weight-bold" onClick={e => {this.props.guessButtonOnClick(e);}} id="button3">{`Caesar - ${this.props.button3Shift}`}</button>
                         </p>
                     </div>
-                    <div className="buttons is-centered vertical-spacing-top">
+                    <div className="buttons is-centered mt-2">
                         <p className="control">
                             <button className="button is-family-secondary has-text-weight-bold" onClick={this.props.onRefreshOptions}>refresh options</button>
                         </p>
@@ -82,7 +86,11 @@ class DecodingOptions extends Component {
                             <button className="button is-family-secondary has-text-weight-bold" onClick={this.props.onShowCiphertext}>show ciphertext</button>
                         </p>
                     </div>
-                    <p className="is-size-4 vertical-spacing-less-on-bottom">It might be tedious to decode messages on your own, but watch how fast a computer can crack this!</p>
+                    <p className="mt-large">
+                        Hint #2 &mdash; if you know what a particular part of the ciphertext looks like in plaintext, you can use that information to figure out the shift amount,
+                        or crack the cipher altogether! (This is what the Enigma Machine did in WWII!)
+                    </p>
+                    <p className="is-size-4 mt-6 mb-1">It might be tedious to decode messages on your own, but watch how fast a computer can crack this!</p>
                     <button className="button is-large is-family-secondary has-text-weight-bold" onClick={this.startCorrectDecodingClick}>Go</button>
                 </Anime>
             );

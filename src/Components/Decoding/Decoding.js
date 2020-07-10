@@ -203,7 +203,7 @@ class Decoding extends Component {
     }
 
     render() {
-        let message = (<div className="is-size-3 vertical-spacing">{this.state.message}</div>);
+        let message = (<div className="is-size-3 my-5">{this.state.message}</div>);
         let finalmessage;
         if (this.state.guessAnimationComplete) {
             finalmessage = <Anime color="#c00" direction="alternate" duration="500" easing="easeInOutExpo">
@@ -234,19 +234,17 @@ class Decoding extends Component {
         }
 
         return (
-            <div className="section">
-                <div className="container container-min-height">
-                    <p className="is-size-4">{`So, ${name} you've learned 3 types of ciphers today! Can you decode what this message means?`}</p>
-                    {finalmessage}
-                    <DecodingOptions startCorrectDecodingAnimation={this.startCorrectDecodingAnimation} onStartCorrectDecodingClick={this.handleStartCorrectDecodingClick}
-                        button1Shift={button1Shift} button2Shift={button2Shift} button3Shift={button3Shift} 
-                        onRefreshOptions={this.handleRefreshOptions} onShowCiphertext={this.handleShowCiphertext} guessButtonOnClick={this.handleGuessButtonClick}/>
-                    {this.state.correctAnimationComplete && 
-                        <Anime opacity={[0,1]} translateY="-2em" delay="1250">
-                            <div className="is-size-4" style={{padding: '1.5em'}}>Crazy fast right?</div>
-                        </Anime>
-                    }
-                </div>
+            <div className="container container-min-height">
+                <p className="is-size-4">{`So, ${name} you've learned 3 types of ciphers today! Can you decode what this message means?`}</p>
+                {finalmessage}
+                <DecodingOptions startCorrectDecodingAnimation={this.startCorrectDecodingAnimation} onStartCorrectDecodingClick={this.handleStartCorrectDecodingClick}
+                    button1Shift={button1Shift} button2Shift={button2Shift} button3Shift={button3Shift} 
+                    onRefreshOptions={this.handleRefreshOptions} onShowCiphertext={this.handleShowCiphertext} guessButtonOnClick={this.handleGuessButtonClick}/>
+                {this.state.correctAnimationComplete && 
+                    <Anime opacity={[0,1]} translateY="-2em" delay="1250">
+                        <div className="is-size-4" style={{padding: '1.5em'}}>Crazy fast right?</div>
+                    </Anime>
+                }
             </div>
         );
     }
