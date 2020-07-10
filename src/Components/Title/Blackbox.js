@@ -32,7 +32,7 @@ class Blackbox extends React.Component {
         let currStep = this.state.currStep;
         if(currStep !== 1){
           return (
-            <a className="button is-rounded is-light is-medium" onClick={this._prev}> Go Back </a>
+            <button className="button is-rounded is-light is-medium has-text-weight-bold" onClick={this._prev}> Go Back </button>
           )
         }
         return null;
@@ -43,11 +43,11 @@ class Blackbox extends React.Component {
         let currStep = this.state.currStep;
         if(currStep < 6 ){
           return(
-            <a className="button is-rounded is-family-secondary is-medium" onClick={this._next}>
+            <button className="button is-rounded is-family-secondary is-medium has-text-weight-bold" onClick={this._next}>
             <Anime easing="linear" delay={DELAY} loop={true} direction="alternate" opacity={['100%', '20%']}>
               Next
             </Anime>
-            </a>
+            </button>
             
           )
         }
@@ -85,8 +85,8 @@ function Page1(props){
               <div className="" style={{position:'absolute',top:'100px',left:'100px'}}>
                 But how can ciphers get more complicated??
               </div>
-              <img src="/key.png" className="img_10" style={{position:'absolute',top:'230px',left:'250px'}}></img>
-              <img src="/black_box.png" className="img_15" style={{position:'absolute',top:'200px',left:'450px'}}></img>
+              <img src="/key.png" className="img_10" style={{position:'absolute',top:'230px',left:'250px'}} alt="Key"></img>
+              <img src="/black_box.png" className="img_15" style={{position:'absolute',top:'200px',left:'450px'}} alt="Black box"></img>
               <div className="text_wide" style={{position:'absolute',top:'500px',left:'200px'}}>
                 Let's find out with our black box...
               </div>
@@ -111,7 +111,7 @@ function Page2(props){
           (which we’ll just show as a black box) on the message, 
           and only the recipient who is given the original key can undo the math.  
         </div>
-        <img src="/alice_bob.png" className="img_alice_bob" style={{position:'absolute',top:'20px',left:'20px'}}></img>
+        <img src="/alice_bob.png" className="img_alice_bob" style={{position:'absolute',top:'20px',left:'20px'}} alt="Alice & Bob"></img>
         </div>
       </React.Fragment>
     )
@@ -122,9 +122,9 @@ function Page3(props){
     return(
       <React.Fragment>
         <div className="blackbox_container">
-          <img src="/key.png" className="img_10" style={{position:'absolute',top:'150px',left:'200px'}}></img>
-          <img src="/article.png" className="img_15" style={{position:'absolute',top:'350px',left:'200px'}}></img>
-          <img src="/black_box.png" className="img_15" style={{position:'absolute',top:'250px',left:'600px'}}></img>
+          <img src="/key.png" className="img_10" style={{position:'absolute',top:'150px',left:'200px'}} alt="Key"></img>
+          <img src="/article.png" className="img_15" style={{position:'absolute',top:'350px',left:'200px'}} alt="Article"></img>
+          <img src="/black_box.png" className="img_15" style={{position:'absolute',top:'250px',left:'600px'}} alt="Blackbox"></img>
           <div className="text_narrow" style={{position:'absolute',top:'100px',left:'300px'}}>
             The black box takes in our secret message and a secret key,
           </div>
@@ -154,10 +154,10 @@ function Page4(props){
     return(
         <React.Fragment>
         <div className="blackbox_container">
-          <img src="/key.png" className="img_10" style={{position:'absolute',top:'150px',left:'80px'}}></img>
-          <img src="/article.png" className="img_15" style={{position:'absolute',top:'350px',left:'80px'}}></img>
-          <img src="/black_box.png" className="img_15" style={{position:'absolute',top:'250px',left:'400px'}}></img>
-          <img src="/encrypted_msg.png" className="img_15" style={{position:'absolute',top:'250px',left:'750px'}}></img>
+          <img src="/key.png" className="img_10" style={{position:'absolute',top:'150px',left:'80px'}} alt="Key"></img>
+          <img src="/article.png" className="img_15" style={{position:'absolute',top:'350px',left:'80px'}} alt="Article"></img>
+          <img src="/black_box.png" className="img_15" style={{position:'absolute',top:'250px',left:'400px'}} alt="Blackbox"></img>
+          <img src="/encrypted_msg.png" className="img_15" style={{position:'absolute',top:'250px',left:'750px'}} alt="Encrypted Message"></img>
           <div className="text_narrow" style={{position:'absolute',top:'100px',left:'300px'}}>
             And spits out an encrypted message!
           </div>
@@ -195,10 +195,10 @@ function Page5(props){
     return(
       <React.Fragment>
       <div className="blackbox_container">
-      <img src="/key.png" className="img_10" style={{position:'absolute',top:'150px',left:'80px'}}></img>
-          <img src="/article.png" className="img_15" style={{position:'absolute',top:'250px',left:'700px'}}></img>
-          <img src="/black_box.png" className="img_15" style={{position:'absolute',top:'250px',left:'400px'}}></img>
-          <img src="/encrypted_msg.png" className="img_15" style={{position:'absolute',top:'350px',left:'80px'}}></img>
+      <img src="/key.png" className="img_10" style={{position:'absolute',top:'150px',left:'80px'}} alt="Key"></img>
+      <img src="/article.png" className="img_15" style={{position:'absolute',top:'250px',left:'700px'}} alt="Article"></img>
+      <img src="/black_box.png" className="img_15" style={{position:'absolute',top:'250px',left:'400px'}} alt="Blackbox"></img>
+      <img src="/encrypted_msg.png" className="img_15" style={{position:'absolute',top:'350px',left:'80px'}} alt="Encrypted Message"></img>
       
       <div className="text_narrow" style={{position:'absolute',top:'100px',left:'300px'}}>
         The magic happens when you give the black box *the same key and the encrypted message* 
@@ -245,10 +245,10 @@ function Page6(props){
             But thanks to the black box, only people with the shared key can see the message! 
             Your computers encrypt messages in ways like these everyday. 
           </div>
-          <img src="/key.png" className="img_5" style={{position:'absolute',top:'100px',left:'750px'}}></img>
-          <img src="/key.png" className="img_5" style={{position:'absolute',top:'550px',left:'10px'}}></img>
-          <img src="/encrypted_msg.png" className="img_15" style={{position:'absolute',top:'120px',left:'40px'}}></img>
-          <img src="/alice_bob.png" className="img_alice_bob" style={{position:'absolute',top:'25px',left:'25px'}}></img>
+          <img src="/key.png" className="img_5" style={{position:'absolute',top:'100px',left:'750px'}} alt="Key"></img>
+          <img src="/key.png" className="img_5" style={{position:'absolute',top:'550px',left:'10px'}} alt="Key"></img>
+          <img src="/encrypted_msg.png" className="img_15" style={{position:'absolute',top:'120px',left:'40px'}} alt="Encrypted Message"></img>
+          <img src="/alice_bob.png" className="img_alice_bob" style={{position:'absolute',top:'25px',left:'25px'}} alt="Alice & Bob"></img>
         </div>
       </React.Fragment>
     )
