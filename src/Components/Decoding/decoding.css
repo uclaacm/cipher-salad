@@ -10,6 +10,15 @@
     width: 196px;
 }
 
+.mt-medium {
+    margin-top: 2rem;
+}
+
 .mt-large {
     margin-top: 2.5rem;
+}
+
+.key-box {
+    border: 2px solid #ffb800;
+    border-radius: 10px;
 }
