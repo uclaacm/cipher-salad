@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 const CAPITAL_A = 65;
 const CAPITAL_Z = 90;
-const LOWER_A = 97;
 
 // want in state:
 // - offset that can wrap around

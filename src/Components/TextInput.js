@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 export default ({ type, placeholder, data, onChange }) => (
     <div className="field">

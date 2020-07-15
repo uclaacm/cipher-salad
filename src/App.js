@@ -3,17 +3,33 @@ import './App.css';
 import './App.sass';
 import Title from "./Components/Title/Title.js";
 import Closing from "./Components/Title/Closing.js";
-import AtbashInput from './Components/Atbash/AtbashInput.js'
-import Vigenere from './Components/Vigenere/Vigenere.js'
-import Caesar from './Components/Caesar/Caesar.js'
+import AtbashInput from './Components/Atbash/AtbashInput.js';
+import Vigenere from './Components/Vigenere/Vigenere.js';
+import Caesar from './Components/Caesar/Caesar.js';
+import Decoding from './Components/Decoding/Decoding.js';
+import NameInput from './Components/NameInput/NameInput.js';
+import Intro from './Components/Intro/Intro.js'
 
 class App extends React.Component {
-  handleInput = e => {};
-  submitted = e => {};
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      name: ""
+    };
+  }
+
+  handleNameInputSubmit = (name) => {
+    this.setState({
+      name: name
+    });
+  }
+
   render = () => {
   return (
     <div className="App">
       <Title />
+      <Intro />
       <section className="section">
         <Caesar />
       </section>
@@ -22,6 +38,10 @@ class App extends React.Component {
       </section>
       <section className="section">
         <Vigenere />
+      </section>
+      <NameInput handleSubmit={this.handleNameInputSubmit} />
+      <section className="section">
+        <Decoding name={this.state.name}/>
       </section>
       <Closing />
     </div>

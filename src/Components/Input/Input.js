@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {caesarShift} from '../../caesarShift.js'
 
 class GetInput extends Component {
   constructor(props) {
@@ -8,23 +9,6 @@ class GetInput extends Component {
     this.state = {
       inputStr: 'Click here to type!'
     };
-  }
-
-  caesarShift = (plaintext, offset) => {
-    var c;
-    let cipher = ""
-    let char;
-    for (var p = 0; p < plaintext.length; p++) {
-      char = plaintext[p];
-      if (char.match(/[a-z]/i)) {
-        c = (plaintext.charCodeAt(p) + offset)
-        while (c < 65) c += 26;
-        while (c > 90) c -= 26;
-        char = String.fromCharCode(c)
-      }
-      cipher += char;
-    }
-    return cipher;
   }
 
   handleChange = e => {
@@ -43,7 +27,7 @@ class GetInput extends Component {
 
   render() {
     let plaintext = this.state.inputStr.toUpperCase();
-    let ciphertext = this.caesarShift(plaintext, this.props.offset);
+    let ciphertext = caesarShift(plaintext, this.props.offset);
 
     return (
       <div className="columns" style={{width: '100%'}}>
