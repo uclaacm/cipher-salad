@@ -8,20 +8,21 @@ import Vigenere from './Components/Vigenere/Vigenere.js';
 import Caesar from './Components/Caesar/Caesar.js';
 import Decoding from './Components/Decoding/Decoding.js';
 import NameInput from './Components/NameInput/NameInput.js';
-import Intro from './Components/Intro/Intro.js'
+import Intro from './Components/Intro/Intro.js';
+import ShareCipher from './Components/ShareCipher/ShareCipher.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      name: ""
+      name: "",
     };
   }
 
   handleNameInputSubmit = (name) => {
     this.setState({
-      name: name
+      name: name,
     });
   }
 
@@ -42,6 +43,9 @@ class App extends React.Component {
       <NameInput handleSubmit={this.handleNameInputSubmit} />
       <section className="section">
         <Decoding name={this.state.name}/>
+      </section>
+      <section className="section">
+        <ShareCipher />
       </section>
       <Closing />
     </div>
