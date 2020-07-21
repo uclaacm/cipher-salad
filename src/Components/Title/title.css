@@ -45,27 +45,6 @@
   width: 100vw;
 }
 
-.img_5{
-  width: 5vw;
-  height: 5vw;
-}
-
-.img_10{
-  width: 10vw;
-  height: 10vw;
-}
-
-.img_15{
-  width: 15vw;
-  height: 15vw;
-}
-
-.img_alice_bob{
-  width: 70vw;
-  height: auto;
-  z-index: -1;
-}
-
 .text_narrow{
   position: absolute;
   width: 35%;
