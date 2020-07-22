@@ -48,11 +48,11 @@ class Recap extends React.Component {
                             rotate='-30deg'
                             direction='alternate'
                         >
-                            <span role="img" aria-label="congrats">🎉</span> 
+                            <span role="img" aria-label="congrats" className="congrats_emoji">🎉</span> 
                         </Anime>
                         </div>
                     
-                        <div class="column mid_font congrats_emoji">
+                        <div class="column large_font">
                             Congrats 
                         </div>
                         <div class="column congrats_emoji">

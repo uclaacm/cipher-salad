@@ -58,7 +58,6 @@ class Blackbox extends React.Component {
       return(          
         <React.Fragment>
             <section className="hero is-large" > 
-              <div className="container">
                 <Page1 currStep = {this.state.currStep} />
                 <Page2 currStep = {this.state.currStep} />
                 <Page3 currStep = {this.state.currStep} />
@@ -70,7 +69,6 @@ class Blackbox extends React.Component {
                     {this.prevButton()}
                     {this.nextButton()}
                 </div> 
-              </div>   
             </section>
             <div className="vertical-spacing"></div>
             <div className="vertical-spacing"></div>
@@ -85,12 +83,12 @@ function Page1(props){
   return(
       <React.Fragment>
           <div className="blackbox_container">
-            <FontAwesomeIcon icon={faKey} size="6x" color="#FFB800" style={{position:'absolute', left:'200px', top:'100px', height: '600px',transform: 'rotate(225deg)'}} />
-            <FontAwesomeIcon icon={faArchive} size="9x" color="#000000" style={{position:'absolute', left:'500px', top:'100px', height: '600px'}} />
-            <div className="" style={{position:'absolute',top:'200px',left:'100px'}}>
+            <FontAwesomeIcon icon={faKey} size="6x" color="#FFB800" style={{position:'absolute', left:'400px', top:'100px', height: '600px',transform: 'rotate(225deg)'}} />
+            <FontAwesomeIcon icon={faArchive} size="9x" color="#000000" style={{position:'absolute', left:'750px', top:'100px', height: '600px'}} />
+            <div className="mid_font" style={{position:'absolute',top:'200px',left:'250px'}}>
               But how can ciphers get more complicated??
             </div>
-            <div className="text_wide" style={{position:'absolute',top:'550px',left:'200px'}}>
+            <div className="text_wide mid_font" style={{position:'absolute',top:'550px',left:'300px'}}>
               Let's find out with our black box...
             </div>
           </div>
@@ -103,18 +101,18 @@ function Page2(props){
   return(
     <React.Fragment>
       <div className="blackbox_container">
-      <div className="text_narrow" style={{position:'absolute',top:'100px',left:'80px'}}>
+      <div className="text_narrow" style={{position:'absolute',top:'100px',left:'18%', fontSize: '1.1rem'}}>
         Our computers use ciphers, aka cryptography, every day.
         Their keys get much more complex, 
         and can go beyond just switching one letter to another. 
       </div>
-      <div className="text_narrow" style={{position:'absolute',top:'430px',left:'510px'}}>
+      <div className="text_narrow" style={{position:'absolute',top:'410px',left:'50%', fontSize: '1.1rem'}}>
         They turn ciphers into cryptographic functions, like AES -- the US standard for 
         encryption today. It uses a long key and all sorts of mathematical transformations 
         (which we’ll just show as a black box) on the message, 
         and only the recipient who is given the original key can undo the math.  
       </div>
-      <img src="/alice_bob.svg" className="img_alice_bob" style={{position:'absolute',top:'60px',left:'160px', width: '650px', height: 'auto'}} alt="Alice & Bob"></img>
+      <img src="/alice_bob.svg" className="img_alice_bob" style={{position:'absolute',top:'60px',left:'0',right:'0',margin:'auto', width: '650px', height: 'auto'}} alt="Alice & Bob"></img>
       </div>
     </React.Fragment>
   )
@@ -125,10 +123,10 @@ function Page3(props){
   return(
     <React.Fragment>
       <div className="blackbox_container">
-        <FontAwesomeIcon icon={faKey} size="6x" color="#FFB800" style={{position:'absolute', left:'180px', top:'0px', height: '600px',transform: 'rotate(225deg)'}} />
-        <FontAwesomeIcon icon={faArchive} size="9x" color="#000000" style={{position:'absolute', left:'620px', top:'100px', height: '600px'}} />
-        <FontAwesomeIcon icon={faEnvelopeOpen} size="6x" color="#FFB800" style={{position:'absolute', left:'180px', top:'200px', height: '600px'}} />
-        <div className="text_narrow" style={{position:'absolute',top:'150px',left:'250px'}}>
+        <FontAwesomeIcon icon={faKey} size="6x" color="#FFB800" style={{position:'absolute', left:'30%', top:'0px', height: '600px',transform: 'rotate(225deg)'}} />
+        <FontAwesomeIcon icon={faArchive} size="9x" color="#000000" style={{position:'absolute', left:'60%', top:'100px', height: '600px'}} />
+        <FontAwesomeIcon icon={faEnvelopeOpen} size="6x" color="#FFB800" style={{position:'absolute', left:'30%', top:'200px', height: '600px'}} />
+        <div className="text_narrow small_font" style={{position:'absolute',top:'150px',left:'0',right:'0',margin:'auto'}}>
           The black box takes in our secret message and a secret key,
         </div>
         <Anime easing="linear" duration="900"
@@ -137,7 +135,7 @@ function Page3(props){
           translateX="200px"
           opacity={['50%','100%', '0%']}
         >
-          <FontAwesomeIcon icon={faArrowRight} size="2x" color="#0" style={{position:'absolute', left:'330px', top:'290px', transform: 'rotate(30deg)'}}></FontAwesomeIcon>             
+          <FontAwesomeIcon icon={faArrowRight} size="2x" color="#0" style={{position:'absolute', left:'40%', top:'290px', transform: 'rotate(30deg)'}}></FontAwesomeIcon>             
         </Anime>
         <Anime easing="linear" duration="900"
           loop={true}
@@ -145,7 +143,7 @@ function Page3(props){
           translateX="200px"
           opacity={['50%','100%', '0%']}
         >
-          <FontAwesomeIcon icon={faArrowRight} size="2x" color="#0" style={{position:'absolute', left:'330px', top:'470px', transform: 'rotate(-30deg)'}}></FontAwesomeIcon>             
+          <FontAwesomeIcon icon={faArrowRight} size="2x" color="#0" style={{position:'absolute', left:'40%', top:'470px', transform: 'rotate(-30deg)'}}></FontAwesomeIcon>             
         </Anime>
       </div>
     </React.Fragment>
@@ -157,11 +155,11 @@ function Page4(props){
   return(
       <React.Fragment>
       <div className="blackbox_container">
-        <FontAwesomeIcon icon={faKey} size="6x" color="#FFB800" style={{position:'absolute', left:'80px', top:'0px', height: '600px',transform: 'rotate(225deg)'}} />
-        <FontAwesomeIcon icon={faArchive} size="9x" color="#000000" style={{position:'absolute', left:'420px', top:'100px', height: '600px'}} />
-        <FontAwesomeIcon icon={faEnvelopeOpen} size="6x" color="#FFB800" style={{position:'absolute', left:'80px', top:'200px', height: '600px'}} />
-        <FontAwesomeIcon icon={faFileArchive} size="6x" color="#FFB800" style={{position:'absolute', left:'780px', top:'100px', height: '600px'}} />
-        <div className="text_narrow" style={{position:'absolute',top:'150px',left:'270px'}}>
+        <FontAwesomeIcon icon={faKey} size="6x" color="#FFB800" style={{position:'absolute', left:'20%', top:'0px', height: '600px',transform: 'rotate(225deg)'}} />
+        <FontAwesomeIcon icon={faArchive} size="9x" color="#000000" style={{position:'absolute', left:'45%', top:'100px', height: '600px'}} />
+        <FontAwesomeIcon icon={faEnvelopeOpen} size="6x" color="#FFB800" style={{position:'absolute', left:'20%', top:'200px', height: '600px'}} />
+        <FontAwesomeIcon icon={faFileArchive} size="6x" color="#FFB800" style={{position:'absolute', left:'72%', top:'100px', height: '600px'}} />
+        <div className="text_narrow small_font" style={{position:'absolute',top:'150px',left:'0',right:'0',margin:'auto'}}>
           And spits out an encrypted message!
         </div>
         <Anime easing="linear" duration="900"
@@ -170,7 +168,7 @@ function Page4(props){
           translateX="160px"
           opacity={['50%','100%', '0%']}
         >
-          <FontAwesomeIcon icon={faArrowRight} size="2x" color="#0" style={{position:'absolute', left:'200px', top:'290px', transform: 'rotate(30deg)'}}></FontAwesomeIcon>             
+          <FontAwesomeIcon icon={faArrowRight} size="2x" color="#0" style={{position:'absolute', left:'29%', top:'290px', transform: 'rotate(30deg)'}}></FontAwesomeIcon>             
         </Anime>
         <Anime easing="linear" duration="900"
           loop={true}
@@ -178,7 +176,7 @@ function Page4(props){
           translateX="160px"
           opacity={['50%','100%', '0%']}
         >
-          <FontAwesomeIcon icon={faArrowRight} size="2x" color="#0" style={{position:'absolute', left:'200px', top:'470px', transform: 'rotate(-30deg)'}}></FontAwesomeIcon>             
+          <FontAwesomeIcon icon={faArrowRight} size="2x" color="#0" style={{position:'absolute', left:'29%', top:'470px', transform: 'rotate(-30deg)'}}></FontAwesomeIcon>             
         </Anime>
         <Anime easing="linear" duration="900"
           loop={true}
@@ -186,7 +184,7 @@ function Page4(props){
           translateX="150px"
           opacity={['50%','100%', '0%']}
         >
-          <FontAwesomeIcon icon={faArrowRight} size="2x" color="#0" style={{position:'absolute', left:'575px', top:'390px'}}></FontAwesomeIcon>             
+          <FontAwesomeIcon icon={faArrowRight} size="2x" color="#0" style={{position:'absolute', left:'56%', top:'390px'}}></FontAwesomeIcon>             
         </Anime>
       </div>
       </React.Fragment>
@@ -198,11 +196,11 @@ function Page5(props){
   return(
     <React.Fragment>
     <div className="blackbox_container">
-    <FontAwesomeIcon icon={faKey} size="6x" color="#FFB800" style={{position:'absolute', left:'80px', top:'0px', height: '600px',transform: 'rotate(225deg)'}} />
-    <FontAwesomeIcon icon={faArchive} size="9x" color="#000000" style={{position:'absolute', left:'420px', top:'100px', height: '600px'}} />
-    <FontAwesomeIcon icon={faEnvelopeOpen} size="6x" color="#FFB800" style={{position:'absolute', left:'780px', top:'100px', height: '600px'}} />
-    <FontAwesomeIcon icon={faFileArchive} size="6x" color="#FFB800" style={{position:'absolute', left:'80px', top:'200px', height: '600px'}} />      
-    <div className="text_narrow" style={{position:'absolute',top:'150px',left:'270px'}}>
+    <FontAwesomeIcon icon={faKey} size="6x" color="#FFB800" style={{position:'absolute', left:'20%', top:'0px', height: '600px',transform: 'rotate(225deg)'}} />
+    <FontAwesomeIcon icon={faArchive} size="9x" color="#000000" style={{position:'absolute', left:'45%', top:'100px', height: '600px'}} />
+    <FontAwesomeIcon icon={faEnvelopeOpen} size="6x" color="#FFB800" style={{position:'absolute', left:'72%', top:'100px', height: '600px'}} />
+    <FontAwesomeIcon icon={faFileArchive} size="6x" color="#FFB800" style={{position:'absolute', left:'20%', top:'200px', height: '600px'}} />      
+    <div className="text_narrow small_font" style={{position:'absolute',top:'120px',left:'0',right:'0',margin:'auto'}}>
       The magic happens when you give the black box *the same key and the encrypted message* 
       -- That’s the only way to get the original message back!
     </div>
@@ -212,7 +210,7 @@ function Page5(props){
       translateX="160px"
       opacity={['50%','100%', '0%']}
     >
-      <FontAwesomeIcon icon={faArrowRight} size="2x" color="#0" style={{position:'absolute', left:'200px', top:'290px', transform: 'rotate(30deg)'}}></FontAwesomeIcon>             
+      <FontAwesomeIcon icon={faArrowRight} size="2x" color="#0" style={{position:'absolute', left:'29%', top:'290px', transform: 'rotate(30deg)'}}></FontAwesomeIcon>             
     </Anime>
     <Anime easing="linear" duration="900"
       loop={true}
@@ -220,7 +218,7 @@ function Page5(props){
       translateX="160px"
       opacity={['50%','100%', '0%']}
     >
-      <FontAwesomeIcon icon={faArrowRight} size="2x" color="#0" style={{position:'absolute', left:'200px', top:'470px', transform: 'rotate(-30deg)'}}></FontAwesomeIcon>             
+      <FontAwesomeIcon icon={faArrowRight} size="2x" color="#0" style={{position:'absolute', left:'29%', top:'470px', transform: 'rotate(-30deg)'}}></FontAwesomeIcon>             
     </Anime>
     <Anime easing="linear" duration="900"
       loop={true}
@@ -228,7 +226,7 @@ function Page5(props){
       translateX="150px"
       opacity={['50%','100%', '0%']}
     >
-      <FontAwesomeIcon icon={faArrowRight} size="2x" color="#0" style={{position:'absolute', left:'575px', top:'390px'}}></FontAwesomeIcon>             
+      <FontAwesomeIcon icon={faArrowRight} size="2x" color="#0" style={{position:'absolute', left:'56%', top:'390px'}}></FontAwesomeIcon>             
     </Anime>
     </div>
     </React.Fragment>
@@ -239,14 +237,14 @@ function Page6(props){
   if(props.currStep !== 6){ return null; }
   return(
     <React.Fragment>
-      <img src="/alice_bob.svg" className="img_alice_bob" style={{position:'absolute',top:'90px',left:'190px', width: '650px', height: 'auto'}} alt="Alice & Bob"></img>
-      <FontAwesomeIcon icon={faKey} size="3x" color="#FFB800" style={{position:'absolute', left:'120px', top:'80px', height: '600px',transform: 'rotate(225deg)'}} />
-      <FontAwesomeIcon icon={faKey} size="3x" color="#FFB800" style={{position:'absolute', left:'810px', top:'60px', height: '600px',transform: 'rotate(225deg)'}} />
       <div className="blackbox_container">
-      <div className="text_narrow" style={{position:'absolute',top:'130px',left:'80px'}}>
+      <img src="/alice_bob.svg" className="img_alice_bob" style={{position:'absolute',top:'90px',left:'0',right:'0',margin:'auto', width: '650px', height: 'auto'}} alt="Alice & Bob"></img>
+      <FontAwesomeIcon icon={faKey} size="3x" color="#FFB800" style={{position:'absolute', left:'20%', top:'80px', height: '600px',transform: 'rotate(225deg)'}} />
+      <FontAwesomeIcon icon={faKey} size="3x" color="#FFB800" style={{position:'absolute', left:'75%', top:'60px', height: '600px',transform: 'rotate(225deg)'}} />
+      <div className="text_narrow small_font" style={{position:'absolute',top:'120px',left:'180px'}}>
           So anyone without the key will just see
       </div>
-      <div className="text_narrow" style={{position:'absolute',top:'500px',left:'510px'}}>
+      <div className="text_narrow small_font" style={{position:'absolute',top:'450px',left:'710px'}}>
           But thanks to the black box, only people with the shared key can see the message! 
           Your computers encrypt messages in ways like these everyday.  
       </div>
@@ -260,7 +258,7 @@ if(props.currStep !== 7){ return null; }
 return(
   <React.Fragment>
     <div className="blackbox_container">
-      <div className="text_narrow" style={{position:'absolute',top:'180px',left:'250px'}}>
+      <div className="text_narrow small_font" style={{position:'absolute',top:'180px',left:'0',right:'0',margin:'auto'}}>
         In real life, the key used for encryption is simply a series of numbers!
       </div>
       <Anime easing="linear" duration="6000"
@@ -273,7 +271,7 @@ return(
         loop={true}
         opacity={['0%','0%','0%','0%','0%','100%','100%','0%']}
       >
-        <p className="large_font" style={{position:'absolute', left:'240px', top:'400px', color: "#FFB800"}}>1001100010000011001010111</p>             
+        <p className="large_font" style={{position:'absolute', left:'0',right:'0',margin:'auto', top:'400px', color: "#FFB800"}}>1001100010000011001010111</p>             
       </Anime>
     </div>
   </React.Fragment>
