@@ -1,8 +1,7 @@
 import React from "react";
 import '../main.css';
 
-class Title extends React.Component {
-  render() {
+function Title(props) {
     return (
       <div>
         <div className="hero is-fullheight title_img">
@@ -48,7 +47,6 @@ class Title extends React.Component {
         </div>
       </div>
     );
-  }
 }
 
 export default Title;

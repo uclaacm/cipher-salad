@@ -66,11 +66,11 @@ body{
         font-size: 2rem;
     }
 
-    .mid_font{
+    .is-size-4{
         font-size: 1.125rem;
     }
 
-    .large_font{
+    .is-size-3{
         font-size: 1.5rem;
     }
 }

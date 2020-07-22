@@ -9,14 +9,30 @@ import Caesar from './Components/Caesar/Caesar.js'
 import Recap from "./Components/Title/Recap.js";
 import Typing from "./Components/Title/Typing.js";
 import Blackbox from "./Components/Title/Blackbox.js";
+import Decoding from './Components/Decoding/Decoding.js';
+import NameInput from './Components/NameInput/NameInput.js';
+import Intro from './Components/Intro/Intro.js'
 
 class App extends React.Component {
-  handleInput = e => {};
-  submitted = e => {};
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      name: ""
+    };
+  }
+
+  handleNameInputSubmit = (name) => {
+    this.setState({
+      name: name
+    });
+  }
+
   render = () => {
   return (
     <div className="App">
       <Title />
+      <Intro />
       <section className="section">
         <Caesar />
       </section>
@@ -35,6 +51,10 @@ class App extends React.Component {
       ]}/>
       <Recap />
       <Blackbox />
+      <NameInput handleSubmit={this.handleNameInputSubmit} />
+      <section className="section">
+        <Decoding name={this.state.name}/>
+      </section>
       <Closing />
     </div>
   );
