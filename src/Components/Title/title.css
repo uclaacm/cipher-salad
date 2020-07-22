@@ -19,22 +19,10 @@
     animation: 0;
 }
 
-.congrats_emoji1{
-    animation: 1s infinite alternate shift1;
-}
-
-@keyframes shift1{
-    from { margin-left:5%; }
-    to { margin-left: 0%; }
-}
-
-.congrats_emoji2{
-    animation: 1s infinite alternate shift2;
-}
-
-@keyframes shift2{
-    from { margin-right:5%; }
-    to { margin-right: 0%; }
+.congrats_emoji{
+  width: 20%;
+  max-width: 10rem;
+  height: auto;
 }
 
 .blackbox_container{

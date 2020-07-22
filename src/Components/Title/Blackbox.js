@@ -239,7 +239,7 @@ function Page6(props){
   if(props.currStep !== 6){ return null; }
   return(
     <React.Fragment>
-      <img src="/alice_bob.svg" className="img_alice_bob" style={{position:'absolute',top:'90px',left:'160px', width: '650px', height: 'auto'}} alt="Alice & Bob"></img>
+      <img src="/alice_bob.svg" className="img_alice_bob" style={{position:'absolute',top:'90px',left:'190px', width: '650px', height: 'auto'}} alt="Alice & Bob"></img>
       <FontAwesomeIcon icon={faKey} size="3x" color="#FFB800" style={{position:'absolute', left:'120px', top:'80px', height: '600px',transform: 'rotate(225deg)'}} />
       <FontAwesomeIcon icon={faKey} size="3x" color="#FFB800" style={{position:'absolute', left:'810px', top:'60px', height: '600px',transform: 'rotate(225deg)'}} />
       <div className="blackbox_container">

@@ -1,4 +1,5 @@
 import React from "react";
+import Anime from 'react-anime';
 import '../main.css';
 
 class Recap extends React.Component {
@@ -38,9 +39,34 @@ class Recap extends React.Component {
                     </div>
                     </div>
                     <div className="columns is-vcentered container">
-                    <div className="mid_font content column">
-                      <span role="img" aria-label="congrats" className="congrats_emoji2">🎉</span> Congrats <span role="img" aria-label="congrats" className="congrats_emoji1">🎉</span>
-                    </div>
+                    <div class="column"></div>
+                    <div class="column"></div>
+                    <div class="column"></div>
+                        <div class="column congrats_emoji">
+                        <Anime easing="linear" duration="900"
+                            loop={true}
+                            rotate='-30deg'
+                            direction='alternate'
+                        >
+                            <span role="img" aria-label="congrats">🎉</span> 
+                        </Anime>
+                        </div>
+                    
+                        <div class="column mid_font congrats_emoji">
+                            Congrats 
+                        </div>
+                        <div class="column congrats_emoji">
+                        <Anime easing="linear" duration="900"
+                            loop={true}
+                            rotate='-30deg'
+                            direction='alternate'
+                        >
+                            <span role="img" aria-label="congrats" className="congrats_emoji">🎉</span> 
+                        </Anime>
+                        </div>
+                    <div class="column"></div>
+                    <div class="column"></div>
+                    <div class="column"></div>
                     </div>
                     <div className="vertical-spacing"></div>
                     <div className="vertical-spacing"></div>
@@ -54,5 +80,3 @@ class Recap extends React.Component {
 }
 
 export default Recap;
-// Reference:
-// https://react-popup.elazizi.com/react-tooltip/
