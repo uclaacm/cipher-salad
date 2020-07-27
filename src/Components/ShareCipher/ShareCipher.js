@@ -24,7 +24,7 @@ function ShareCipher() {
     if ((hash && !ignoreHash) || mode === 'crack') {
         return (
             <Anime opacity={[0,1]}>
-                <CrackCipher hash={hash} />
+                <CrackCipher hash={!ignoreHash && hash} />
                 <button className='button is-large is-family-secondary has-text-weight-bold' onClick={
                     () => {
                         setMode('home');
