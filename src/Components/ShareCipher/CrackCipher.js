@@ -33,7 +33,7 @@ function CrackCipher(props) {
     }
 
     // if provided a hash, then try to get it by hash.
-    if (props.hash && !ciphertext)
+    if (props.hash && !getStatus && !ciphertext)
         loadCurrentHash();
 
     if (plaintext === null) {
