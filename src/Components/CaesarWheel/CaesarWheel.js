@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from 'react-dom';
 import outerwheel from './outercipherwheel.png';
 import innerwheel from './innercipherwheel.png';
 import './caesarwheel.css'
@@ -8,10 +9,8 @@ class CaesarWheel extends Component {
         super(props);
 
         this.angle = 0;
-
-        let offset = this.props.offset * 360/26;
         this.state = {
-            offset: offset
+            offset: this.props.offset * 360/26,
         };
     }
 
@@ -21,7 +20,7 @@ class CaesarWheel extends Component {
         let coords = this.adjustCoords(e.clientX, e.clientY);
         this.angle = this.atanDegrees(coords.adjustedX, coords.adjustedY);
         
-        let section = document.getElementById('caesar_cipher');
+        let section = ReactDOM.findDOMNode(this);
         section.onmouseup = this.dragMouseUp;
         section.onmousemove = this.dragMouseMove;
     }
@@ -39,19 +38,14 @@ class CaesarWheel extends Component {
     }
 
     dragMouseUp = () => {
-        let section = document.getElementById('caesar_cipher');
+        let section = ReactDOM.findDOMNode(this);
         section.onmouseup = null;
         section.onmousemove = null;
     }
     
-    innerHandleMouseDown = e => {
-        e.preventDefault();
-    }
-
+    //return client coordinates relative to the center of the wheel, which are used for calculating offset angle of wheel
     adjustCoords = (x, y) => {
-        //return client coordinates relative to the center of the wheel, which are used for calculating offset angle of wheel
-        let wheel = document.getElementById('wheel');
-        let rect = wheel.getBoundingClientRect();
+        let rect = ReactDOM.findDOMNode(this).getBoundingClientRect();
         let centerX = rect.left + rect.width/2;
         let centerY = rect.top + rect.height/2;
         let adjustedX = x - centerX;
@@ -66,9 +60,19 @@ class CaesarWheel extends Component {
     render() {
         return (
             <div className="container">
-                <img className="center round" id="wheel" src={outerwheel} alt="Outer wheel of the decoder; click and rotate to change the offset used in the Caesar cipher."
-                    style={{transform: 'rotate(' + this.state.offset + 'deg)'}} onMouseDown={this.dragMouseDown} />
-                <img className="is-overlay center round move-up" src={innerwheel} alt="Inner wheel of the decoder." onMouseDown={this.innerHandleMouseDown}/>
+                <img
+                    className="center round"
+                    src={outerwheel}
+                    alt="Outer wheel of the caesar cipher decoder."
+                    style={{transform: 'rotate(' + this.state.offset + 'deg)'}}
+                    onMouseDown={this.dragMouseDown}
+                />
+                <img
+                    className="is-overlay center round move-up"
+                    src={innerwheel}
+                    alt="Inner wheel of the caesar cipher decoder."
+                    onMouseDown={e => e.preventDefault()}
+                />
             </div>
         );
     }
