@@ -1,0 +1,49 @@
+.typed-cursor{
+    opacity: 1;
+    animation: typedjsBlink 0.7s infinite;
+    -webkit-animation: typedjsBlink 0.7s infinite;
+    animation: typedjsBlink 0.7s infinite;
+}
+@keyframes typedjsBlink{
+    50% { opacity: 0.0; }
+}
+@-webkit-keyframes typedjsBlink{
+    0% { opacity: 1; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1; }
+}
+.typed-fade-out{
+    opacity: 0;
+    transition: opacity .25s;
+    -webkit-animation: 0;
+    animation: 0;
+}
+
+.congrats_emoji{
+  width: 50px;
+  height: auto;
+  max-width: 10rem;
+  height: auto;
+}
+
+.blackbox_container{
+  position: relative;
+  text-align: center;
+  white-space: pre-wrap;
+  height: 90vh;
+  width: 100vw;
+}
+
+.text_narrow{
+  position: absolute;
+  width: 35%;
+}
+
+.text_wide{
+  position: absolute;
+  width: 80%;
+}
+
+span.congrats_emoji {
+  font-size: 40px;
+}

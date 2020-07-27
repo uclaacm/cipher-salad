@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import GetInput from '../Input/Input.js'
 import CaesarWheel from '../CaesarWheel/CaesarWheel.js'
-import caesar from './caesar.png'
-import brutus from './brutus.png'
+import caesar from './caesar.svg'
+import brutus from './brutus.svg'
 import arrow from './arrow.png'
 import "./caesar.css"
 
@@ -31,7 +31,7 @@ class Caesar extends Component {
                 <div className="container">
                     <div className="columns is-centered">
                         <div className="column">
-                            <p className="content is-size-4">The Year is 39 B.C., and Roman general Julius Caesar wants to send a secret note to his friend Brutus.</p>
+                            <p className="content is-size-3">The Year is 39 B.C., and Roman general Julius Caesar wants to send a secret note to his friend Brutus.</p>
                         </div>
                     </div>
                     <div className="columns is-vcentered">
@@ -40,7 +40,7 @@ class Caesar extends Component {
                         </div>
                         <div className="column columns is-centered">
                             <div className="column is-four-fifths">
-                                <p className="content is-size-4">So, he writes a note in code. Each A is turned to D, B turned to E&mdash;every letter is turned to the letter 3 places after it in the alphabet.</p>
+                                <p className="content is-size-4">So, he writes a note in code. Each A is turned to D, B turned to E&mdash;every letter "shifts" to the letter 3 places after it in the alphabet.</p>
                             </div>
                         </div>
                         <div className="column is-one-quarter">
