@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './App.css';
 import './App.sass';
 import Title from "./Components/Title/Title.js";
@@ -28,27 +29,38 @@ class App extends React.Component {
 
   render = () => {
   return (
-    <div className="App">
-      <Title />
-      <Intro />
-      <section className="section">
-        <Caesar />
-      </section>
-      <section className="section">
-        <AtbashInput />
-      </section>
-      <section className="section">
-        <Vigenere />
-      </section>
-      <NameInput handleSubmit={this.handleNameInputSubmit} />
-      <section className="section">
-        <Decoding name={this.state.name}/>
-      </section>
-      <section className="section">
-        <ShareCipher />
-      </section>
-      <Closing />
-    </div>
+    <Router>
+      <Switch>
+        <Route path='/game/:hash?' component={ShareCipher} />
+
+        <Route path='/'>
+          <div className="App">
+            <Title />
+            <Intro />
+            <section className="section">
+              <Caesar />
+            </section>
+            <section className="section">
+              <AtbashInput />
+            </section>
+            <section className="section">
+              <Vigenere />
+            </section>
+            <NameInput handleSubmit={this.handleNameInputSubmit} />
+            <section className="section">
+              <Decoding name={this.state.name}/>
+            </section>
+            <section className="section">
+              <h1>Now, let's play a game!</h1>
+              <Link to='/game/'>
+                Let's go!
+              </Link>
+            </section>
+            <Closing />
+          </div>
+        </Route>
+      </Switch>
+    </Router>
   );
   }
 }
