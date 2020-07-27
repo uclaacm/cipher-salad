@@ -32,7 +32,14 @@ function AtbashIntro() {
                 <div className="column">
                     <div>
                         <button className="button is-size- is-static is-medium has-text-weight-bold is-family-secondary">A</button>
-
+                        <svg width="110" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="arrowhead" refX="10" refY="10" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="20">
+                                    <polyline points="0,0 10,10, 0,20" style={{fill:"none",stroke:"black",strokeWidth:3}} />
+                                </marker>
+                            </defs>
+                            <line x1="0" y1="25" x2="108" y2="25" markerEnd="url(#arrowhead)" style={{fill:"none",stroke:"black",strokeWidth:3}} />
+                        </svg>
                         <button className="button is-static is-medium has-text-weight-bold is-family-secondary">Z</button>
                     </div>
                     <div>
