@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 const CAPITAL_A = 65;
 const CAPITAL_Z = 90;
-const LOWER_A = 97;
 
 // want in state:
 // - offset that can wrap around
@@ -71,7 +70,20 @@ class LetterBox extends Component {
                 let index = (i + this.state.offset) % (letters.length) 
                 index = this.adjustOffset(index, letters.length, 0)
                 let char = letters[index]
-                letterboxes.push(<Letter key={i} char={char}></Letter>)
+                //letterboxes.push(<Letter key={i} char={char}></Letter>)
+                if (i === 0) {
+                    letterboxes.push(<div className="control" key={i}>
+                    <button className="button is-static is-medium" style={{width:58+'px'}} ref={this.props.boxRef}>
+                        <p>{char}</p>
+                    </button>
+                </div>);
+                } else {
+                letterboxes.push(<div className="control" key={i}>
+                    <button className="button is-static is-medium" style={{width:58+'px'}}>
+                        <p>{char}</p>
+                    </button>
+                </div>);
+                }
             }
         }
         return letterboxes
@@ -79,11 +91,11 @@ class LetterBox extends Component {
 
     render() {
         console.log("letterbox offset: " + this.state.offset);
-        return(
+        return (
             <div className="field has-addons" style={{justifyContent: "space-evenly"}}> 
                 {this.writeLetters()}
             </div>
-        )
+        );
     }
 
 }
