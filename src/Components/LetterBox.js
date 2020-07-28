@@ -14,7 +14,7 @@ const CAPITAL_Z = 90;
 function Letter ({ key, char }) {
     return(
     <div className="control" key={key}>
-    <button className="button is-static is-medium" style={{width:58+'px'}}>
+    <button className="button is-static is-medium is-family-secondary has-text-weight-bold" style={{width:58+'px'}}>
         <p>{char}</p>
     </button>
     </div>
@@ -70,20 +70,7 @@ class LetterBox extends Component {
                 let index = (i + this.state.offset) % (letters.length) 
                 index = this.adjustOffset(index, letters.length, 0)
                 let char = letters[index]
-                //letterboxes.push(<Letter key={i} char={char}></Letter>)
-                if (i === 0) {
-                    letterboxes.push(<div className="control" key={i}>
-                    <button className="button is-static is-medium" style={{width:58+'px'}} ref={this.props.boxRef}>
-                        <p>{char}</p>
-                    </button>
-                </div>);
-                } else {
-                letterboxes.push(<div className="control" key={i}>
-                    <button className="button is-static is-medium" style={{width:58+'px'}}>
-                        <p>{char}</p>
-                    </button>
-                </div>);
-                }
+                letterboxes.push(<Letter key={i} char={char}></Letter>)
             }
         }
         return letterboxes
@@ -91,6 +78,13 @@ class LetterBox extends Component {
 
     render() {
         console.log("letterbox offset: " + this.state.offset);
+        if (this.props.top) {
+            return (
+                <div className="field has-addons" style={{justifyContent: "space-evenly", marginBottom: "0px", position: "relative", top: "23px"}}> 
+                    {this.writeLetters()}
+                </div>
+            );
+        } 
         return (
             <div className="field has-addons" style={{justifyContent: "space-evenly"}}> 
                 {this.writeLetters()}

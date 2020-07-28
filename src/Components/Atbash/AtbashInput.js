@@ -1,38 +1,14 @@
 import React, { Component } from "react";
 import LetterBox from "../LetterBox.js";
 import LetterBoxesWithArrows from "../LetterBoxesWithArrows/LetterBoxesWithArrows.js"
-import styled from "styled-components";
-import { ReactComponent as Arrow } from "./arrow.svg";
-import { ReactComponent as Straight } from "./straight.svg";
-import {atbashEncode} from '../../atbashEncode.js'
-
-const divStyle = {
-  padding: "40px",
-};
+import GetInput from '../Input/Input.js'
 
 class Atbash extends Component {
   state = {
     inputStr: null,
     outputStr: null,
   };
-  handleChange = (e) => {
-    this.setState({
-      [e.target.id]: e.target.value,
-    });
-  };
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(this.state)
-
-    var str = this.state.inputStr;
-    let strOut = atbashEncode(str);
-      
-    console.log("strOut is: " + strOut + "\n");
-    this.setState({
-      outputStr: strOut
-    });
-  }
-
+  
   backwardsAlpha = () => {
     var i;
     let letters = "";
@@ -46,52 +22,51 @@ class Atbash extends Component {
   render() {
     return (
       <div className="container">
-          <p className="subtitle">
-            So in Caesar cipher, each letter in the alphabet turned into the
-            letter x places after it.
-          </p>
-          <LetterBoxesWithArrows />
-          <br />
-          <p className="subtitle">
-            Some Hebrew guy thought he could do the Greeks one better, and
-            flipped his alphabet so they could just do this:
-          </p>
-          <LetterBox default={true} offset={0} length={11}></LetterBox>
-          <div>
-            <Straight />
-            <Straight />
-            <Straight />
-            <Straight />
-            <Straight />
+        <div className="columns is-vcentered is-variable is-8 mb-5">
+          <div className="column is-two-thirds">
+            <LetterBoxesWithArrows 
+              numArrows={5} 
+              shift={3}
+              letterboxLength={11} 
+              bottomLetters={"ABCDEF"}/>
           </div>
-          <LetterBox
-            default={false}
-            offset={0}
-            length={17}
-            letters={this.backwardsAlpha()}
-          >
-            {" "}
-          </LetterBox>
-          <p className="subtitle">
-            {" "}
+          <div className="column">
+            <p className="is-size-5">
+              So in Caesar cipher, each letter in the alphabet turned into the
+              letter x places after it.
+            </p>
+          </div>
+        </div>
+        <div className="columns is-vcentered is-variable is-8 mb-5">
+          <div className="column">
+              <p className="is-size-5">
+                A group of Hebrew people thought they could do the Greeks one better, and
+                flipped their alphabet so they could just do this:
+              </p>
+            </div>
+          <div className="column is-two-thirds">
+            <LetterBoxesWithArrows 
+              numArrows={6} 
+              shift={0} 
+              letterboxLength={11}
+              bottomLetters={"ZYXWVU"}/>
+          </div>
+        </div>
+          <p className="is-size-5 mb-6">
             This is the Atbash cipher! It came from Hebrew cryptographers, but
-            we can use it in English too.
+            we can use it in English too. Try it yourself!
           </p>
-          <p className="subtitle"> Try it yourself! </p>
-        <p class="title">ATBASH CIPHER: </p>
-        <LetterBox default={true} offset={0}></LetterBox>
+        <p class="title">Atbash Cipher: </p>
+        <LetterBox default={true} 
+          offset={0}></LetterBox>
         <LetterBox
           default={false}
           offset={0}
           length={17}
           letters={this.backwardsAlpha()}
         ></LetterBox>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="input">Input your plain text: </label>
-          <input type="text" id="inputStr" onChange={this.handleChange} />
-          <button>Submit</button>
-        </form>
-        <p>Your ciphered Atbash text is: {this.state.outputStr}</p>
+        <GetInput
+            cipher="atbash" />
         
       </div>
     );
