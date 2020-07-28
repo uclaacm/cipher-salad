@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import LetterBox from "../LetterBox.js";
 
 function LetterBoxesWithArrows(props) {
