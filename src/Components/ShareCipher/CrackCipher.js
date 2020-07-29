@@ -15,7 +15,7 @@ function CrackCipher(props) {
     const [plaintext, setPlaintext] = useState(null);               // plaintext of the ciphered message
     const [ciphertext, setCiphertext] = useState(null);             // current guess at the deciphered message
     const [guess, setGuess] = useState('Type your guess!');         // current guess
-    const [getStatus, setGetStatus] = useState(0);              // 0 = no get in progress, 1 = get in progress, 2 = failed
+    const [getStatus, setGetStatus] = useState(0);                  // 0 = no get in progress, 1 = get in progress, 2 = failed
 
     // if provided a hash, then try to get the described cipher
     const loadCurrentHash = async () => {

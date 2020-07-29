@@ -34,7 +34,7 @@ class App extends React.Component {
   return (
     <Router>
       <Switch>
-        <Route path='/game/:hash?' component={ShareCipher} />
+        <Route path='/game' component={ShareCipher} />
 
         <Route path='/'>
           <div className="App">

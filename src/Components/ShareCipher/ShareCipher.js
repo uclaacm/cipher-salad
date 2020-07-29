@@ -1,48 +1,53 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Link, useRouteMatch, Switch } from 'react-router-dom';
 import Anime from 'react-anime';
 import CreateCipher from './CreateCipher';
 import CrackCipher from './CrackCipher';
 
 // ShareCipher drives the interactive "sharable cipher"
-// portion of the module. Uses useParams for acquisition
-// of an existing hash via sharable link.
+// portion of the module.
 function ShareCipher() {
-    const { hash } = useParams();
-    const [mode, setMode] = useState('');
-    const [ignoreHash, setIgnoreHash] = useState(false);
+    let match = useRouteMatch();
 
-    if (mode === 'create') {
-        return (
-            <Anime opacity={[0,1]}>
-                <CreateCipher />
-                <button className='button is-large is-family-secondary has-text-weight-bold' onClick={() => setMode('home')}>Go back</button>
-            </Anime>
-        );
-    }
-    
-    if ((hash && !ignoreHash) || mode === 'crack') {
-        return (
-            <Anime opacity={[0,1]}>
-                <CrackCipher hash={!ignoreHash && hash} />
-                <button className='button is-large is-family-secondary has-text-weight-bold' onClick={
-                    () => {
-                        setMode('home');
-                        setIgnoreHash(true);
-                    }
-                }>Go back</button>
-            </Anime>
-        );
-    }
-    
     return (
-        <>
-            <h1 className='title'>Teach LA's Cipher Potluck</h1>
-            <div className='row_space'>
-                <button className='button is-large is-family-secondary has-text-weight-bold' onClick={() => setMode('create')}>Create a cipher!</button>
-                <button className='button is-large is-family-secondary has-text-weight-bold' onClick={() => setMode('crack')}>Crack a cipher!</button>
-            </div>
-        </>
+        <Router>
+            <Switch>
+                <Route path={`${match.path}/create`}>
+                    <Anime opacity={[0,1]}>
+                        <CreateCipher />
+
+                        <Link to={match.path}>
+                            <button className='button is-large is-family-secondary has-text-weight-bold'>Go back</button>
+                        </Link>
+                    </Anime>    
+                </Route>
+
+                <Route path={`${match.path}/crack/:hash?`}>
+                    <Anime opacity={[0,1]}>
+                        <CrackCipher />
+
+                        <Link to={match.path}>
+                            <button className='button is-large is-family-secondary has-text-weight-bold'>Go back</button>
+                        </Link>
+                    </Anime>
+                </Route>
+
+                <Route path={match.path}>
+                    <>
+                        <h1 className='title'>Teach LA's Cipher Potluck</h1>
+                        <div className='row_space'>
+                            <Link to={`${match.path}/create`}>
+                                <button className='button is-large is-family-secondary has-text-weight-bold'>Create a cipher!</button>
+                            </Link>
+
+                            <Link to={`${match.path}/crack`}>
+                                <button className='button is-large is-family-secondary has-text-weight-bold'>Crack a cipher!</button>
+                            </Link>
+                        </div>
+                    </>
+                </Route>
+            </Switch>
+        </Router>
     );
 }
 
