@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { getCipher } from '../../firestore';
+import { useParams } from 'react-router-dom';
 import Anime from 'react-anime';
+import { getCipher } from '../../firestore';
 import { caesarShift } from '../../caesarShift';
 
 // CrackCipher is the interactive module for cracking a
 // sharable cipher. If props.hash is provided, then it
 // will automatically try to load the cipher pointed to
 // by the provided hash.
-function CrackCipher(props) {
+function CrackCipher() {
+    let { hash } = useParams();
+
     // the current cipher hash
-    const [currentHash, setCurrentHash] = useState(props.hash || 'Input a friend\'s cipher code!');
+    const [currentHash, setCurrentHash] = useState(hash || 'Input a friend\'s cipher code!');
 
     const [shamt, setShamt] = useState(0);                          // current shift amount
     const [plaintext, setPlaintext] = useState(null);               // plaintext of the ciphered message
@@ -33,9 +36,10 @@ function CrackCipher(props) {
     }
 
     // if provided a hash, then try to get it by hash.
-    if (props.hash && !getStatus && !ciphertext)
+    if (hash && !getStatus && !ciphertext)
         loadCurrentHash();
 
+    // If the user navigated directly to this page
     if (plaintext === null) {
         return (
             <div className='container'>
@@ -57,6 +61,7 @@ function CrackCipher(props) {
         );
     }
     
+    // if the user was provided a valid hash
     return (
         <div className='container'>
             <h1>Let's get cracking!</h1>

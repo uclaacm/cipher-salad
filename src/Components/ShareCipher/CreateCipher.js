@@ -41,7 +41,7 @@ function CreateCipher() {
                     let created = await createCipher({ plaintext, shamt });
                     if (created) {
                         setCurrentHash(String(created));
-                        setCurrentHash(`${SERVER}/game/${created}`);
+                        setCurrentHash(`${SERVER}/game/solve/${created}`);
                         setCreateStatus(2);
                         return;
                     }

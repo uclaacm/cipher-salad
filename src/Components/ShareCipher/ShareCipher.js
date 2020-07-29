@@ -22,7 +22,7 @@ function ShareCipher() {
                     </Anime>    
                 </Route>
 
-                <Route path={`${match.path}/crack/:hash?`}>
+                <Route path={`${match.path}/solve/:hash?`}>
                     <Anime opacity={[0,1]}>
                         <CrackCipher />
 
@@ -40,7 +40,7 @@ function ShareCipher() {
                                 <button className='button is-large is-family-secondary has-text-weight-bold'>Create a cipher!</button>
                             </Link>
 
-                            <Link to={`${match.path}/crack`}>
+                            <Link to={`${match.path}/solve`}>
                                 <button className='button is-large is-family-secondary has-text-weight-bold'>Crack a cipher!</button>
                             </Link>
                         </div>
