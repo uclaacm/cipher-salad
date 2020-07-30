@@ -1,0 +1,17 @@
+@media (min-width: 768px) {
+    .position-img {
+        position: relative;
+        bottom: 2.75em; 
+    }
+    .position-letter-encodings {
+        position: relative;
+        bottom: 6em;
+    }
+}
+
+@media (min-width: 950px) {
+    .position-img {
+        left: 8.5em;
+    }
+}
+

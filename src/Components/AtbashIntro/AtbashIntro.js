@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import hieroglyph1 from './hieroglyphs1.svg'
 import hieroglyph2 from './hieroglyphs2.svg'
+import LetterEncoding from '../LetterEncoding/LetterEncoding.js'
+import './atbashIntro.css'
 
 function AtbashIntro() {
     return (
@@ -11,47 +13,38 @@ function AtbashIntro() {
                 </div>
                 <div className="column">
                     <div className="content"> 
-                        <p className="is-size-5">Cryptography is ancient, and has existed as long as people have wanted to communicate in secret.</p>
-                        <p className="is-size-5">One of the oldest ciphers was designed before the English alphabet, but we can easily translate it over: the Atbash cipher</p>
+                        <p className="is-size-5">
+                            Cryptography is ancient, and has existed as long as people have wanted to 
+                            communicate in secret.
+                        </p>
+                        <p className="is-size-5">
+                            One of the oldest ciphers was designed before the English alphabet, but we can 
+                            easily translate it over: the Atbash cipher
+                        </p>
                     </div>
                 </div>
             </div>
             <div className="column is-one-third">
-                <img src={hieroglyph2} alt="more ancient hieroglyphs" style={{position: "relative", bottom: "42px", left: "150px"}}/>
+                <img src={hieroglyph2} alt="more ancient hieroglyphs" className="position-img" />
             </div>
             <div className="columns">
                 <div className="column is-two-thirds">
                     <div className="content">
                         <p className="is-size-5">
-                            Originally made for Hebrew, people would replace the first letter, aleph, with the last letter tav. The 
-                            second letter, bet, would be replaced with the second-to-last letter, shin...
+                            Originally made for Hebrew, people would replace the first letter, aleph, with 
+                            the last letter tav. The second letter, bet, would be replaced with the 
+                            second-to-last letter, shin...
                         </p>
-                        <p className="is-size-5">Can you guess how these letters would match up in an English Atbash cipher?</p>
+                        <p className="is-size-5">
+                            Can you guess how these letters would match up in an 
+                            English Atbash cipher?
+                        </p>
                     </div>
                 </div>
-                <div className="column">
-                    <div>
-                        <button className="button is-size- is-static is-medium has-text-weight-bold is-family-secondary">A</button>
-                        <svg width="110" height="50" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <marker id="arrowhead" refX="10" refY="10" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="20">
-                                    <polyline points="0,0 10,10, 0,20" style={{fill:"none",stroke:"black",strokeWidth:3}} />
-                                </marker>
-                            </defs>
-                            <line x1="0" y1="25" x2="108" y2="25" markerEnd="url(#arrowhead)" style={{fill:"none",stroke:"black",strokeWidth:3}} />
-                        </svg>
-                        <button className="button is-static is-medium has-text-weight-bold is-family-secondary">Z</button>
-                    </div>
-                    <div>
-                        <button className="button is-static is-medium has-text-weight-bold is-family-secondary">B</button>
-
-                        <button className="button is-static is-medium has-text-weight-bold is-family-secondary">&nbsp;</button>
-                    </div>
-                    <div>
-                        <button className="button is-static is-medium has-text-weight-bold is-family-secondary">C</button>
-
-                        <button className="button is-static is-medium has-text-weight-bold is-family-secondary">&nbsp;</button>
-                    </div>
+                <div className="column position-letter-encodings">
+                    <LetterEncoding decodedLetter="A" encodedLetter="Z" hoverReveal={false} /> 
+                    <LetterEncoding decodedLetter="B" encodedLetter="Y" hoverReveal={true}/>
+                    <LetterEncoding decodedLetter="C" encodedLetter="X" hoverReveal={true}/>
                 </div>
             </div>
         </section>

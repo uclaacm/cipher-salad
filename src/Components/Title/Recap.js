@@ -9,7 +9,7 @@ class Recap extends React.Component {
             <div className="container">
                 <div className="column">
                     <div className="columns is-vcentered container">
-                    <div className="mid_font content-custom-custom column container">
+                    <div className="mid_font content-custom column container">
                         <br />
                         Today we learned about 3 different ciphers: 
                         <ul>
