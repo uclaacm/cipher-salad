@@ -3,6 +3,7 @@ import '../main.css';
 
 function Title(props) {
     return (
+      <div>
         <div className="hero is-fullheight title_img">
           <div className="hero-body">
             <div className="container">
@@ -13,6 +14,7 @@ function Title(props) {
             </div>
           </div>
         </div>
+      </div>
     );
 }
 
