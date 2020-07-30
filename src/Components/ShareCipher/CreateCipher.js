@@ -21,7 +21,7 @@ function CreateCipher() {
 
     return (
         <div className='container'>
-            <h1 className='title'>Create a cipher!</h1>
+            <h1 className='title is-size-1'>Create a cipher!</h1>
             <p className='is-size-4'>Input your plaintext...</p>
             <input className='input' type='text' value={plaintext} onChange={(e) => {e.preventDefault(); setPlaintext(e.target.value)}} />
             <p className='is-size-4'>{shamt ? `Then shift it ${shamt} letters over...` : 'Then choose your shift amount!'}</p>

@@ -11,7 +11,7 @@ import { caesarShift } from '../../caesarShift';
 function CrackCipher() {
     let { hash } = useParams();
 
-    // the current cipher hash
+    // the current cipher hash.
     const [currentHash, setCurrentHash] = useState(hash || 'Input a friend\'s cipher code!');
 
     const [shamt, setShamt] = useState(0);                          // current shift amount
@@ -20,7 +20,7 @@ function CrackCipher() {
     const [guess, setGuess] = useState('Type your guess!');         // current guess
     const [getStatus, setGetStatus] = useState(0);                  // 0 = no get in progress, 1 = get in progress, 2 = failed
 
-    // if provided a hash, then try to get the described cipher
+    // load the described cipher.
     const loadCurrentHash = async () => {
         if (getStatus === 1)
             return;
@@ -35,7 +35,7 @@ function CrackCipher() {
         }
     }
 
-    // if provided a hash, then try to get it by hash.
+    // if provided a hash, then try to load it.
     if (hash && !getStatus && !ciphertext)
         loadCurrentHash();
 
@@ -52,7 +52,8 @@ function CrackCipher() {
                     }
                 </button>
 
-                {getStatus === 2 &&
+                {
+                getStatus === 2 &&
                 <Anime opacity={[0,1]}>
                     <p>Failed to get the cipher... Did you type it in correctly?</p>
                 </Anime>
