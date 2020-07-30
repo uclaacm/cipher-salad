@@ -69,7 +69,8 @@ class Caesar extends Component {
                         onOffsetChange={this.handleOffsetChangeWheel} 
                         offset = {this.state.offset} />
                     <GetInput
-                        offset={this.state.offset} />
+                        offset={this.state.offset}
+                        cipher="ceasar" />
                 </div>
             </div>
         );
