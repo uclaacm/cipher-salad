@@ -17,25 +17,29 @@ function ShareCipher() {
                     <Route path={`${match.path}/create`}>
                         <Anime opacity={[0,1]}>
                             <CreateCipher />
-                            <Link to={match.path} className='button is-large is-family-secondary has-text-weight-bold'>
-                                Go back
-                            </Link>
+                            <div className='columns is-centered'>
+                                <Link to={match.path} className='button is-large is-family-secondary has-text-weight-bold'>
+                                    Go back
+                                </Link>
+                            </div>
                         </Anime>
                     </Route>
 
                     <Route path={`${match.path}/solve/:hash?`}>
                         <Anime opacity={[0,1]}>
                             <CrackCipher />
-                            <Link to={match.path} className='button is-large is-family-secondary has-text-weight-bold'>
-                                Go back
-                            </Link>
+                            <div className='columns is-centered'>
+                                <Link to={match.path} className='button is-large is-family-secondary has-text-weight-bold'>
+                                    Go back
+                                </Link>
+                            </div>
                         </Anime>
                     </Route>
 
                     <Route path={match.path}>
                         <section className='hero is-fullheight'>
                             <div className='hero-body'>
-                                <div className='container columns is-centered is-vcentered'>
+                                <div className='columns is-centered is-vcentered'>
                                     <div className='column'>
                                         <figure className='image is-square'>
                                             <img src={bbq} alt='person barbecuing' />
@@ -43,7 +47,7 @@ function ShareCipher() {
                                     </div>
 
                                     <div className='column'>
-                                        <h1 className='title is-size-1'>Teach LA's Cipher Cookout</h1>
+                                        <h1 className='title is-size-1'>Teach LA's Cipher Salad Bar</h1>
 
                                         <Link to={`${match.path}/create`} className='button is-large is-family-secondary has-text-weight-bold'>
                                             Create a cipher!
