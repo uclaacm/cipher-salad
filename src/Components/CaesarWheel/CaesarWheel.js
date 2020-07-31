@@ -9,8 +9,9 @@ class CaesarWheel extends Component {
         super(props);
 
         this.angle = 0;
+        let initOffset = this.props.offset ? this.props.offset * 360/26 : 0;
         this.state = {
-            offset: this.props.offset * 360/26,
+            offset: initOffset,
         };
     }
 
@@ -32,9 +33,11 @@ class CaesarWheel extends Component {
         this.angle = newAngle;
         this.setState({offset: newOffset}); 
         
-        let caesarOffset = newOffset * 26/360;
-        caesarOffset = Math.round(caesarOffset);
-        this.props.onOffsetChange(caesarOffset);
+        if (this.props.onOffsetChange) {
+            let caesarOffset = newOffset * 26/360;
+            caesarOffset = Math.round(caesarOffset);
+            this.props.onOffsetChange(caesarOffset);    
+        }
     }
 
     dragMouseUp = () => {
@@ -61,14 +64,14 @@ class CaesarWheel extends Component {
         return (
             <div className="container">
                 <img
-                    className="center round"
+                    className="is-block center round"
                     src={outerwheel}
                     alt="Outer wheel of the caesar cipher decoder."
                     style={{transform: 'rotate(' + this.state.offset + 'deg)'}}
                     onMouseDown={this.dragMouseDown}
                 />
                 <img
-                    className="is-overlay center round move-up"
+                    className="is-overlay is-block center round"
                     src={innerwheel}
                     alt="Inner wheel of the caesar cipher decoder."
                     onMouseDown={e => e.preventDefault()}
