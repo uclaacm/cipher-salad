@@ -12,7 +12,7 @@ function CrackCipher() {
     let { hash } = useParams();
 
     // the current cipher hash.
-    const [currentHash, setCurrentHash] = useState(hash || 'Input a friend\'s cipher code!');
+    const [currentHash, setCurrentHash] = useState(hash);
 
     const [shamt, setShamt] = useState(0);                          // current shift amount
     const [plaintext, setPlaintext] = useState(null);               // plaintext of the ciphered message
@@ -43,20 +43,27 @@ function CrackCipher() {
     if (plaintext === null) {
         return (
             <div className='container'>
-                <input className='input' type='text' name='hash' value={currentHash} onChange={e => setCurrentHash(e.target.value)} />
+                <input
+                    className='input'
+                    type='text'
+                    name='hash'
+                    placeholder="Input a friend's cipher code!"
+                    value={currentHash}
+                    onChange={e => setCurrentHash(e.target.value)}
+                />
                 <button className='button' onClick={loadCurrentHash}>
                     {
-                    getStatus === 1 ?
-                    "Loading cipher..." :
-                    "Load the cipher!"
+                        getStatus === 1 ?
+                        "Loading cipher..." :
+                        "Load the cipher!"
                     }
                 </button>
 
                 {
-                getStatus === 2 &&
-                <Anime opacity={[0,1]}>
-                    <p>Failed to get the cipher... Did you type it in correctly?</p>
-                </Anime>
+                    getStatus === 2 &&
+                    <Anime opacity={[0,1]}>
+                        <p>Failed to get the cipher... Did you type it in correctly?</p>
+                    </Anime>
                 }
             </div>
         );

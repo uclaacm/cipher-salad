@@ -4,6 +4,7 @@ import Anime from 'react-anime';
 import CreateCipher from './CreateCipher';
 import CrackCipher from './CrackCipher';
 import bbq from './barbecue.svg';
+import './shareCipher.scss';
 
 // ShareCipher drives the interactive "sharable cipher"
 // portion of the module.
@@ -12,11 +13,16 @@ function ShareCipher() {
 
     return (
         <Router>
-            <div className='container'>
+            <div className='share-container'>
                 <Switch>
                     <Route path={`${match.path}/create`}>
                         <Anime opacity={[0,1]}>
+                            <div className='my-5'></div>
+                            
                             <CreateCipher />
+                            
+                            <div className='my-5'></div>
+
                             <div className='columns is-centered'>
                                 <Link to={match.path} className='button is-large is-family-secondary has-text-weight-bold'>
                                     Go back
@@ -27,7 +33,12 @@ function ShareCipher() {
 
                     <Route path={`${match.path}/solve/:hash?`}>
                         <Anime opacity={[0,1]}>
+                            <div className='my-5'></div>
+
                             <CrackCipher />
+
+                            <div className='my-5'></div>
+
                             <div className='columns is-centered'>
                                 <Link to={match.path} className='button is-large is-family-secondary has-text-weight-bold'>
                                     Go back

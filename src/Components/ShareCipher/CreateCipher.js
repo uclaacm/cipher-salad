@@ -23,6 +23,7 @@ function CreateCipher() {
     return (
         <div className='container'>
             <h1 className='title is-size-1'>Create a cipher!</h1>
+            
             <div className='columns is-centered is-vcentered'>
                 <div className='column'>
                     <p className='is-size-4'>Input your plaintext...</p>
