@@ -64,7 +64,7 @@ class LetterEncoding extends Component {
                 <svg xmlns="http://www.w3.org/2000/svg" width="110" height="25">
                     <defs>
                         <marker id="arrowhead" refX="10" refY="10" markerUnits="userSpaceOnUse" 
-                            markerWidth="12" markerHeight="20">
+                            markerWidth="12" markerHeight="20" orient="auto">
                             <polyline points="0,0 10,10, 0,20" style={{fill:"none",stroke:"black",strokeWidth:3}} />
                         </marker>
                     </defs>
