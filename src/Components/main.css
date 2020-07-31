@@ -18,7 +18,7 @@ body{
     width: 60%;
 }
 
-.content{
+.content-custom{
     color: cipher-gold;
     font-weight: bold;
     text-align: center;
@@ -49,11 +49,7 @@ body{
     font-size: 2rem;
 }
 
-.button{
-    background-color: #FFB800;
-}
-
-.button:hover{
+.button-hover-border:hover{
     border-color: lightgrey;
     border-width: 0.3rem;
 }

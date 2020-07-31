@@ -12,6 +12,7 @@ import Blackbox from "./Components/Title/Blackbox.js";
 import Decoding from './Components/Decoding/Decoding.js';
 import NameInput from './Components/NameInput/NameInput.js';
 import Intro from './Components/Intro/Intro.js'
+import AtbashIntro from './Components/AtbashIntro/AtbashIntro.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -37,6 +38,7 @@ class App extends React.Component {
         <Caesar />
       </section>
       <section className="section">
+        <AtbashIntro />
         <AtbashInput />
       </section>
       <section className="section">

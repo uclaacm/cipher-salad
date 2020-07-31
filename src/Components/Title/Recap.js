@@ -9,7 +9,7 @@ class Recap extends React.Component {
             <div className="container">
                 <div className="column">
                     <div className="columns is-vcentered container">
-                    <div className="mid_font content column container">
+                    <div className="mid_font content-custom column container">
                         <br />
                         Today we learned about 3 different ciphers: 
                         <ul>
@@ -20,21 +20,21 @@ class Recap extends React.Component {
                     </div>
                     </div>
                     <div className="columns is-vcentered container">
-                    <div className="mid_font content column">
+                    <div className="mid_font content-custom column">
                         Computers are key to both encryption<span role="img" aria-label="lock">🔒</span> and decryption<span role="img" aria-label="unlock">🔓</span>. 
                         In addition to the 3 ciphers, many more are used today 
                         thanks to how fast<span role="img" aria-label="fast">⏱</span> computers can crunch the combinations. 
                     </div>
                     </div> 
                     <div className="columns is-vcentered container">
-                    <div className="mid_font content column">
+                    <div className="mid_font content-custom column">
                         Many ciphers, similar to the Vigenere cipher, 
                         use keys, but with even more complex math <span role="img" aria-label="math">➗</span><span role="img" aria-label="math">➖</span><span role="img" aria-label="math">✖️</span><span role="img" aria-label="math">➕</span>. 
                         That’s where ciphers start to turn in cryptography<span role="img" aria-label="cryptography">🔐</span>. 
                     </div>
                     </div> 
                     <div className="columns is-vcentered container">
-                    <div className="mid_font content column">
+                    <div className="mid_font content-custom column">
                         Today, you’ve made the first step in learning about them! 
                     </div>
                     </div>

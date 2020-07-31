@@ -131,7 +131,7 @@ class DecodingOptions extends Component {
                         or crack the cipher altogether! (This is what was used to break the Enigma Machine's encryption in WWII!)
                     </p>
                     <p className="is-size-4 mt-5 mb-1">It might be tedious to decode messages on your own, but watch how fast a computer can crack this!</p>
-                    <button className="button is-large is-family-secondary has-text-weight-bold" onClick={this.startCorrectDecodingClick}>Go</button>
+                    <button className="button button-hover-border is-large is-family-secondary has-text-weight-bold" onClick={this.startCorrectDecodingClick}>Go</button>
                 </Anime>
             );
         }

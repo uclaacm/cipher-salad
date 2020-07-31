@@ -1,0 +1,25 @@
+@media (min-width: 768px) {
+    .position-img {
+        position: relative;
+        bottom: 2.75em; 
+    }
+    .position-letter-encodings {
+        position: relative;
+        bottom: 8em;
+    }
+}
+
+@media (min-width: 950px) {
+    .position-img {
+        left: 8.5em;
+    }
+}
+
+.button-height {
+    height: 2em;
+}
+
+.center-content {
+    justify-content: center; 
+    align-items: center;
+}
