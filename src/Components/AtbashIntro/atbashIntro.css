@@ -5,7 +5,7 @@
     }
     .position-letter-encodings {
         position: relative;
-        bottom: 6em;
+        bottom: 8em;
     }
 }
 
@@ -15,3 +15,11 @@
     }
 }
 
+.button-height {
+    height: 2em;
+}
+
+.center-content {
+    justify-content: center; 
+    align-items: center;
+}

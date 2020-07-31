@@ -1,5 +1,15 @@
 import React, { Component } from 'react'
-import Anime from 'react-anime'
+import Anime, { anime } from 'react-anime'
+
+    function LetterButton(props) {
+        return (
+            <button className="button button-height is-static has-text-weight-bold is-family-secondary px-4 is-size-2"
+                style={props.shouldHandleMouseEnter ? {pointerEvents: "auto"} : {}}
+                onMouseEnter={props.shouldHandleMouseEnter ? props.handleMouseEnter : null}>
+                {props.children}
+            </button>
+        );
+    }
 
 class LetterEncoding extends Component {
     constructor(props) {
@@ -11,44 +21,65 @@ class LetterEncoding extends Component {
     }
 
     handleMouseEnter = () => {
-        this.setState({
-            showLetter: true
+        if (!this.state.showLetter) {
+            this.setState({
+                showLetter: true
+            });
+            this.animateArrow();
+        }
+    }
+
+    animateArrow = () => {
+        anime({
+            targets: [`#arrow${this.props.num}`],
+            x2: '98%',
+            duration: 800,
+            easing: "easeOutCubic"
         });
     }
 
     render() {
-        let boxStyle = {height: "2em"};
-        let box = <button className="button is-static has-text-weight-bold is-family-secondary px-4 is-size-2" 
-            style={boxStyle}>{this.props.encodedLetter}
-        </button>;
-        let finalBox = <Anime>{box}</Anime>;
+        let initX2;
+        let encodedLetter;
+        let arrowHead = "url(#arrowhead)";
         if (this.props.hoverReveal) {
-            boxStyle = Object.assign(boxStyle, {color: 'rgba(0,0,0,0)'});
+            initX2 = "0%";
             if (this.state.showLetter) {
-                finalBox = <Anime color={["rgba(0,0,0,0)","rgba(0,0,0,0.5)"]}>{box}</Anime>;
-            } 
+                encodedLetter = <Anime opacity={[0,1]} duration="5000" delay={450}>{this.props.encodedLetter}</Anime>;
+            } else {
+                encodedLetter = '\u00A0';
+                arrowHead = "";
+            }
+        } else {
+            initX2 = "98%";
+            encodedLetter = this.props.encodedLetter;
         }
-        
-        
         return (
-            <div className="mb-5 is-flex" style={{justifyContent:"center"}}>
-                <button className="button has-text-weight-bold is-family-secondary px-4 is-size-2" 
-                    style={{height: "2em"}} onMouseEnter={this.handleMouseEnter}>{this.props.decodedLetter}
-                </button>
-                <svg width="110" height="80" xmlns="http://www.w3.org/2000/svg">
+            <div className="mb-5 is-flex center-content">
+                <LetterButton 
+                    shouldHandleMouseEnter={this.props.hoverReveal}
+                    handleMouseEnter={this.handleMouseEnter}>
+                    {this.props.decodedLetter}
+                </LetterButton>
+                <svg xmlns="http://www.w3.org/2000/svg" width="110" height="25">
                     <defs>
                         <marker id="arrowhead" refX="10" refY="10" markerUnits="userSpaceOnUse" 
                             markerWidth="12" markerHeight="20">
                             <polyline points="0,0 10,10, 0,20" style={{fill:"none",stroke:"black",strokeWidth:3}} />
                         </marker>
                     </defs>
-                    <line x1="0" y1="40" x2="108" y2="40" markerEnd="url(#arrowhead)" 
+                    <line id={this.props.num ? `arrow${this.props.num}` : null} x1="0" y1="50%" x2={initX2} y2="50%" markerEnd={arrowHead} 
                         style={{fill:"none",stroke:"black",strokeWidth:3}} />
                 </svg>
-                {finalBox}
+                <LetterButton 
+                    shouldHandleMouseEnter={false}
+                    handleMouseEnter={this.handleMouseEnter}>
+                    {encodedLetter}
+                </LetterButton>
             </div>
         );
     }
 }
 
 export default LetterEncoding;
+

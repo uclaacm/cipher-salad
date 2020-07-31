@@ -42,9 +42,10 @@ function AtbashIntro() {
                     </div>
                 </div>
                 <div className="column position-letter-encodings">
-                    <LetterEncoding decodedLetter="A" encodedLetter="Z" hoverReveal={false} /> 
-                    <LetterEncoding decodedLetter="B" encodedLetter="Y" hoverReveal={true}/>
-                    <LetterEncoding decodedLetter="C" encodedLetter="X" hoverReveal={true}/>
+                    <LetterEncoding decodedLetter="A" encodedLetter="Z" hoverReveal={false}/> 
+                    <LetterEncoding decodedLetter="B" encodedLetter="Y" hoverReveal={true} num="1"/>
+                    <LetterEncoding decodedLetter="C" encodedLetter="X" hoverReveal={true} num="2"/>
+                    <p className="is-size-6">Hover over the letters to reveal!</p>
                 </div>
             </div>
         </section>
