@@ -33,7 +33,7 @@ class Blackbox extends React.Component {
         let currStep = this.state.currStep;
         if(currStep !== 1){
           return (
-            <button className="button is-rounded is-light is-medium has-text-weight-bold" onClick={this._prev}> Go Back </button>
+            <button className="button button-hover-border is-rounded is-light is-medium has-text-weight-bold" onClick={this._prev}> Go Back </button>
           )
         }
         return null;
@@ -44,7 +44,7 @@ class Blackbox extends React.Component {
         let currStep = this.state.currStep;
         if(currStep < 7 ){
           return(
-            <button className="button is-rounded is-family-secondary is-medium has-text-weight-bold" onClick={this._next}>
+            <button className="button button-hover-border is-rounded is-family-secondary is-medium has-text-weight-bold" onClick={this._next}>
             <Anime easing="linear" delay={DELAY} loop={true} direction="alternate" opacity={['100%', '20%']}>
               Next
             </Anime>

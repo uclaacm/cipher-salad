@@ -12,8 +12,9 @@ import Typing from "./Components/Title/Typing.js";
 import Blackbox from "./Components/Title/Blackbox.js";
 import Decoding from './Components/Decoding/Decoding.js';
 import NameInput from './Components/NameInput/NameInput.js';
-import Intro from './Components/Intro/Intro.js';
+import Intro from './Components/Intro/Intro.js'
 import ShareCipher from './Components/ShareCipher/ShareCipher.js';
+import AtbashIntro from './Components/AtbashIntro/AtbashIntro.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -31,49 +32,50 @@ class App extends React.Component {
   }
 
   render = () => {
-  return (
-    <Router>
-      <Switch>
-        <Route path='/game' component={ShareCipher} />
+    return (
+      <Router>
+        <Switch>
+          <Route path='/game' component={ShareCipher} />
 
-        <Route path='/'>
-          <div className="App">
-            <Title />
-            <Intro />
-            <section className="section">
-              <Caesar />
-            </section>
-            <section className="section">
-              <AtbashInput />
-            </section>
-            <section className="section">
-              <Vigenere />
-            </section>
-            <Typing strings={[
-              'ciphers are cool',
-              'xrksvih ziv xllo (atbash)',
-              'DJQIFST BSF DPPM (caesar)', // shifted by one
-              'mmnripc kvc msmv (vigenere)', // encoded by key "key"
-              '******* *** ****'
-            ]}/>
-            <Recap />
-            <Blackbox />
-            <NameInput handleSubmit={this.handleNameInputSubmit} />
-            <section className="section">
-              <Decoding name={this.state.name}/>
-            </section>
-            <section className="section">
-              <h1>Now, let's play a game!</h1>
-              <Link to='/game/'>
-                Let's go!
-              </Link>
-            </section>
-            <Closing />
-          </div>
-        </Route>
-      </Switch>
-    </Router>
-  );
+          <Route path='/'>
+            <div className="App">
+              <Title />
+              <Intro />
+              <section className="section">
+                <Caesar />
+              </section>
+              <section className="section">
+                <AtbashIntro />
+                <AtbashInput />
+              </section>
+              <section className="section">
+                <Vigenere />
+              </section>
+              <Typing strings={[
+                'ciphers are cool',
+                'xrksvih ziv xllo (atbash)',
+                'DJQIFST BSF DPPM (caesar)', // shifted by one
+                'mmnripc kvc msmv (vigenere)', // encoded by key "key"
+                '******* *** ****'
+              ]}/>
+              <Recap />
+              <Blackbox />
+              <NameInput handleSubmit={this.handleNameInputSubmit} />
+              <section className="section">
+                <Decoding name={this.state.name}/>
+              </section>
+              <section className="section">
+                <h1>Now, let's play a game!</h1>
+                <Link to='/game/'>
+                  Let's go!
+                </Link>
+              </section>
+              <Closing />
+            </div>
+          </Route>
+        </Switch>
+      </Router>
+    );
   }
 }
 

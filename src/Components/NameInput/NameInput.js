@@ -36,7 +36,7 @@ class NameInput extends Component {
                             </div>
                         </div>
                         <div className="buttons is-centered">
-                            <button className="button is-medium is-family-secondary has-text-weight-bold" onClick={this.handleSubmit}>Submit</button>
+                            <button className="button button-hover-border is-medium is-family-secondary has-text-weight-bold" onClick={this.handleSubmit}>Submit</button>
                         </div>
                     </div>
                 </div>

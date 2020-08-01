@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {caesarShift} from '../../caesarShift.js'
+import {atbashEncode} from '../../atbashEncode.js'
 
 class GetInput extends Component {
   constructor(props) {
@@ -21,13 +22,17 @@ class GetInput extends Component {
     if (this.firstClick) {
       this.firstClick = false;
       this.setState({inputStr: ''});
-      document.getElementById('output').textContent = '';
     }
   }
 
   render() {
     let plaintext = this.state.inputStr.toUpperCase();
-    let ciphertext = caesarShift(plaintext, this.props.offset);
+    let ciphertext;
+    if (this.props.cipher==="ceasar") {
+      ciphertext = caesarShift(plaintext, this.props.offset);
+    } else if (this.props.cipher==="atbash") {
+      ciphertext = atbashEncode(plaintext);
+    }
 
     return (
       <div className="columns" style={{width: '100%'}}>
