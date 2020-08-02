@@ -65,8 +65,8 @@ class App extends React.Component {
                 <Decoding name={this.state.name}/>
               </section>
               <section className="section">
-                <h1>Now, let's play a game!</h1>
-                <Link to='/game/'>
+                <h2 className="title">Now, let's play a game!</h2>
+                <Link className="button button-hover-border is-large is-family-secondary has-text-weight-bold" to='/game/'>
                   Let's go!
                 </Link>
               </section>

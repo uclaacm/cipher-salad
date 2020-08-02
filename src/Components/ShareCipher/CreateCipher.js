@@ -10,7 +10,7 @@ import CaesarWheel from '../CaesarWheel/CaesarWheel';
 function CreateCipher() {
     const [currentHash, setCurrentHash] = useState('');
     const [shamt, setShamt] = useState(0);
-    const [plaintext, setPlaintext] = useState('');
+    const [plaintext, setPlaintext] = useState('Type here to create a cipher!');
 
     // 0 = no op in progress
     // 1 = in progress
@@ -27,6 +27,9 @@ function CreateCipher() {
             <div className='columns is-centered is-vcentered'>
                 <div className='column'>
                     <p className='is-size-4'>Input your plaintext...</p>
+
+                    <div className='my-3'></div>
+
                     <input
                         className='input'
                         type='text'
@@ -39,45 +42,36 @@ function CreateCipher() {
                 </div>
 
                 <div className='column is-two-thirds'>
-                    {/* <input
-                        className='input'
-                        type='range'
-                        min='0'
-                        max='25'
-                        step='1'
-                        value={shamt}
-                        onChange={(e) => {e.preventDefault(); setShamt(Number(e.target.value))}}
-                    /> */}
                     <CaesarWheel
                         offset={shamt}
                         onOffsetChange={n => setShamt(n) }
                     />
-                    <p className='is-size-4'>
-                        {
-                            shamt ?
-                            `Then shift it ${Math.abs(shamt)} letters ${shamt < 0 ? 'left' : 'right' }...` :
-                            'Then choose your shift amount!'
-                        }
-                    </p>
+                    
+                    <div className='my-3'></div>
+
+                    <p className='is-size-4'>Then, choose your shift amount...</p>
                 </div>
             </div>
             
-            <div className='my-6'></div>
+            <div className='my-3'></div>
 
             <div>
                 <p className='is-size-4'>
                     {
                         plaintext ?
                         `This will be encoded as ${caesarShift(plaintext.toUpperCase(), shamt)}` :
-                        'Type something to see it encoded!'                        
+                        'Type something to see it encoded!'
                     }
                 </p>
             </div>
 
-            <div className='my-6'></div>
+            <div className='my-3'></div>
 
             <div>
                 <p className='is-size-4'>Ready to send this to friends or family?</p>
+
+                <div className='my-3'></div>
+
                 <button className='button' onClick={
                     async () => {
                         setCreateStatus(1);
@@ -95,17 +89,25 @@ function CreateCipher() {
                     createStatus === 0 ?
                     'Create my cipher code!' :
                     createStatus === 1 ?
-                    'Creating the cipher link' :
+                    'Creating your link' :
                     createStatus === 2 ?
                     'Cipher link created!' :
                     'An error was encountered!'
                     }
                 </button>
+
                 {currentHash &&
                 <>
-                    <p>
-                        Share your cipher with the following link, or click the button to copy it to your clipboard: <strong>{currentHash}</strong>
+                    <div className='my-3'></div>
+                    
+                    <p className='is-size-4'>
+                        Share your cipher with the following link:
+                        <br />
+                        <a href={currentHash}>{currentHash}</a>
                     </p>
+
+                    <div className='my-3'></div>
+
                     <button
                         className='button'
                         onClick={

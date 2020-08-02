@@ -72,6 +72,9 @@ function ShareCipher() {
                         </section>
                     </Route>
                 </Switch>
+
+                <div className='my-5'></div>
+                
             </div>
         </Router>
     );
