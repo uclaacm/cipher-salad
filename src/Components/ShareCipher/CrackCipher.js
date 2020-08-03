@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Anime from 'react-anime';
 import { getCipher } from '../../firestore';
 import { caesarShift } from '../../caesarShift';
+import CaesarWheel from '../CaesarWheel/CaesarWheel';
 
 // CrackCipher is the interactive module for cracking a
 // sharable cipher. If props.hash is provided, then it
@@ -17,7 +18,8 @@ function CrackCipher() {
     const [shamt, setShamt] = useState(0);                          // current shift amount
     const [plaintext, setPlaintext] = useState(null);               // plaintext of the ciphered message
     const [ciphertext, setCiphertext] = useState(null);             // current guess at the deciphered message
-    const [guess, setGuess] = useState('Type your guess!');         // current guess
+    const [guess, setGuess] = useState('TYPE YOUR GUESS!');         // current guess
+    const [guessOK, setGuessOK] = useState(false);                  // whether the current guess is correct
     const [getStatus, setGetStatus] = useState(0);                  // 0 = no get in progress, 1 = get in progress, 2 = failed
 
     // load the described cipher.
@@ -72,18 +74,81 @@ function CrackCipher() {
     // if the user was provided a valid hash
     return (
         <div className='container'>
-            <h1>Let's get cracking!</h1>
-            <p>Your ciphertext is {ciphertext}</p>
-            <p>
-                {
-                !ciphertext ?
-                "Input your guess for the shift amount..." :
-                `If we shift it ${shamt} letters backwards, it becomes ${caesarShift(ciphertext.toUpperCase(), -1*shamt)}.`
+            <h1 className='title'>Let's get cracking!</h1>
+
+            <div className='columns is-centered is-vcentered'>
+                <div className='column'>
+                    <p className='is-size-3'>
+                        Your secret ciphertext is:
+                        <br />
+                        <strong>{ciphertext}</strong>
+                    </p>
+                </div>
+
+                <div className='column'>
+                    <p className='is-size-4'>
+                        We want to decipher it. Let's try running it through a Caesar cipher!
+                    </p>
+
+                    <div className='my-3'></div>
+
+                    <CaesarWheel
+                        onOffsetChange={
+                            n => {
+                                setShamt(n);
+                            }
+                        }
+                    />
+
+                    <div className='my-3'></div>
+
+                    <p className='is-size-4'>
+                        {ciphertext &&
+                        `If we "shift" its letters by ${Math.abs(shamt)}, the ciphertext becomes ${caesarShift(ciphertext.toUpperCase(), shamt)}`
+                        }
+                    </p>
+                </div>
+            </div>
+
+            <div className='section'>
+                <p className='is-size-4'>
+                    Think you've cracked my cipher? Take a guess:
+                </p>
+                <input
+                    className='input'
+                    type='text'
+                    placeholder='Type in your guess!'
+                    value={guess}
+                    onChange={e => setGuess(e.target.value.toUpperCase())}
+                />
+
+                <div className='my-3'></div>
+
+                <button
+                    className='button'
+                    onClick={
+                        e => {
+                            e.preventDefault();
+                            console.log(guess, plaintext);
+                            setGuessOK(guess.toUpperCase() === plaintext.toUpperCase());
+                        }
+                    }
+                >
+                    Submit guess!
+                </button>
+
+                {guessOK &&
+                <Anime
+                    opacity={[0,1]}
+                    color={['black', 'green']}
+                >
+                    <p className='is-size-4'>
+                        Nice job!
+                    </p>
+                </Anime>
                 }
-            </p>
-            <input className='input' type='range' min='0' max='25' step='1' value={shamt} onChange={e => setShamt(Number(e.target.value))} />
-            <label>{shamt}</label>
-            <input className='input' type='text' value={guess} onChange={e => setGuess(e.target.value)} />
+            </div>
+
         </div>
     );
 }

@@ -29,6 +29,8 @@ function ShareCipher() {
                                 </Link>
                             </div>
                         </Anime>
+
+                        <div className='my-5'></div>
                     </Route>
 
                     <Route path={`${match.path}/solve/:hash?`}>
@@ -45,6 +47,8 @@ function ShareCipher() {
                                 </Link>
                             </div>
                         </Anime>
+                        
+                        <div className='my-5'></div>
                     </Route>
 
                     <Route path={match.path}>
@@ -71,10 +75,7 @@ function ShareCipher() {
                             </div>
                         </section>
                     </Route>
-                </Switch>
-
-                <div className='my-5'></div>
-                
+                </Switch>               
             </div>
         </Router>
     );

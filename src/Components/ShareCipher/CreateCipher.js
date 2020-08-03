@@ -96,14 +96,21 @@ function CreateCipher() {
                     }
                 </button>
 
-                {currentHash &&
-                <>
+                <div className='create-link'>
                     <div className='my-3'></div>
                     
+                {currentHash &&
+                <>
                     <p className='is-size-4'>
                         Share your cipher with the following link:
                         <br />
-                        <a href={currentHash}>{currentHash}</a>
+                        <a
+                            href={currentHash}
+                            rel='noopener noreferrer'
+                            target='_blank'
+                        >
+                            {currentHash}
+                        </a>
                     </p>
 
                     <div className='my-3'></div>
@@ -128,6 +135,7 @@ function CreateCipher() {
                     </button>
                 </>
                 }
+                </div>
             </div>
         </div>
     );
