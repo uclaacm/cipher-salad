@@ -6,7 +6,7 @@ import './atbashIntro.css'
 
 function AtbashIntro() {
     return (
-        <section className="container mb-6">
+        <section className="container mb-5">
             <div className="columns is-variable is-5">
                 <div className="column is-one-third">
                     <img src={hieroglyph1} alt="ancient hieroglyphs depicting birds and other things" />
@@ -41,11 +41,13 @@ function AtbashIntro() {
                         </p>
                     </div>
                 </div>
-                <div className="column position-letter-encodings">
-                    <LetterEncoding decodedLetter="A" encodedLetter="Z" hoverReveal={false}/> 
-                    <LetterEncoding decodedLetter="B" encodedLetter="Y" hoverReveal={true} num="1"/>
-                    <LetterEncoding decodedLetter="C" encodedLetter="X" hoverReveal={true} num="2"/>
-                    <p className="is-size-6">Hover over the letters to reveal!</p>
+                <div className="column is-relative">
+                    <div className="position-letter-encodings">
+                        <LetterEncoding decodedLetter="A" encodedLetter="Z" hoverReveal={false}/> 
+                        <LetterEncoding decodedLetter="B" encodedLetter="Y" hoverReveal={true} num="1"/>
+                        <LetterEncoding decodedLetter="C" encodedLetter="X" hoverReveal={true} num="2"/>
+                        <p className="is-size-6">Hover over the letters to reveal!</p>
+                    </div>
                 </div>
             </div>
         </section>
