@@ -18,8 +18,6 @@ function CrackCipher() {
     const [shamt, setShamt] = useState(0);                          // current shift amount
     const [plaintext, setPlaintext] = useState(null);               // plaintext of the ciphered message
     const [ciphertext, setCiphertext] = useState(null);             // current guess at the deciphered message
-    const [guess, setGuess] = useState('TYPE YOUR GUESS!');         // current guess
-    const [guessOK, setGuessOK] = useState(false);                  // whether the current guess is correct
     const [getStatus, setGetStatus] = useState(0);                  // 0 = no get in progress, 1 = get in progress, 2 = failed
 
     // load the described cipher.
@@ -72,83 +70,45 @@ function CrackCipher() {
     }
     
     // if the user was provided a valid hash
+    console.log(caesarShift(ciphertext ? ciphertext : '', shamt) === plaintext);
     return (
         <div className='container'>
             <h1 className='title'>Let's get cracking!</h1>
 
-            <div className='columns is-centered is-vcentered'>
-                <div className='column'>
-                    <p className='is-size-3'>
-                        Your secret ciphertext is:
-                        <br />
-                        <strong>{ciphertext}</strong>
-                    </p>
-                </div>
+            <div className='my-3'></div>
 
-                <div className='column'>
-                    <p className='is-size-4'>
-                        We want to decipher it. Let's try running it through a Caesar cipher!
-                    </p>
-
-                    <div className='my-3'></div>
-
-                    <CaesarWheel
-                        onOffsetChange={
-                            n => {
-                                setShamt(n);
-                            }
-                        }
-                    />
-
-                    <div className='my-3'></div>
-
-                    <p className='is-size-4'>
-                        {ciphertext &&
-                        `If we "shift" its letters by ${Math.abs(shamt)}, the ciphertext becomes ${caesarShift(ciphertext.toUpperCase(), shamt)}`
-                        }
-                    </p>
-                </div>
-            </div>
-
-            <div className='section'>
-                <p className='is-size-4'>
-                    Think you've cracked my cipher? Take a guess:
+            <section className='section'>
+                <p className='is-size-3'>
+                    Your secret ciphertext is:
+                    <br />
+                    '{ciphertext}'
                 </p>
-                <input
-                    className='input'
-                    type='text'
-                    placeholder='Type in your guess!'
-                    value={guess}
-                    onChange={e => setGuess(e.target.value.toUpperCase())}
-                />
 
                 <div className='my-3'></div>
 
-                <button
-                    className='button'
-                    onClick={
-                        e => {
-                            e.preventDefault();
-                            console.log(guess, plaintext);
-                            setGuessOK(guess.toUpperCase() === plaintext.toUpperCase());
-                        }
-                    }
-                >
-                    Submit guess!
-                </button>
+                <p className='is-size-5'>
+                    Let's crack the encryption by decoding it with the <b>Caesar Cipher</b>! Rotate the wheel to give it a try. The decoded text will turn green when you've got it!
+                </p>
+            </section>
 
-                {guessOK &&
+            <div className='my-3'></div>
+
+            <CaesarWheel onOffsetChange={ n => setShamt(n) } />
+
+            <div className='my-3'></div>
+
+            <section className='section'>
                 <Anime
-                    opacity={[0,1]}
-                    color={['black', 'green']}
+                    color={(caesarShift(ciphertext ? ciphertext : '', shamt) === plaintext.toUpperCase()) ? '#6aa84f' : '#c00'}
                 >
-                    <p className='is-size-4'>
-                        Nice job!
+                    <p className='is-size-3'>
+                        {shamt ?
+                        caesarShift(ciphertext.toUpperCase(), shamt) :
+                        ciphertext
+                        }
                     </p>
                 </Anime>
-                }
-            </div>
-
+            </section>
         </div>
     );
 }

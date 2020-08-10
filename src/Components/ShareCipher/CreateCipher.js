@@ -10,7 +10,7 @@ import CaesarWheel from '../CaesarWheel/CaesarWheel';
 function CreateCipher() {
     const [currentHash, setCurrentHash] = useState('');
     const [shamt, setShamt] = useState(0);
-    const [plaintext, setPlaintext] = useState('Type here to create a cipher!');
+    const [plaintext, setPlaintext] = useState('TYPE HERE TO CREATE A CIPHER!');
 
     // 0 = no op in progress
     // 1 = in progress
@@ -24,38 +24,37 @@ function CreateCipher() {
         <div className='container'>
             <h1 className='title is-size-1'>Create a cipher!</h1>
             
-            <div className='columns is-centered is-vcentered'>
-                <div className='column'>
-                    <p className='is-size-4'>Input your plaintext...</p>
+            <section className='section'>
+                <p className='is-size-4'>Input your plaintext...</p>
 
-                    <div className='my-3'></div>
+                <div className='my-3'></div>
 
-                    <input
-                        className='input'
-                        type='text'
-                        placeholder='Type here to create a cipher!'
-                        value={plaintext}
-                        onChange={
-                            (e) => {e.preventDefault(); setPlaintext(e.target.value)}
-                        }
-                    />
-                </div>
+                <input
+                    className='input'
+                    type='text'
+                    placeholder='TYPE HERE TO CREATE A CIPHER!'
+                    value={plaintext}
+                    onChange={
+                        (e) => {e.preventDefault(); setPlaintext(e.target.value.toUpperCase())}
+                    }
+                />
 
-                <div className='column is-two-thirds'>
-                    <CaesarWheel
-                        offset={shamt}
-                        onOffsetChange={n => setShamt(n) }
-                    />
+                <div className='my-3'></div>
+                
+                <p className='is-size-4'>Then, choose your shift amount...</p>
+            </section>
+
+            <section className='section'>
+                <CaesarWheel
+                    offset={shamt}
+                    onOffsetChange={n => setShamt(n) }
+                />
                     
-                    <div className='my-3'></div>
+                <div className='my-3'></div>
 
-                    <p className='is-size-4'>Then, choose your shift amount...</p>
-                </div>
-            </div>
+            </section>
             
-            <div className='my-3'></div>
-
-            <div>
+            <section className='section'>
                 <p className='is-size-4'>
                     {
                         plaintext ?
@@ -63,11 +62,9 @@ function CreateCipher() {
                         'Type something to see it encoded!'
                     }
                 </p>
-            </div>
+            </section>
 
-            <div className='my-3'></div>
-
-            <div>
+            <section className='section'>
                 <p className='is-size-4'>Ready to send this to friends or family?</p>
 
                 <div className='my-3'></div>
@@ -99,44 +96,44 @@ function CreateCipher() {
                 <div className='create-link'>
                     <div className='my-3'></div>
                     
-                {currentHash &&
-                <>
-                    <p className='is-size-4'>
-                        Share your cipher with the following link:
-                        <br />
-                        <a
-                            href={currentHash}
-                            rel='noopener noreferrer'
-                            target='_blank'
-                        >
-                            {currentHash}
-                        </a>
-                    </p>
+                    {currentHash &&
+                    <>
+                        <p className='is-size-4'>
+                            Share your cipher with the following link:
+                            <br />
+                            <a
+                                href={currentHash}
+                                rel='noopener noreferrer'
+                                target='_blank'
+                            >
+                                {currentHash}
+                            </a>
+                        </p>
 
-                    <div className='my-3'></div>
+                        <div className='my-3'></div>
 
-                    <button
-                        className='button'
-                        onClick={
-                            () => {
-                                if (!copy(currentHash))
-                                    setCopyStatus(2);
-                                else
-                                    setCopyStatus(1);
+                        <button
+                            className='button'
+                            onClick={
+                                () => {
+                                    if (!copy(currentHash))
+                                        setCopyStatus(2);
+                                    else
+                                        setCopyStatus(1);
+                                }
                             }
-                        }
-                    >
-                        {copyStatus === 0 ?
-                        'Copy to clipboard!' :
-                        copyStatus === 2 ?
-                        'Failed to copy!' :
-                        'Copied!'
-                        }
-                    </button>
-                </>
-                }
+                        >
+                            {copyStatus === 0 ?
+                            'Copy to clipboard!' :
+                            copyStatus === 2 ?
+                            'Failed to copy!' :
+                            'Copied!'
+                            }
+                        </button>
+                    </>
+                    }
                 </div>
-            </div>
+            </section>
         </div>
     );
 }
