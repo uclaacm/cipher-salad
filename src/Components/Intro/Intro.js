@@ -2,7 +2,7 @@ import React from "react";
 
 function Intro(props) {
     return (
-        <div>
+        <div id="intro">
             <div className="container">
                 <div className="column">
                     <div className="columns is-vcentered container">

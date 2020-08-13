@@ -17,6 +17,7 @@ class CaesarWheel extends Component {
 
     dragMouseDown = e => {
         e.preventDefault();
+        e.target.style.cursor = "grabbing";
 
         let coords = this.adjustCoords(e.clientX, e.clientY);
         this.angle = this.atanDegrees(coords.adjustedX, coords.adjustedY);
@@ -41,6 +42,7 @@ class CaesarWheel extends Component {
     }
 
     dragMouseUp = () => {
+        document.getElementById('outerwheel').style.cursor = "grab";
         let section = ReactDOM.findDOMNode(this);
         section.onmouseup = null;
         section.onmousemove = null;
@@ -64,11 +66,12 @@ class CaesarWheel extends Component {
         return (
             <div className="container">
                 <img
-                    className="is-block center round"
+                    className="is-block center round cursor"
                     src={outerwheel}
                     alt="Outer wheel of the caesar cipher decoder."
                     style={{transform: 'rotate(' + this.state.offset + 'deg)'}}
                     onMouseDown={this.dragMouseDown}
+                    id="outerwheel"
                 />
                 <img
                     className="is-overlay is-block center round"

@@ -6,7 +6,7 @@ import './atbashIntro.css'
 
 function AtbashIntro() {
     return (
-        <section className="container mb-5">
+        <section className="container mb-6">
             <div className="columns is-variable is-5">
                 <div className="column is-one-third">
                     <img src={hieroglyph1} alt="ancient hieroglyphs depicting birds and other things" />
