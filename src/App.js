@@ -1,5 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Anime from 'react-anime';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronCircleLeft, faChevronCircleRight, faCircle, faDotCircle } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 import './App.sass';
 import Title from "./Components/Title/Title.js";
@@ -17,30 +20,50 @@ import AtbashIntro from './Components/AtbashIntro/AtbashIntro.js'
 
 // Wrap around items to create a "slide deck".
 function SlideDeck(props) {
-  let slides = Array.from(props.children);
-  slides = slides.map((e, i) => (
-    <Route path={`/${i === 0 ? '/' : i}`}>
+  // props used to control the "bumping" of the slide deck
+  // left and right buttons.
+  const bumpDuration = 1000;
+  const bumpAmount = 5;
+
+  let slides = props.children.map((e, i) => (
+    <Route path={`/${i === 0 ? '/' : i}`} key={i}>
+      <div className='my-6'></div>
+
+      <div className='slide-progress'>
+        {
+          i - 1 < 0 ?
+          '' :
+          <Anime translateX={[-1 * bumpAmount, 0]} duration={bumpDuration} direction={'alternate'} loop>
+            <Link to={i - 1 === 0 ? '/' : `/${i - 1}`}>
+              <FontAwesomeIcon icon={faChevronCircleLeft} size='3x' />
+            </Link>
+          </Anime>
+        }
+
+        {Array(i).fill(
+          <FontAwesomeIcon icon={faCircle} size='2x' />
+        )}
+        <FontAwesomeIcon icon={faDotCircle} size='2x' />
+        {Array(props.children.length - i - 1).fill(
+          <FontAwesomeIcon icon={faCircle} size='2x' />
+        )}
+
+        {
+          props.children.length === i + 1 ?
+          '' :
+          <Anime translateX={[bumpAmount, 0]} duration={bumpDuration} direction={'alternate'} loop>
+            <Link to={`/${i + 1}`}>
+              <FontAwesomeIcon icon={faChevronCircleRight} size='3x' />
+            </Link>
+          </Anime>
+        }
+      </div>
+
+      <div className='my-6'></div>
+
       {e}
-
-      {
-        i - 1 < 0 ?
-        '' :
-        <Link to={i - 1 === 0 ? '/' : `/${i - 1}`} className='button'>
-          Back
-        </Link>
-      }
-
-      {
-        props.children.length === i + 1 ?
-        '' :
-        <Link to={`/${i + 1}`} className='button'>
-          Next
-        </Link>
-      }
     </Route>
   ));
-
-  console.log(slides);
 
   return (
     <Router>

@@ -5,3 +5,11 @@
 text {
   color: white;
 }
+
+.slide-progress {
+  display: flex;
+  margin: auto;
+  width: 60%;
+  justify-content: space-around;
+  align-items: center;
+}
