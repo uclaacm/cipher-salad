@@ -33,7 +33,9 @@ class App extends React.Component {
   return (
     <div className="App">
       <Title />
-      <Intro />
+      <div className="section">
+        <Intro />
+      </div>
       <section className="section">
         <Caesar />
       </section>
@@ -44,14 +46,16 @@ class App extends React.Component {
       <section className="section">
         <Vigenere />
       </section>
-      <Typing strings={[
-        'ciphers are cool',
-        'xrksvih ziv xllo (atbash)',
-        'DJQIFST BSF DPPM (caesar)', // shifted by one
-        'mmnripc kvc msmv (vigenere)', // encoded by key "key"
-        '******* *** ****'
-      ]}/>
-      <Recap />
+      <section className="section">
+        <Typing strings={[
+          'ciphers are cool',
+          'xrksvih ziv xllo (atbash)',
+          'DJQIFST BSF DPPM (caesar)', // shifted by one
+          'mmnripc kvc msmv (vigenere)', // encoded by key "key"
+          '******* *** ****'
+        ]}/>
+        <Recap />
+      </section>
       <Blackbox />
       <NameInput handleSubmit={this.handleNameInputSubmit} />
       <section className="section">

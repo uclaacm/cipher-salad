@@ -4,8 +4,8 @@
         bottom: 2.75em; 
     }
     .position-letter-encodings {
-        position: relative;
-        bottom: 8em;
+        position: absolute;
+        bottom: 1em;
     }
 }
 

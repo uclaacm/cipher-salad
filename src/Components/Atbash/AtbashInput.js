@@ -22,7 +22,7 @@ class Atbash extends Component {
   render() {
     return (
       <div className="container">
-        <div className="columns is-vcentered is-variable is-8 mb-5">
+        <div className="columns is-vcentered is-variable is-8 mb-6">
           <div className="column is-two-thirds">
             <LetterBoxesWithArrows 
               numArrows={5} 
@@ -37,7 +37,7 @@ class Atbash extends Component {
             </p>
           </div>
         </div>
-        <div className="columns is-vcentered is-variable is-8 mb-5">
+        <div className="columns is-vcentered is-variable is-8 mb-6">
           <div className="column">
               <p className="is-size-5">
                 A group of Hebrew people thought they could do the Greeks one better, and
