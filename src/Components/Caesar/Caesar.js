@@ -13,8 +13,7 @@ class Caesar extends Component {
         let offset = Math.floor(Math.random() * 25) + 1;
         this.state = {
             offset: offset,
-            animateMessageOut: false,
-            animateMessageIn: false,
+            animateMessage: false,
         };
     } 
 
@@ -46,34 +45,48 @@ class Caesar extends Component {
         return str.substr(0, index) + newChar + str.substr(index + 1);
     }
     */
-    putCharInSpan = (char) => {
-        if (char === " ") {
-            return <span>&nbsp;</span>
-        } else {
-            return <span>{char}</span>;
-        }
+    putCharsInSpans = (string) => {
+        let map = Array.prototype.map;
+        let spans = map.call(string, char => {
+            if (char === " ") {
+                return <span>&nbsp;</span>
+            } else {
+                return <span>{char}</span>;
+            }
+        });
+        return spans;
     }
     
     render() {
-        let message;
-        if (this.state.animateMessageOut) {
-            let map = Array.prototype.map;
-            let chars = map.call("Brutus homie what is up", char => {
-
-            });
-
-
-            message = <Anime rotateY={[45]} delay={anime.stagger(50)} complete={(anim) => {this.setState({animateMessageOut: false, animateMessageIn: true})}}>{chars}</Anime>
-        } else if (this.state.animateMessageIn) {
-            let map = Array.prototype.map;
-            let chars = map.call("EUXWXV KRPLH ZKDW LV XS", char => this.putCharInSpan(char));
-            message = <Anime>{chars}</Anime>
+        let plaintext = "Brutus homie what is up";
+        let ciphertext = "EUXWXV KRPLH ZKDW LV XS";
+        let finalPlaintext, finalCiphertext;
+        if (this.state.animateMessage) {
+            finalPlaintext = <div className="overlay is-inline-flex">
+                <Anime 
+                    rotateY={[0,45]} 
+                    opacity={[1,0]} 
+                    duration="200" 
+                    delay={anime.stagger(50)}
+                    easing="easeOutSine">
+                        {this.putCharsInSpans(plaintext)}
+                </Anime>
+            </div>
+            finalCiphertext = <div className="overlay is-inline-flex">
+                <Anime 
+                    rotateY={[-90,0]} 
+                    opacity={[0,1]} 
+                    duration="400" 
+                    delay={anime.stagger(50)}
+                    easing="easeOutSine">
+                        {this.putCharsInSpans(ciphertext)}
+                </Anime>
+            </div>
         } else {
-            message = <Anime>
-                Brutus come on man
-            </Anime>
+            finalPlaintext = <div className="overlay">{plaintext}</div>;
+            finalCiphertext = null;
         }
-        
+    
         return (
             <div id="caesar_cipher">
                 <div className="container mb-6">
@@ -97,10 +110,12 @@ class Caesar extends Component {
                                     alphabet.
                                 </p>
                                 <button 
-                                    className="button is-relative is-medium message-button has-background-grey-light has-text-black"
-                                    onClick={() => {this.setState({animateMessageOut: true})}}>
-                                    <div className="">Brutus homie what is up</div> {/*is-overlay*/}
+                                    className="button is-relative is-medium message-button has-background-grey-light has-text-black is-family-secondary"
+                                    onClick={() => {this.setState({animateMessage: true})}}>
+                                    {finalPlaintext}
+                                    {finalCiphertext}
                                 </button>
+                                <p className="has-text-weight-normal mt-3">click to see the caesar encoding!</p>
                             </div>
                         </div>
                         <div className="column is-one-quarter">

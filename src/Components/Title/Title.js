@@ -52,7 +52,7 @@ class Title extends Component {
                       </div>
                     </div>
                     <div className="is-inline-block">
-                      <div className="typing-animation typing-subtitle is-relative">
+                      <div className="typing-animation typing-subtitle">
                         <h2 className="is-size-5 has-text-weight-bold has-text-white">{this.state.subtitle}</h2>
                       </div>
                     </div>

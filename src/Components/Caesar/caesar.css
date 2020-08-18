@@ -3,3 +3,7 @@
     width: 15em;
     margin-top: 4.5rem;
 }
+
+.overlay {
+    position: absolute;
+}
