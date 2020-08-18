@@ -25,26 +25,7 @@ class Caesar extends Component {
       handleOffsetChangeWheel = (n) => {
           this.setState({ offset: n });
       }
-    /*
-    handleMessageClick = () => {
-        this.setState({message: "Brutus homie what is up"});
-        if (this.timerID) {
-            clearInterval(this.timerID);
-        }
-        this.curChar = 0;
-        this.timerID = setInterval(() => {
-            if (this.curChar < this.state.message.length) {
-                let newMessage = this.replaceCharAt(this.state.message, this.curChar, "EUXWXV KRPLH ZKDW LV XS"[this.curChar]);
-                this.setState({message: newMessage});
-                this.curChar++;
-            }
-        }, 45);
-    }
-
-    replaceCharAt = (str, index, newChar) => {
-        return str.substr(0, index) + newChar + str.substr(index + 1);
-    }
-    */
+      
     putCharsInSpans = (string) => {
         let map = Array.prototype.map;
         let spans = map.call(string, char => {
