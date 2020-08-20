@@ -1,0 +1,14 @@
+.vnav {
+  position: fixed;
+  padding: 1rem;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+}
+  
+.vnav > * {
+  padding: 1rem;
+}
