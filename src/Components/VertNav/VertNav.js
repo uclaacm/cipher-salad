@@ -5,17 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faKey } from '@fortawesome/free-solid-svg-icons';
 import './VertNav.scss';
 
-function NavLink(props) {
-  return (
-    <AnchorLink href={props.href} className={props.className}>
+export default function VertNav(props) {
+  const [ hidden, setHidden ] = useState(true);
+
+  const spyContents = props.navLinks.map(id => (
+    <AnchorLink offset={-5} href={`#${id}`}>
       <FontAwesomeIcon size='2x' icon={faKey} />
     </AnchorLink>
-  );
-}
-
-export default function VertNav(props) {
-  const spyContents = props.navLinks.map(href => <NavLink href={`#${href}`} />);
-  const [ hidden, setHidden ] = useState(true);
+  ));
   
   return (
     <div className={`vnav-container ${hidden ? 'vnav-hidden' : ''}`}>

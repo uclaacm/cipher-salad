@@ -2,6 +2,7 @@ $vnav-anim-time: .3s;
 
 .vnav-container {
   transition: opacity $vnav-anim-time ease;
+  z-index: 10;
 }
 
 .vnav-hidden {
