@@ -33,7 +33,7 @@ class App extends React.Component {
   render = () => {
   return (
     <div className="App">
-      <VertNav navLinks={['title', 'intro', 'caesar', 'atbash', 'vigenere', 'recap', 'decoding', 'closing']} />
+      <VertNav navLinks={['intro', 'caesar', 'atbash', 'vigenere', 'recap', 'decoding', 'closing']} />
       
       <div id='title'>
         <Title />

@@ -1,3 +1,13 @@
+$vnav-anim-time: .3s;
+
+.vnav-container {
+  transition: opacity $vnav-anim-time ease;
+}
+
+.vnav-hidden {
+  opacity: 0;
+}
+
 .vnav {
   position: fixed;
   padding: 1rem;
@@ -31,5 +41,5 @@
 
 .current-section {
   color: #ffb800;
-  animation: .3s boop cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation: $vnav-anim-time boop cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
