@@ -5,3 +5,11 @@
 text {
   color: white;
 }
+
+.App > :nth-child(2n) {
+  background-color:white;
+}
+
+.App > :nth-child(2n+1) {
+  background-color: #FDF6E3;
+}

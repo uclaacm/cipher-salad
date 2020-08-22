@@ -41,11 +41,13 @@ function AtbashIntro() {
                         </p>
                     </div>
                 </div>
-                <div className="column position-letter-encodings">
-                    <LetterEncoding decodedLetter="A" encodedLetter="Z" hoverReveal={false}/> 
-                    <LetterEncoding decodedLetter="B" encodedLetter="Y" hoverReveal={true} num="1"/>
-                    <LetterEncoding decodedLetter="C" encodedLetter="X" hoverReveal={true} num="2"/>
-                    <p className="is-size-6">Hover over the letters to reveal!</p>
+                <div className="column is-relative">
+                    <div className="position-letter-encodings">
+                        <LetterEncoding decodedLetter="A" encodedLetter="Z" hoverReveal={false}/> 
+                        <LetterEncoding decodedLetter="B" encodedLetter="Y" hoverReveal={true} num="1"/>
+                        <LetterEncoding decodedLetter="C" encodedLetter="X" hoverReveal={true} num="2"/>
+                        <p className="is-size-6">Hover over the letters to reveal!</p>
+                    </div>
                 </div>
             </div>
         </section>

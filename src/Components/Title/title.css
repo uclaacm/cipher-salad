@@ -47,3 +47,82 @@
 span.congrats_emoji {
   font-size: 40px;
 }
+
+/* Title.js */
+.position-text {
+  top: 25%;
+}
+
+.title-color {
+  color: #ffb800;
+}
+
+.title-size {
+  font-size: 2.25rem;
+}
+
+.underline {
+  border-bottom: 5px solid #ffb800;
+}
+
+.typing-animation {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+}
+
+.typing-title {
+  border-right: 4px solid #ffb800;
+  height: 45px;
+  animation: 
+    typing-title 2s steps(24, end),
+    cursor-blink 1s step-end 2 forwards;
+}
+
+.typing-subtitle {
+  opacity: 0;
+  border-right: 3px solid #ffb800;
+  height: 25px;
+  animation:
+    typing-subtitle 8s steps(30, end) 2.5s infinite forwards,
+    cursor-blink 1s step-end 2.5s infinite;
+}
+
+@keyframes typing-title {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes typing-subtitle {
+  0% {
+    width: 0%; opacity: 1;
+  }
+  25% {
+    width: 100%;
+  }
+  43.75% {
+    width: 0%;
+  }
+  68.75% {
+    width: 100%;
+  }
+  81.25% {
+    width: 100%;
+  }
+  100% {
+    width: 0; opacity: 1;
+  }
+}
+
+@keyframes cursor-blink {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ffb800;
+  }
+}

@@ -40,7 +40,9 @@ class App extends React.Component {
           <Route path='/'>
             <div className="App">
               <Title />
-              <Intro />
+              <div className="section">
+                <Intro />
+              </div>
               <section className="section">
                 <Caesar />
               </section>
@@ -51,24 +53,20 @@ class App extends React.Component {
               <section className="section">
                 <Vigenere />
               </section>
-              <Typing strings={[
-                'ciphers are cool',
-                'xrksvih ziv xllo (atbash)',
-                'DJQIFST BSF DPPM (caesar)', // shifted by one
-                'mmnripc kvc msmv (vigenere)', // encoded by key "key"
-                '******* *** ****'
-              ]}/>
-              <Recap />
+              <section className="section">
+                <Typing strings={[
+                  'ciphers are cool',
+                  'xrksvih ziv xllo (atbash)',
+                  'DJQIFST BSF DPPM (caesar)', // shifted by one
+                  'mmnripc kvc msmv (vigenere)', // encoded by key "key"
+                  '******* *** ****'
+                ]}/>
+                <Recap />
+              </section>
               <Blackbox />
               <NameInput handleSubmit={this.handleNameInputSubmit} />
               <section className="section">
                 <Decoding name={this.state.name}/>
-              </section>
-              <section className="section">
-                <h2 className="title">Now, let's play a game!</h2>
-                <Link className="button button-hover-border is-large is-family-secondary has-text-weight-bold" to='/game/'>
-                  Let's go!
-                </Link>
               </section>
               <Closing />
             </div>
