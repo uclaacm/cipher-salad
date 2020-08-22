@@ -25,13 +25,13 @@ function Intro(props) {
                 </div>
             </div>
             <div className="row_space">
-                <AnchorLink href="#caesar">
+                <AnchorLink offset={-5} href="#caesar">
                     <button class="button is-static is-large is-family-secondary has-text-weight-bold">Caesar Cipher</button>
                 </AnchorLink>
-                <AnchorLink href="#atbash">
+                <AnchorLink offset={-5} href="#atbash">
                     <button class="button is-static is-large is-family-secondary has-text-weight-bold">Atbash Cipher</button>
                 </AnchorLink>
-                <AnchorLink href="#vigenere">
+                <AnchorLink offset={-5} href="#vigenere">
                     <button class="button is-static is-large is-family-secondary has-text-weight-bold">Vigenere Cipher</button>
                 </AnchorLink>
             </div>

@@ -15,7 +15,7 @@ export default function VertNav(props) {
   ));
   
   return (
-    <div className={`vnav-container ${hidden ? 'vnav-hidden' : ''}`}>
+    <div className={`vnav-container${hidden ? ' vnav-hidden' : ''}`}>
       <Scrollspy
         items={props.navLinks}
         currentClassName='current-section'

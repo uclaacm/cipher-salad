@@ -64,7 +64,7 @@ class Title extends Component {
                   <h4 className="subtitle is-family-secondary">
                       To answer this question, we'll explore the history of sending secret messages and why things get funky when you introduce computers!
                   </h4>
-                  <AnchorLink href="#intro" className="button is-large">Let's Go</AnchorLink>
+                  <AnchorLink offset={-5} href="#intro" className="button is-large">Let's Go</AnchorLink>
                 </div>
               </div>
             </div>

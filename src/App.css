@@ -7,9 +7,9 @@ text {
 }
 
 .App > :nth-child(2n) {
-  background-color:white;
+  background-color: #FDF6E3;
 }
 
 .App > :nth-child(2n+1) {
-  background-color: #FDF6E3;
+  background-color:white;
 }
