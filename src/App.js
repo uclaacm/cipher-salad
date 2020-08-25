@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './App.css';
 import './App.sass';
 import Title from "./Components/Title/Title.js";
@@ -12,66 +13,74 @@ import Blackbox from "./Components/Title/Blackbox.js";
 import Decoding from './Components/Decoding/Decoding.js';
 import NameInput from './Components/NameInput/NameInput.js';
 import Intro from './Components/Intro/Intro.js'
+import ShareCipher from './Components/ShareCipher/ShareCipher.js';
 import AtbashIntro from './Components/AtbashIntro/AtbashIntro.js'
 import VertNav from './Components/VertNav/VertNav.js';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+function App() {
+  const [name, setName] = useState("");
 
-    this.state = {
-      name: ""
-    };
-  }
-
-  handleNameInputSubmit = (name) => {
-    this.setState({
-      name: name
-    });
-  }
-
-  render = () => {
   return (
-    <div className="App">
-      <VertNav navLinks={['intro', 'caesar', 'atbash', 'vigenere', 'recap', 'decoding', 'closing']} />
-      
-      <div id='title'>
-        <Title />
-      </div>
-      <section id='intro' className="section">
-        <Intro />
-      </section>
-      <section id='caesar' className="section">
-        <Caesar />
-      </section>
-      <section id='atbash' className="section">
-        <AtbashIntro />
-        <AtbashInput />
-      </section>
-      <section id='vigenere' className="section">
-        <Vigenere />
-      </section>
-      <section id='recap' className="section">
-        <Typing strings={[
-          'ciphers are cool',
-          'xrksvih ziv xllo (atbash)',
-          'DJQIFST BSF DPPM (caesar)', // shifted by one
-          'mmnripc kvc msmv (vigenere)', // encoded by key "key"
-          '******* *** ****'
-        ]}/>
-        <Recap />
-        <Blackbox />
-      </section>
-      <section id='decoding' className="section">
-        <NameInput handleSubmit={this.handleNameInputSubmit} />
-        <Decoding name={this.state.name}/>
-      </section>
-      <section id='closing' className='section'>
-        <Closing />
-      </section>
-    </div>
+    <Router>
+      <Switch>
+        <Route path='/game' component={ShareCipher} />
+
+        <Route path='/'>
+          <div className="App">
+            <VertNav navLinks={['intro', 'caesar', 'atbash', 'vigenere', 'recap', 'decoding', 'game-link', 'closing']} />
+              
+            <div id='title'>
+              <Title />
+            </div>
+            <section id='intro' className="section">
+              <Intro />
+            </section>
+            <section id='caesar' className="section">
+              <Caesar />
+            </section>
+            <section id='atbash' className="section">
+              <AtbashIntro />
+              <AtbashInput />
+            </section>
+            <section id='vigenere' className="section">
+              <Vigenere />
+            </section>
+            <section id='recap' className="section">
+              <Typing strings={[
+                'ciphers are cool',
+                'xrksvih ziv xllo (atbash)',
+                'DJQIFST BSF DPPM (caesar)', // shifted by one
+                'mmnripc kvc msmv (vigenere)', // encoded by key "key"
+                '******* *** ****'
+              ]}/>
+              <Recap />
+              <Blackbox />
+            </section>
+            <section id='decoding' className="section">
+              <NameInput handleSubmit={n => setName(n)} />
+              <Decoding name={name}/>
+            </section>
+            <section id='game-link' className='section'>
+              <div className='container'>
+                <p className='title is-size-3'>
+                  Now that we've learned about a few ciphers and how our computers can crack them easily, let's try making and solving ciphers from our friends!
+                </p>
+                <Link
+                  to='/game'
+                  className='button is-large is-family-secondary has-text-weight-bold'
+                >
+                  Let's get started!
+                </Link>
+              </div>
+            </section>
+            <section id='closing' className='section'>
+              <Closing />
+            </section>
+          </div>
+        </Route>
+      </Switch>
+    </Router>
   );
-  }
 }
 
 export default App;

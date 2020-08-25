@@ -1,0 +1,12 @@
+.share-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.create-link * {
+    transition: all .3s ease-out;
+}
