@@ -70,6 +70,9 @@ function ShareCipher() {
                                         <Link to={`${match.path}/solve`} className='button is-large is-family-secondary has-text-weight-bold'>
                                             Crack a cipher!
                                         </Link>
+                                        <Link to='/' className='button is-large is-family-secondary has-text-weight-bold'>
+                                            Go back
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
