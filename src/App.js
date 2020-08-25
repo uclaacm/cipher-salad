@@ -35,12 +35,12 @@ function App() {
             <section id='intro' className="section">
               <Intro />
             </section>
-            <section id='caesar' className="section">
-              <Caesar />
-            </section>
             <section id='atbash' className="section">
               <AtbashIntro />
               <AtbashInput />
+            </section>
+            <section id='caesar' className="section">
+              <Caesar />
             </section>
             <section id='vigenere' className="section">
               <Vigenere />
