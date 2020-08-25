@@ -27,7 +27,7 @@ function App() {
 
         <Route path='/'>
           <div className="App">
-            <VertNav navLinks={['intro', 'caesar', 'atbash', 'vigenere', 'recap', 'decoding', 'game-link', 'closing']} />
+            <VertNav navLinks={['intro', 'atbash', 'caesar', 'vigenere', 'recap', 'decoding', 'game-link', 'closing']} />
               
             <div id='title'>
               <Title />
