@@ -65,13 +65,11 @@ class Blackbox extends React.Component {
                 <Page5 currStep = {this.state.currStep} />
                 <Page6 currStep = {this.state.currStep} />
                 <Page7 currStep = {this.state.currStep} />
-                <div style={{padding: '40px'}}>
+                <div>
                     {this.prevButton()}
                     {this.nextButton()}
                 </div> 
             </section>
-            <div className="vertical-spacing"></div>
-            <div className="vertical-spacing"></div>
         </React.Fragment>
       )
     }
@@ -83,12 +81,12 @@ function Page1(props){
   return(
       <React.Fragment>
           <div className="blackbox_container">
-            <FontAwesomeIcon icon={faKey} size="6x" color="#FFB800" style={{position:'absolute', left:'400px', top:'100px', height: '600px',transform: 'rotate(225deg)'}} />
-            <FontAwesomeIcon icon={faArchive} size="9x" color="#000000" style={{position:'absolute', left:'750px', top:'100px', height: '600px'}} />
-            <div className="mid_font" style={{position:'absolute',top:'200px',left:'250px'}}>
+            <FontAwesomeIcon icon={faKey} size="6x" color="#FFB800" style={{position:'absolute', left:'25vw', top:'32vh', transform: 'rotate(225deg)'}} />
+            <FontAwesomeIcon icon={faArchive} size="9x" color="#000000" style={{position:'absolute', left:'40vw', top:'32vh'}} />
+            <div className="mid_font" style={{position:'absolute',top:'20vh',left:'15vw'}}>
               But how can ciphers get more complicated??
             </div>
-            <div className="text_wide mid_font" style={{position:'absolute',top:'550px',left:'300px'}}>
+            <div className="text_wide mid_font" style={{position:'absolute',top:'60vh',left:'15vw'}}>
               Let's find out with our black box...
             </div>
           </div>

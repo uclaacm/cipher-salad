@@ -1,4 +1,4 @@
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
     .position-img {
         position: relative;
         bottom: 2.75em; 
@@ -9,7 +9,7 @@
     }
 }
 
-@media (min-width: 950px) {
+@media only screen and (min-width: 950px) {
     .position-img {
         left: 8.5em;
     }
