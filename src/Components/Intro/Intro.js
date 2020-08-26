@@ -1,6 +1,17 @@
 import React from "react";
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
+const ciphers = [
+    "atbash",
+    "caesar",
+    "vigenere"
+]
+const cipherPretty = [
+    "Atbash",
+    "Caesar",
+    "Vigenere"
+]
+
 function Intro(props) {
     return (
         <div id="intro">
@@ -25,15 +36,13 @@ function Intro(props) {
                 </div>
             </div>
             <div className="row_space">
-                <AnchorLink offset={-5} href="#caesar">
-                    <button class="button is-static is-large is-family-secondary has-text-weight-bold">Caesar Cipher</button>
-                </AnchorLink>
-                <AnchorLink offset={-5} href="#atbash">
-                    <button class="button is-static is-large is-family-secondary has-text-weight-bold">Atbash Cipher</button>
-                </AnchorLink>
-                <AnchorLink offset={-5} href="#vigenere">
-                    <button class="button is-static is-large is-family-secondary has-text-weight-bold">Vigenere Cipher</button>
-                </AnchorLink>
+                {ciphers.map((cipher, i) => {
+                    return(
+                        <AnchorLink offset={-5} href={"#"+cipher}>
+                            <button class="button is-static is-large is-family-secondary has-text-weight-bold">{cipherPretty[i]} Cipher</button>
+                        </AnchorLink>
+                    )
+                })}
             </div>
         </div>
     );
