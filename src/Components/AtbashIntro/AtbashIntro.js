@@ -1,7 +1,6 @@
 import React from 'react'
-import Anime, {anime} from 'react-anime';
+import Anime from 'react-anime';
 import './atbashIntro.css'
-import { atbashEncode } from '../../atbashEncode';
 import { clickMe, partOne, partTwo, partThree} from './AtbashIntroSections.js'
 
 

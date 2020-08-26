@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import LetterBox from "../LetterBox.js";
-//import LetterBoxesWithArrows from "../LetterBoxesWithArrows/LetterBoxesWithArrows.js";
 import GetInput from '../Input/Input.js';
-//import Anime, {anime} from 'react-anime';
 import {atbashEncode} from '../../atbashEncode.js';
-//import '../decoding.css';
 
 class Atbash extends Component {
   state = {
@@ -47,7 +44,7 @@ class Atbash extends Component {
 
   decrypt = (i) => {
     let original = this.state.messages[i]
-    for (let index = 0; index != original.length; index++) {
+    for (let index = 0; index !== original.length; index++) {
       setTimeout(this.decryptHelper(i, index), i*500)
     }
   }
@@ -59,7 +56,6 @@ class Atbash extends Component {
   render() {
     return (
       <div className="container">
-        
         <br></br>
         <p class="title">Atbash Cipher: </p>
         <LetterBox default={true} 
