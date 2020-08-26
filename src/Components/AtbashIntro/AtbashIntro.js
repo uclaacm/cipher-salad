@@ -8,13 +8,11 @@ class AtbashIntro extends React.Component {
     constructor(props) {
         super(props);
         this.timer = 0;
+        this.timers = []
         this.state = {
-            showTwo: false,
-            showThree: false,
-            twoFinished: false,
-            showFinished: false,
-            clickedTwo: false,
-            clickedThree: false,
+            clicked: [true, false, false],
+            finished: [true, false, false],
+            show: [true, false, false]
         }
     }
 
@@ -22,27 +20,29 @@ class AtbashIntro extends React.Component {
         this.timer = clearTimeout()
     }
 
-    handleClick = () => {
+    handleClickAt = (i) => {
+        let newClick = Array.from(this.state.clicked)
+        newClick.splice(i-1, 1, true)
         this.setState({
-            clickedTwo: true
+            clicked: newClick
         })
     }
 
-    handleClick2 = () => {
+    showContent = (i) => {
+        let newshow = Array.from(this.state.show)
+        newshow.splice(i-1, 1, true)
         this.setState({
-            clickedThree: true
+            show: newshow
         })
+        this.timers.push(setTimeout(() => {this.finishAnime(i)}, 1000)) 
     }
 
-    revealTextTwo = (index) => {
-        this.setState({showTwo: true})
-        this.timer = setTimeout(() => {this.setState({twoFinished: true})}, 1000)
-    }
-
-    revealTextThree = (index) => {
-        clearTimeout(this.timer)
-        this.setState({showThree: true})
-        this.setState({showFinished: true})
+    finishAnime = (i) => {
+        let newFinish = Array.from(this.state.finished)
+        newFinish.splice(i-1, 1, true)
+        this.setState({
+            finished: newFinish
+        })
     }
 
     animateOnce = (stop) => {
@@ -60,11 +60,11 @@ class AtbashIntro extends React.Component {
                 <Anime {...this.animateOnce(true)}>
                     {partOne()}
                 </Anime>
-                <div onMouseOver={() => this.handleClick()} onClick={() => this.revealTextTwo()}>
-                    {this.state.showTwo ? <Anime {...this.animateOnce(this.state.twoFinished)}>{partTwo()}</Anime> : clickMe("CLICK ME", this.state.clickedTwo)}
+                <div onMouseOver={() => this.handleClickAt(2)} onClick={() => this.showContent(2)}>
+                    {this.state.show[1] ? <Anime {...this.animateOnce(this.state.finished[1])}>{partTwo()}</Anime> : clickMe("CLICK ME", this.state.clicked[1])}
                 </div>
-                <div onMouseOver={() => this.handleClick2()} onClick={() => this.revealTextThree()}>
-                    {this.state.showThree ? <Anime {...this.animateOnce(this.state.showFinished)}>{partThree()}</Anime> : clickMe("LOOK HERE", this.state.clickedThree)}
+                <div onMouseOver={() => this.handleClickAt(3)} onClick={() => this.showContent(3)}>
+                    {this.state.show[2] ? <Anime {...this.animateOnce(this.state.finished[2])}>{partThree()}</Anime> : clickMe("LOOK HERE", this.state.clicked[2])}
                 </div>
             </section>
         )
