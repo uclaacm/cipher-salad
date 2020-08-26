@@ -59,10 +59,7 @@ class Atbash extends Component {
   render() {
     return (
       <div className="container">
-        <p className="is-size-5 mb-6">
-          This is the Atbash cipher! It came from Hebrew cryptographers, but
-          we can use it in English too. Try it yourself!
-        </p>
+        
         <br></br>
         <p class="title">Atbash Cipher: </p>
         <LetterBox default={true} 

@@ -1,57 +1,76 @@
 import React from 'react'
-import hieroglyph1 from './hieroglyphs1.svg'
-import hieroglyph2 from './hieroglyphs2.svg'
-import LetterEncoding from '../LetterEncoding/LetterEncoding.js'
+import Anime, {anime} from 'react-anime';
 import './atbashIntro.css'
+import { atbashEncode } from '../../atbashEncode';
+import { clickMe, partOne, partTwo, partThree} from './AtbashIntroSections.js'
 
-function AtbashIntro() {
-    return (
-        <section className="container mb-6">
-            <div className="columns is-variable is-5">
-                <div className="column is-one-third">
-                    <img src={hieroglyph1} alt="ancient hieroglyphs depicting birds and other things" />
+
+class AtbashIntro extends React.Component {
+    constructor(props) {
+        super(props);
+        this.timer = 0;
+        this.state = {
+            showTwo: false,
+            showThree: false,
+            twoFinished: false,
+            showFinished: false,
+            clickedTwo: false,
+            clickedThree: false,
+        }
+    }
+
+    componentDidUnmount() {
+        this.timer = clearTimeout()
+    }
+
+    handleClick = () => {
+        this.setState({
+            clickedTwo: true
+        })
+    }
+
+    handleClick2 = () => {
+        this.setState({
+            clickedThree: true
+        })
+    }
+
+    revealTextTwo = (index) => {
+        this.setState({showTwo: true})
+        this.timer = setTimeout(() => {this.setState({twoFinished: true})}, 1000)
+    }
+
+    revealTextThree = (index) => {
+        clearTimeout(this.timer)
+        this.setState({showThree: true})
+        this.setState({showFinished: true})
+    }
+
+    animateOnce = (stop) => {
+        //if condition met, stop animating
+        let animeProps = stop ? {opacity: [1, 1]} : {opacity: [0, 1],
+            translateX: [-64, 0],
+            delay: (el, i) => i * 500
+        }
+        return(animeProps)
+    }
+
+    render() {
+        return(
+            <section className="container mb-6">
+                <Anime {...this.animateOnce(true)}>
+                    {partOne()}
+                </Anime>
+                <div onMouseOver={() => this.handleClick()} onClick={() => this.revealTextTwo()}>
+                    {this.state.showTwo ? <Anime {...this.animateOnce(this.state.twoFinished)}>{partTwo()}</Anime> : clickMe("CLICK ME", this.state.clickedTwo)}
                 </div>
-                <div className="column">
-                    <div className="content"> 
-                        <p className="is-size-5">
-                            Cryptography is ancient, and has existed as long as people have wanted to 
-                            communicate in secret.
-                        </p>
-                        <p className="is-size-5">
-                            One of the oldest ciphers was designed before the English alphabet, but we can 
-                            easily translate it over: the Atbash cipher
-                        </p>
-                    </div>
+                <div onMouseOver={() => this.handleClick2()} onClick={() => this.revealTextThree()}>
+                    {this.state.showThree ? <Anime {...this.animateOnce(this.state.showFinished)}>{partThree()}</Anime> : clickMe("LOOK HERE", this.state.clickedThree)}
                 </div>
-            </div>
-            <div className="column is-one-third">
-                <img src={hieroglyph2} alt="more ancient hieroglyphs" className="position-img" />
-            </div>
-            <div className="columns">
-                <div className="column is-two-thirds">
-                    <div className="content">
-                        <p className="is-size-5">
-                            Originally made for Hebrew, people would replace the first letter, aleph, with 
-                            the last letter tav. The second letter, bet, would be replaced with the 
-                            second-to-last letter, shin...
-                        </p>
-                        <p className="is-size-5">
-                            Can you guess how these letters would match up in an 
-                            English Atbash cipher?
-                        </p>
-                    </div>
-                </div>
-                <div className="column is-relative">
-                    <div className="position-letter-encodings">
-                        <LetterEncoding decodedLetter="A" encodedLetter="Z" hoverReveal={false}/> 
-                        <LetterEncoding decodedLetter="B" encodedLetter="Y" hoverReveal={true} num="1"/>
-                        <LetterEncoding decodedLetter="C" encodedLetter="X" hoverReveal={true} num="2"/>
-                        <p className="is-size-6">Hover over the letters to reveal!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+            </section>
+        )
+    }
+
 }
 
 export default AtbashIntro;
