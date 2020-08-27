@@ -5,6 +5,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faKey } from '@fortawesome/free-solid-svg-icons';
 import './VertNav.scss';
 
+/**
+ * Generate a vertical navbar for the given set of components.
+ * Scrollspies on each particular element passed as an ID in an
+ * array through props.navLinks.
+ * 
+ * If you have functions that you'd like to have called when a
+ * particular ID is scrolled to, you may pass them as an object
+ * of the form:
+ * {
+ *   firstID: (e) => { ... },
+ *   otherID: (e) => { ... },
+ *   anotherID: () => { ... },
+ * }
+ * with props.callbacks. The argument passed to each function, e,
+ * is the target of the scroll event - the element the viewport
+ * just hit.
+ * 
+ * You can use this argument to initiate targeted animations, for
+ * example.
+ */
 export default function VertNav(props) {
   const [ hidden, setHidden ] = useState(true);
 
@@ -24,8 +44,11 @@ export default function VertNav(props) {
         onUpdate={e => {
           if (!e)
             setHidden(true);
-          else
+          else {
+            if (props.callbacks && props.callbacks[e.id])
+              props.callbacks[e.id](e);
             setHidden(false);
+          }
         }}
       >
         {spyContents}
