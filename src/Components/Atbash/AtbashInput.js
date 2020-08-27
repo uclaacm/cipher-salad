@@ -6,8 +6,8 @@ import Anime, {anime} from 'react-anime';
 
 const messagesToDecode = [
   atbashEncode("[ Getting the hang of this? ]"),
-  atbashEncode("[ I think you could use a challenge ]"),
-  atbashEncode("[ Ready for more? ]")
+  atbashEncode("[ ...Or going bananas? ]"),
+  atbashEncode("[  ]")
 ]
 
 class Atbash extends Component {
@@ -23,8 +23,8 @@ class Atbash extends Component {
       animateDecrypt: [false, false, false],
       messages: [
         atbashEncode("[ Getting the hang of this? ]"),
-        atbashEncode("[ I think you could use a challenge ]"),
-        atbashEncode("[ Ready for more? ]")
+        atbashEncode("[ ...Or going bananas? ]"),
+        atbashEncode("[ Hey now, you're a rock star! ]")
       ]
     }
   }
@@ -123,10 +123,11 @@ class Atbash extends Component {
 
     let transition;
     if(this.state.animateDecrypt[0] && this.state.animateDecrypt[1] && this.state.animateDecrypt[2]) {
-      transition = <Anime translateX={[40, 0]} delay={300}>
-      <p class="is-size-5">Not too shabby! Any message in Atbash cipher is translated exactly the same... but is that secure?</p>
+      transition = <Anime opacity={[0,1]} translateX={[40, 0]} delay={anime.stagger(1000)}>
+      <p class="is-size-5">Not too shabby!</p>
       <br />
       <p class="is-size-5">What's a different way you could transform one letter to another? </p>
+      <br/>
       <p class="is-size-5">Let's visit the Roman empire and see what kind of ciphers they've come up with...</p>
     </Anime>
     }
@@ -150,22 +151,28 @@ class Atbash extends Component {
         <br />
         <br />
         <div class="container">
-          <p class="is-size-3">
+          <p class="is-size-3" align="left">
             Can you crack these messages?
           </p>
-          <div class="columns">
-            <div class="column is-half" display="flex">
-              {finalCiphertext.map((v, i) => 
-                <div className="column is-half">
-                  <div className="is-size-4 my-5 is-inline-block" id={i} onClick={() => this.animateAt(i)}>{v}</div>
-                  <div className="is-size-4 my-5 is-inline-block" key={"plaintext"+i}>{finalPlaintext[i]}</div> 
+          <div class="tile is-ancestor">
+            <div class="tile is-parent is-vertical is-4" display="flex">
+              <br/>
+                {finalCiphertext.map((v, i) => 
+                <div className="tile is-child is-6">
+                  <div className="is-size-4 my-5 " id={i} onClick={() => this.animateAt(i)}>{v}</div>
+                  <div className="is-size-4 my-5 " key={"plaintext"+i}>{finalPlaintext[i]}</div> 
+                  <br/>
                 </div>
                )}
-               {/*this.state.messages.map((message) => this.Ez(this.state.messages.indexOf(message)))*/}
             </div>
-              <div class="column is-half">
-                <br />
-                {transition}
+               {/*this.state.messages.map((message) => this.Ez(this.state.messages.indexOf(message)))*/}
+            <div class="tile is-parent is-3" >
+                  {/* dummy tile so the messages dont crash into the transition :( */}
+            </div>
+            <div class="tile is-parent is-6">
+                <div class="tile is-child">
+                  {transition}
+                </div>
               </div>
           </div>
         </div>
