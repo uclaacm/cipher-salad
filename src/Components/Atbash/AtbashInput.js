@@ -118,11 +118,12 @@ class Atbash extends Component {
     let transition;
     if(this.state.animateDecrypt[0] && this.state.animateDecrypt[1] && this.state.animateDecrypt[2]) {
       transition = <Anime opacity={[0,1]} translateX={[40, 0]} delay={anime.stagger(1000)}>
-      <p class="is-size-5">Not too shabby!</p>
+        <br/>
+      <p class="subtitle">Not too shabby!</p>
       <br />
-      <p class="is-size-5">What's a different way you could transform one letter to another? </p>
+      <p class="subtitle">What's a <b>different</b> way you could transform one letter to another? </p>
       <br/>
-      <p class="is-size-5">Let's visit the Roman empire and see what kind of ciphers they've come up with...</p>
+      <p class="subtitle">Let's visit the Roman empire and see what kind of ciphers they've come up with...</p>
     </Anime>
     }
     else { transition = <p class="is-size-5"></p> }
