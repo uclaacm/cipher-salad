@@ -39,7 +39,7 @@ export default function VertNav(props) {
       <Scrollspy
         items={props.navLinks}
         currentClassName='current-section'
-        componentTag='div'
+        componentTag='nav'
         className='vnav'
         onUpdate={e => {
           if (!e)
