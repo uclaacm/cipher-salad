@@ -112,7 +112,7 @@ function Page2(props){
         (which we’ll just show as a black box) on the message, 
         and only the recipient who is given the original key can undo the math.  
       </div>
-      <img src="/alice_bob.svg" className="img_alice_bob" style={{position:'absolute',top:'60px',left:'0',right:'0',margin:'auto', width: '650px', height: 'auto'}} alt="Alice & Bob"></img>
+      <img src="/alice_bob.svg" className="img_alice_bob" style={{position:'absolute',top:'60px',left:'0',right:'0',margin:'auto', width: '650px', height: 'auto'}} alt="people sending messages over the internet"></img>
       </div>
     </React.Fragment>
   )
@@ -238,7 +238,7 @@ function Page6(props){
   return(
     <React.Fragment>
       <div className="blackbox_container">
-      <img src="/alice_bob.svg" className="img_alice_bob" style={{position:'absolute',top:'90px',left:'0',right:'0',margin:'auto', width: '650px', height: 'auto'}} alt="Alice & Bob"></img>
+      <img src="/alice_bob.svg" className="img_alice_bob" style={{position:'absolute',top:'90px',left:'0',right:'0',margin:'auto', width: '650px', height: 'auto'}} alt="people sending messages over the internet"></img>
       <FontAwesomeIcon icon={faKey} size="3x" color="#FFB800" style={{position:'absolute', left:'20%', top:'80px', height: '600px',transform: 'rotate(225deg)'}} />
       <FontAwesomeIcon icon={faKey} size="3x" color="#FFB800" style={{position:'absolute', left:'75%', top:'60px', height: '600px',transform: 'rotate(225deg)'}} />
       <div className="text_narrow small_font" style={{position:'absolute',top:'120px',left:'180px'}}>

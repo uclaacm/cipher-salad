@@ -27,7 +27,7 @@ class Closing extends React.Component {
             <div className="column">
                 <div className="columns is-vcenterd container">
                   <div className="column is-one-third">
-                    <img src="/enigma.png" alt="Enigma machine" className="img"/>
+                    <img src="/enigma.png" alt="enigma machine" className="img"/>
                   </div>
                   <div className="subtitle is-size-4 content-custom column is-two-thirds container">
                       Fun fact:
@@ -42,7 +42,7 @@ class Closing extends React.Component {
                       Any salad can be a caesar salad if you put it through the March of Ides!
                   </div>
                   <div className="column is-one-third">
-                    <img src="/caesar_salad.jpg" alt="salad" className="img"/>
+                    <img src="/caesar_salad.jpg" alt="caesar salad" className="img" />
                   </div>
                 </div>
               </div>

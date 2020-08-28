@@ -68,7 +68,7 @@ class CaesarWheel extends Component {
                 <img
                     className="is-block center round cursor"
                     src={outerwheel}
-                    alt="Outer wheel of the caesar cipher decoder."
+                    alt="letters of the alphabet segmented in a ring"
                     style={{transform: 'rotate(' + this.state.offset + 'deg)'}}
                     onMouseDown={this.dragMouseDown}
                     id="outerwheel"
@@ -76,7 +76,7 @@ class CaesarWheel extends Component {
                 <img
                     className="is-overlay is-block center round"
                     src={innerwheel}
-                    alt="Inner wheel of the caesar cipher decoder."
+                    alt="letters of the alphabet segmented in a ring"
                     onMouseDown={e => e.preventDefault()}
                 />
             </div>
