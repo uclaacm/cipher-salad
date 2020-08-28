@@ -24,7 +24,7 @@ function CreateCipher() {
         <div className='container'>
             <h1 className='title is-size-1'>Create a cipher!</h1>
             
-            <section className='section'>
+            <section className='share-section'>
                 <p className='is-size-4'>Input your plaintext...</p>
 
                 <div className='my-3'></div>
@@ -44,7 +44,7 @@ function CreateCipher() {
                 <p className='is-size-4'>Then, choose your shift amount...</p>
             </section>
 
-            <section className='section'>
+            <section className='share-section'>
                 <CaesarWheel
                     offset={shamt}
                     onOffsetChange={n => setShamt(n) }
@@ -54,7 +54,7 @@ function CreateCipher() {
 
             </section>
             
-            <section className='section'>
+            <section className='share-section'>
                 <p className='is-size-4'>
                     {
                         plaintext ?
@@ -64,7 +64,7 @@ function CreateCipher() {
                 </p>
             </section>
 
-            <section className='section'>
+            <section className='share-section'>
                 <p className='is-size-4'>Ready to send this to friends or family?</p>
 
                 <div className='my-3'></div>

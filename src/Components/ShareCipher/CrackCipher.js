@@ -77,7 +77,7 @@ function CrackCipher() {
 
             <div className='my-3'></div>
 
-            <section className='section'>
+            <section className='share-section'>
                 <p className='is-size-3'>
                     Your secret ciphertext is:
                     <br />
@@ -97,7 +97,7 @@ function CrackCipher() {
 
             <div className='my-3'></div>
 
-            <section className='section'>
+            <section className='share-section'>
                 <Anime
                     color={(caesarShift(ciphertext ? ciphertext : '', shamt) === plaintext.toUpperCase()) ? '#6aa84f' : '#c00'}
                 >
