@@ -1,18 +1,30 @@
 import React from "react";
 import '../main.css';
+import Anime from 'react-anime';
 
 class Closing extends React.Component {
+
+  animeProps() {
+    let hoppy = {
+      opacity: [0, 1],
+      translateY: [0, 90],
+      delay: (el, i) => i * 800
+    }
+    return (this.props.startAnimation) ? hoppy : { opacity: [0,0]}
+  }
+
   render() {
     return (
       <div>
         <div className="container">
             <div className="column">
+              <Anime {...this.animeProps()} >
                 <div className="columns is-vcentered container">
                   <div className="is-size-3 content-custom column container">
-                    <br />
                     Yay you’re a cipher chef now!
                   </div>
                 </div>
+                
                 <div className="columns is-vcentered container">
                   <div className="is-size-3 content-custom column">
                   Ciphers are a key ingredient in the cryptography kitchen. 
@@ -20,6 +32,7 @@ class Closing extends React.Component {
                     <br /><br />
                   </div>
                 </div> 
+                </Anime>
             </div>
           </div>
           <div className="my-5"></div>

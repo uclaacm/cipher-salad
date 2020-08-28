@@ -19,6 +19,13 @@ import VertNav from './Components/VertNav/VertNav.js';
 
 function App() {
   const [name, setName] = useState("");
+  const [scrollAtbash, setScrollAtbash] = useState(false)
+  const [scrollCaesar, setScrollCaesar] = useState(false)
+  const [scrollVigenere, setScrollVigenere] = useState(false)
+  const [scrollRecap, setScrollRecap] = useState(false)
+  const [scrollDecoding, setScrollDecoding] = useState(false)
+  const [scrollGame, setScrollGame] = useState(false)
+  const [scrollClosing, setScrollClosing] = useState(false)
 
   return (
     <Router>
@@ -27,7 +34,17 @@ function App() {
 
         <Route path='/'>
           <div className="App">
-            <VertNav navLinks={['intro', 'atbash', 'caesar', 'vigenere', 'recap', 'decoding', 'game-link', 'closing']} />
+            <VertNav navLinks={['intro', 'atbash', 'caesar', 'vigenere', 'recap', 'decoding', 'game-link', 'closing']} 
+              callbacks={{
+                atbash: () => { setScrollAtbash(true); }, 
+                caesar: () => { setScrollCaesar(true); }, 
+                vigenere: () => { setScrollVigenere(true); }, 
+                recap: () => { setScrollRecap(true); }, 
+                decoding: () => { setScrollDecoding(true); }, 
+                'game-link': () => { setScrollGame(true); }, 
+                closing: () => { setScrollClosing(true); }, 
+              }}
+            />
               
             <div id='title'>
               <Title />
@@ -35,15 +52,15 @@ function App() {
             <section id='intro' className="section">
               <Intro />
             </section>
-            <section id='atbash' className="section">
-              <AtbashIntro />
+            <section id='atbash' className="section"> {/** two children:*/}
+              <AtbashIntro startAnimation={scrollAtbash} />
               <AtbashInput />
             </section>
             <section id='caesar' className="section">
-              <Caesar />
+              <Caesar startAnimation={scrollCaesar} />
             </section>
             <section id='vigenere' className="section">
-              <Vigenere />
+              <Vigenere startAnimation={scrollVigenere}  />
             </section>
             <section id='recap' className="section">
               <Typing strings={[
@@ -53,15 +70,15 @@ function App() {
                 'mmnripc kvc msmv (vigenere)', // encoded by key "key"
                 '******* *** ****'
               ]}/>
-              <Recap />
+              <Recap startAnimation={scrollRecap} />
               <Blackbox />
             </section>
             <section id='decoding' className="section">
-              <NameInput handleSubmit={n => setName(n)} />
+              <NameInput startAnimation={scrollDecoding} handleSubmit={n => setName(n)} />
               <Decoding name={name}/>
             </section>
             <section id='game-link' className='section'>
-              <div className='container'>
+              <div className='container' startAnimation={scrollGame}>
                 <p className='title is-size-3'>
                   Now that we've learned about a few ciphers and how our computers can crack them easily, let's try making and solving ciphers from our friends!
                 </p>
@@ -74,7 +91,7 @@ function App() {
               </div>
             </section>
             <section id='closing' className='section'>
-              <Closing />
+              <Closing startAnimation={scrollClosing} />
             </section>
           </div>
         </Route>

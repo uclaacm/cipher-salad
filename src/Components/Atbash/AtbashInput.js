@@ -4,12 +4,6 @@ import GetInput from '../Input/Input.js';
 import { atbashEncode } from '../../atbashEncode.js';
 import Anime, {anime} from 'react-anime';
 
-const messagesToDecode = [
-  atbashEncode("[ Getting the hang of this? ]"),
-  atbashEncode("[ ...Or going bananas? ]"),
-  atbashEncode("[  ]")
-]
-
 class Atbash extends Component {
   state = {
     inputStr: null,
@@ -30,8 +24,8 @@ class Atbash extends Component {
   }
 
   componentWillUnmount() {
-    for(let i in this.timeouts) {
-      i = clearTimeout()
+    for(let i = 0; i < this.timeouts.length; i++) {
+      this.timeouts[i] = clearTimeout()
     }
   }
 
