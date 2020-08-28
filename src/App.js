@@ -16,6 +16,7 @@ import Intro from './Components/Intro/Intro.js'
 import ShareCipher from './Components/ShareCipher/ShareCipher.js';
 import AtbashIntro from './Components/AtbashIntro/AtbashIntro.js'
 import VertNav from './Components/VertNav/VertNav.js';
+import Anime from 'react-anime';
 
 function App() {
   const [name, setName] = useState("");
@@ -74,8 +75,12 @@ function App() {
               <Blackbox />
             </section>
             <section id='decoding' className="section">
-              <NameInput startAnimation={scrollDecoding} handleSubmit={n => setName(n)} />
-              <Decoding name={name}/>
+              {name === "" ? 
+                <NameInput startAnimation={scrollDecoding} handleSubmit={n => setName(n)} /> :
+                <Anime opacity={[0,1]} translateY={[-50, 50]}>
+                  <Decoding name={name}/>
+                </Anime>
+              }
             </section>
             <section id='game-link' className='section'>
               <div className='container' startAnimation={scrollGame}>
