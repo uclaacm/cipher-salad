@@ -6,21 +6,23 @@ import { atbashEncode } from '../../atbashEncode';
 import Anime from 'react-anime';
 
 const introTexts = [
-    "Cryptography is ancient, and has existed as long as people have wanted to communicate in secret.",
-    "One of the oldest ciphers was designed before the English alphabet, but we can easily translate it over: the Atbash cipher",
+    ", and has existed as long as people have wanted to communicate in secret.",
+    "One of the oldest ciphers was designed before the English alphabet, but we can easily translate it over: the",
     "Originally made for Hebrew, people would replace the first letter of their alphabet with the last, the second with the second to last, and so on.",
     "Can you guess how these letters would match up in an English Atbash cipher?"
 ]
 
-const lessonText = (line1, line2) => {
+const lessonText = (line1, line2, first=false) => {
     return(
         <div className="column is-two-thirds">
-            <div className="content"> 
+            <div className=""> 
+            <h4 className="subtitle">{(first)? <strong>Cryptography is ancient</strong>: null }{line1}</h4>
+            <h4 className="subtitle is-family-secondary">{line2}{(first)? <strong> Atbash cipher</strong> : null}</h4>
                 <p className="is-size-5">
-                    {line1}
+                    
                 </p>
                 <p className="is-size-5">
-                    {line2}
+                    
                 </p>
             </div>
         </div>
@@ -64,7 +66,7 @@ export const partOne = () => {
         <div>
             <div className="columns is-variable is-5">
                 {hieroglyph(hieroglyph1, "ancient hieroglyphs depicting birds and other things")}
-                {lessonText(introTexts[0], introTexts[1])}
+                {lessonText(introTexts[0], introTexts[1], true)}
             </div>
             {hieroglyph(hieroglyph2, "more ancient hieroglyphs", true)}
         </div>
