@@ -69,7 +69,7 @@ function App() {
                   to='/game'
                   className='button is-large is-family-secondary has-text-weight-bold'
                 >
-                  Let's get started!
+                  Launch the game!
                 </Link>
               </div>
             </section>

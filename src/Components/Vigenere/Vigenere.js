@@ -96,7 +96,7 @@ class Vigenere extends Component {
                 <div className="column">
                     <div className="columns is-vcentered">
                         <div className="column is-one-third">
-                            <img src="/vigenere_1.png" alt="caesar cipher encoding example" className="is-3by2"/>
+                            <img src="/vigenere_1.png" alt="shifting the alphabet by 3" className="is-3by2"/>
                         </div>
                         <div className="is-two-thirds is-size-5 content-custom column">
                             So far we’ve seen the ancient caesar cipher and atbash cipher. 
@@ -114,7 +114,7 @@ class Vigenere extends Component {
                             
                         </div>
                         <div className="column is-half">
-                            <img src="/vigenere_2.png" alt="vigenere cipher encoding example"/>
+                            <img src="/vigenere_2.png" alt="demonstration of individual letter shifts"/>
                         </div>
                     </div> 
                     <div className="columns">

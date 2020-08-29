@@ -45,7 +45,7 @@ class Title extends Component {
             <div className="container">
               <div className= "columns is-vcentered">
                 <div className="column is-relative">
-                  <img src={laptop} alt="Laptop displaying title"/>
+                  <img src={laptop} alt="laptop typing"/>
                   <div className="is-overlay is-family-monospace position-text">
                     <div className="is-inline-block">
                       <div className="typing-animation typing-title">
