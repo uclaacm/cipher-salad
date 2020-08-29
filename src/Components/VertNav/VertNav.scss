@@ -1,19 +1,16 @@
 $vnav-anim-time: .3s;
 
-.vnav-container {
+.vnav-hidden {
+  opacity: 0;
+}
+
+.vnav {
   position: fixed;
   background: none !important;
   left: 0;
   top: 50%;
   transition: opacity $vnav-anim-time ease;
   z-index: 1000;
-}
-
-.vnav-hidden {
-  opacity: 0;
-}
-
-.vnav {
   padding: 1rem;
   transform: translateY(-50%);
   display: flex;

@@ -29,18 +29,18 @@ export default function VertNav(props) {
   const [ hidden, setHidden ] = useState(true);
 
   const spyContents = props.navLinks.map(id => (
-    <AnchorLink offset={-5} href={`#${id}`}>
+    <AnchorLink offset={-5} href={`#${id}`} tabIndex={10}>
       <FontAwesomeIcon size='2x' icon={faKey} alt='key' />
     </AnchorLink>
   ));
   
   return (
-    <div className={`vnav-container${hidden ? ' vnav-hidden' : ''}`}>
+    <div className={``}>
       <Scrollspy
+        componentTag='nav'
+        className={`vnav ${hidden ? ' vnav-hidden' : ''}`}
         items={props.navLinks}
         currentClassName='current-section'
-        componentTag='nav'
-        className='vnav'
         onUpdate={e => {
           if (!e)
             setHidden(true);
