@@ -5,12 +5,14 @@ import { caesarShift } from '../../caesarShift';
 import { SERVER } from '../../constants';
 import CaesarWheel from '../CaesarWheel/CaesarWheel';
 
+const PLACEHOLDER_TEXT = 'TYPE HERE TO CREATE A CIPHER';
+
 // CreateCipher is the portion of the interactive module
 // for creating sharable ciphers.
 function CreateCipher() {
     const [currentHash, setCurrentHash] = useState('');
     const [shamt, setShamt] = useState(0);
-    const [plaintext, setPlaintext] = useState('TYPE HERE TO CREATE A CIPHER!');
+    const [plaintext, setPlaintext] = useState('');
 
     // 0 = no op in progress
     // 1 = in progress
@@ -18,7 +20,10 @@ function CreateCipher() {
     // 3 = failed
     const [createStatus, setCreateStatus] = useState(0);
 
-    const [copyStatus, setCopyStatus] = useState(0);        // 0 = no copy, 1 = copied OK, 2 = error
+    // 0 = no copy
+    // 1 = copied OK
+    // 2 = error
+    const [copyStatus, setCopyStatus] = useState(0);
 
     return (
         <div className='container'>
@@ -32,7 +37,7 @@ function CreateCipher() {
                 <input
                     className='input'
                     type='text'
-                    placeholder='TYPE HERE TO CREATE A CIPHER!'
+                    placeholder={PLACEHOLDER_TEXT}
                     value={plaintext}
                     onChange={
                         (e) => {e.preventDefault(); setPlaintext(e.target.value.toUpperCase())}
@@ -56,11 +61,7 @@ function CreateCipher() {
             
             <section className='share-section'>
                 <p className='is-size-4'>
-                    {
-                        plaintext ?
-                        `This will be encoded as ${caesarShift(plaintext.toUpperCase(), shamt)}` :
-                        'Type something to see it encoded!'
-                    }
+                    {`This will be encoded as ${plaintext ? caesarShift(plaintext.toUpperCase(), shamt) : caesarShift(PLACEHOLDER_TEXT, shamt)}`}
                 </p>
             </section>
 
@@ -72,7 +73,10 @@ function CreateCipher() {
                 <button className='button' onClick={
                     async () => {
                         setCreateStatus(1);
-                        let created = await createCipher({ plaintext, shamt });
+                        let created = await createCipher({
+                            plaintext: plaintext ? plaintext : PLACEHOLDER_TEXT,
+                            shamt,
+                        });
                         if (created) {
                             setCurrentHash(String(created));
                             setCurrentHash(`${SERVER}/game/solve/${created}`);
