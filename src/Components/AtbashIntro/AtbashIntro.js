@@ -9,12 +9,8 @@ function AtbashIntro() {
         <section className="container mb-6">
             <div className="columns is-variable is-5">
                 <div className="column is-one-third">
-<<<<<<< HEAD
-                    <img src={hieroglyph1} alt="ancient hieroglyphs depicting birds and other things" />
-                    <img src={hieroglyph2} alt="more ancient hieroglyphs" className="position-img" />
-=======
                     <img src={hieroglyph1} alt="ancient hieroglyphs" />
->>>>>>> origin/master
+                    <img src={hieroglyph2} alt="ancient hieroglyphs" className="position-img" />
                 </div>
                 <div className="column">
                     <div className="content"> 
@@ -29,12 +25,6 @@ function AtbashIntro() {
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-=======
-            <div className="column is-one-third">
-                <img src={hieroglyph2} alt="ancient hieroglyphs" className="position-img" />
-            </div>
->>>>>>> origin/master
             <div className="columns">
                 <div className="column is-two-thirds">
                     <div className="content">
