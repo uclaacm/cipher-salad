@@ -14,6 +14,7 @@ class Caesar extends Component {
         this.state = {
             offset: offset,
             animateMessage: false,
+            animated: false
         };
     } 
 
@@ -42,7 +43,11 @@ class Caesar extends Component {
         let plaintext = "Brutus homie what is up";
         let ciphertext = "EUXWXV KRPLH ZKDW LV XS";
         let finalPlaintext, finalCiphertext;
+        let fadein = [0,1]
+        let bounce = [-50,0]
         if (this.state.animateMessage) {
+            fadein = [1,1]
+            bounce = [0,0]
             finalPlaintext = <div className="overlay is-inline-flex">
                 <Anime 
                     rotateY={[0,45]} 
@@ -73,7 +78,7 @@ class Caesar extends Component {
                 <div className="container mb-6">
                     <div className="columns is-centered">
                         <div className="column">
-                        <Anime opacity={(this.props.startAnimation) ? [0,1] : [0,0]} translateY={[-50,0]}>
+                        <Anime opacity={(this.props.startAnimation) ? fadein : [0,0]} translateY={bounce}>
                             <p className="is-size-4">
                                 The Year is 39 B.C., and Roman general Julius Caesar 
                                 wants to send a secret note to his friend Brutus.
@@ -83,18 +88,18 @@ class Caesar extends Component {
                     </div>
                     <div className="columns is-vcentered">
                         <div className="column is-one-quarter">
-                            <Anime opacity={(this.props.startAnimation) ? [0,1] : [0,0]} delay={2000}>
+                            <Anime opacity={(this.props.startAnimation) ? fadein : [0,0]} delay={2000}>
                                 <img src={caesar} alt="Caesar" id="caesar"/>
                             </Anime>
                         </div>
                         <div className="column columns is-centered">
                             <div className="column is-four-fifths">
-                            <Anime opacity={(this.props.startAnimation) ? [0,1] : [0,0]} delay={5000}>
+                            <Anime opacity={(this.props.startAnimation) ? fadein : [0,0]} delay={5000}>
                                 <p className="is-size-5">
                                     So, he writes a note in code. Each A is turned to D, B turned to 
                                     E &mdash; notice the pattern?
                                 </p></Anime>
-                                <Anime opacity={(this.props.startAnimation) ? [0,1] : [0,0]} delay={8000}>
+                                <Anime opacity={(this.props.startAnimation) ? fadein : [0,0]} delay={8000}>
                                 <button 
                                     className="button is-relative is-medium message-button has-background-grey-light has-text-black is-family-secondary"
                                     onClick={() => {this.setState({animateMessage: true})}}>
@@ -106,7 +111,7 @@ class Caesar extends Component {
                             </div>
                         </div>
                         <div className="column is-one-quarter">
-                        <Anime opacity={(this.props.startAnimation) ? [0,1] : [0,0]} delay={3000}>
+                        <Anime opacity={(this.props.startAnimation) ? fadein : [0,0]} delay={3000}>
                             <img src={brutus} alt="Brutus"/></Anime>
                         </div>
                         
