@@ -10,6 +10,7 @@ function AtbashIntro() {
             <div className="columns is-variable is-5">
                 <div className="column is-one-third">
                     <img src={hieroglyph1} alt="ancient hieroglyphs" />
+                    <img src={hieroglyph2} alt="ancient hieroglyphs" className="position-img" />
                 </div>
                 <div className="column">
                     <div className="content"> 
@@ -23,9 +24,6 @@ function AtbashIntro() {
                         </p>
                     </div>
                 </div>
-            </div>
-            <div className="column is-one-third">
-                <img src={hieroglyph2} alt="ancient hieroglyphs" className="position-img" />
             </div>
             <div className="columns">
                 <div className="column is-two-thirds">
