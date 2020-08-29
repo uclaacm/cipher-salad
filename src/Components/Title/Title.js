@@ -51,6 +51,7 @@ class Title extends Component {
                         <h1 className="title-size has-text-weight-bold title-color">cipher salad</h1>
                       </div>
                     </div>
+                    <br/>
                     <div className="is-inline-block">
                       <div className="typing-animation typing-subtitle">
                         <h2 className="is-size-5 has-text-weight-bold has-text-white">{this.state.subtitle}</h2>

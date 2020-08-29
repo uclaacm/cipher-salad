@@ -1,17 +1,12 @@
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 950px) {
     .position-img {
         position: relative;
-        bottom: 2.75em; 
+        bottom: 0.5em;
+        left: 8.5em; 
     }
     .position-letter-encodings {
         position: absolute;
         bottom: 1em;
-    }
-}
-
-@media only screen and (min-width: 950px) {
-    .position-img {
-        left: 8.5em;
     }
 }
 
