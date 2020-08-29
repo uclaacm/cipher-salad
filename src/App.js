@@ -23,7 +23,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path={['/game', '/game/*']} component={ShareCipher} />
+        <Route path='/game'>
+          <ShareCipher />
+        </Route>
 
         <Route path='/'>
           <div className="App">
