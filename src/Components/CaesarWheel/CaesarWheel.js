@@ -98,7 +98,7 @@ class CaesarWheel extends Component {
 
                 <div className='my-3'></div>
 
-                <div className='container'>
+                <div className='container caesar-buttons'>
                     <button
                         className='button is-large is-family-secondary has-text-weight-bold'
                         onClick={() => this.adjustAngle(-1*360/26) }
@@ -112,6 +112,8 @@ class CaesarWheel extends Component {
                         <FontAwesomeIcon icon={faArrowRight} alt='right arrow' />
                     </button>
                 </div>
+
+                <div className='my-3'></div>
             </>
         );
     }

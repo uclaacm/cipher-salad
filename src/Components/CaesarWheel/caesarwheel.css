@@ -9,3 +9,8 @@
 .cursor {
     cursor: grab;
 }
+
+.caesar-buttons {
+    display: flex;
+    justify-content: space-around;
+}
