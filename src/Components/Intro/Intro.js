@@ -1,4 +1,5 @@
 import React from "react";
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 function Intro(props) {
     return (
@@ -24,15 +25,15 @@ function Intro(props) {
                 </div>
             </div>
             <div className="row_space">
-                <a href="#caesar_cipher">
+                <AnchorLink offset={-5} href="#caesar">
                     <button class="button is-static is-large is-family-secondary has-text-weight-bold">Caesar Cipher</button>
-                </a>
-                <a href="#atbash_cipher">
+                </AnchorLink>
+                <AnchorLink offset={-5} href="#atbash">
                     <button class="button is-static is-large is-family-secondary has-text-weight-bold">Atbash Cipher</button>
-                </a>
-                <a href="#vigenere_cipher">
+                </AnchorLink>
+                <AnchorLink offset={-5} href="#vigenere">
                     <button class="button is-static is-large is-family-secondary has-text-weight-bold">Vigenere Cipher</button>
-                </a>
+                </AnchorLink>
             </div>
         </div>
     );

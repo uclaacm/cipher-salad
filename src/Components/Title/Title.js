@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import '../main.css';
 import './title.css'
 import laptop from './laptop.svg';
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 class Title extends Component {
   constructor(props) {
@@ -44,7 +45,7 @@ class Title extends Component {
             <div className="container">
               <div className= "columns is-vcentered">
                 <div className="column is-relative">
-                  <img src={laptop} alt="Laptop displaying title"/>
+                  <img src={laptop} alt="laptop typing"/>
                   <div className="is-overlay is-family-monospace position-text">
                     <div className="is-inline-block">
                       <div className="typing-animation typing-title">
@@ -64,7 +65,7 @@ class Title extends Component {
                   <h4 className="subtitle is-family-secondary">
                       To answer this question, we'll explore the history of sending secret messages and why things get funky when you introduce computers!
                   </h4>
-                  <a href="#intro" className="button is-large">Let's Go</a>
+                  <AnchorLink offset={-5} href="#intro" className="button is-large">Let's Go</AnchorLink>
                 </div>
               </div>
             </div>

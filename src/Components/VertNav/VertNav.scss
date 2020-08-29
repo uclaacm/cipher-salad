@@ -1,0 +1,44 @@
+$vnav-anim-time: .3s;
+
+.vnav-hidden {
+  opacity: 0;
+}
+
+.vnav {
+  position: fixed;
+  background: none !important;
+  left: 0;
+  top: 50%;
+  transition: opacity $vnav-anim-time ease;
+  z-index: 1000;
+  padding: 1rem;
+  transform: translateY(-50%);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+}
+  
+.vnav > * {
+  padding: 1rem;
+  margin: 0.25rem 0;
+  border-radius: 100%;
+  background: #757763;
+  color: #d0d1cd;
+}
+
+@keyframes boop {
+  50% {
+    scale: 105%;
+    rotate: 10deg;
+  }
+
+  100% {
+    scale: 100%;
+    rotate: 0deg;
+  }
+}
+
+.current-section {
+  color: #ffb800;
+  animation: $vnav-anim-time boop cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}

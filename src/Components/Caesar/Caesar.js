@@ -81,7 +81,7 @@ class Caesar extends Component {
                     </div>
                     <div className="columns is-vcentered">
                         <div className="column is-one-quarter">
-                            <img src={caesar} alt="Caesar" className="img-size"/>
+                            <img src={caesar} alt="silhouette of julius caesar"/>
                         </div>
                         <div className="column columns is-centered">
                             <div className="column is-four-fifths">
@@ -100,7 +100,7 @@ class Caesar extends Component {
                             </div>
                         </div>
                         <div className="column is-one-quarter">
-                            <img src={brutus} alt="Brutus" className="img-size"/>
+                            <img src={brutus} alt="silhouette of armored marcus junius brutus"/>
                         </div>
                     </div> 
                     
