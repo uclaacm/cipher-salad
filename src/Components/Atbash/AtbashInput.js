@@ -13,8 +13,11 @@ class Atbash extends Component {
   constructor(props) {
     super(props);
     this.timeouts = [ 0 ]
+    this.decrypted = [false, false, false]
     this.state = {
       animateDecrypt: [false, false, false],
+      // animateDecrypt2: false,
+      // animateDecrypt3: true,
       messages: [
         atbashEncode("[ Getting the hang of this? ]"),
         atbashEncode("[ ...Or going bananas? ]"),
@@ -99,17 +102,31 @@ class Atbash extends Component {
     })
   }
 
+  decryptAt = (index) => {
+    let newAnimateState = Array.from(this.state.animateDecrypt)
+    newAnimateState.splice(index, 1, true)
+    this.setState({
+      decrypted: newAnimateState
+    })
+  }
+
   render() {
 
+    // [pls forgive my spaghetti code]
     let finalCiphertext = ["", "", ""];
     let finalPlaintext = ["", "", ""];
     this.state.messages.forEach((el, i) => {
       if (this.state.animateDecrypt[i]) {
         finalCiphertext.splice(i, 1, this.animateMsg(el))
         finalPlaintext.splice(i, 1, this.animateMsg(atbashEncode(el), true))
-        
+        if(this.decrypted[i]) {
+          finalCiphertext.splice(i, 1, null); 
+          finalPlaintext.splice(i, 1, <div className="overlay is-inline-flex">{atbashEncode(el)}</div>)
+        }
+        else
+          this.decrypted[i] = true
       } else {
-        finalCiphertext.splice(i, 1, <div className="overlay">{el}</div>);
+        finalCiphertext.splice(i, 1, <div className="overlay is-inline-flex">{el}</div>);
         finalPlaintext.splice(i, 1, null);
       }
       console.log(finalCiphertext)
@@ -160,7 +177,6 @@ class Atbash extends Component {
                 </div>
                )}
             </div>
-               {/*this.state.messages.map((message) => this.Ez(this.state.messages.indexOf(message)))*/}
             <div class="tile is-parent is-3" >
                   {/* dummy tile so the messages dont crash into the transition :( */}
             </div>
