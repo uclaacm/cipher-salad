@@ -35,24 +35,22 @@ export default function VertNav(props) {
   ));
   
   return (
-    <div className={``}>
-      <Scrollspy
-        componentTag='nav'
-        className={`vnav ${hidden ? ' vnav-hidden' : ''}`}
-        items={props.navLinks}
-        currentClassName='current-section'
-        onUpdate={e => {
-          if (!e)
-            setHidden(true);
-          else {
-            if (props.callbacks && props.callbacks[e.id])
-              props.callbacks[e.id](e);
-            setHidden(false);
-          }
-        }}
-      >
-        {spyContents}
-      </Scrollspy>
-    </div>
+    <Scrollspy
+      componentTag='nav'
+      className={`vnav ${hidden ? ' vnav-hidden' : ''}`}
+      items={props.navLinks}
+      currentClassName='current-section'
+      onUpdate={e => {
+        if (!e)
+          setHidden(true);
+        else {
+          if (props.callbacks && props.callbacks[e.id])
+            props.callbacks[e.id](e);
+          setHidden(false);
+        }
+      }}
+    >
+      {spyContents}
+    </Scrollspy>
   );
 }
