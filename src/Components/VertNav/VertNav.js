@@ -30,7 +30,7 @@ export default function VertNav(props) {
 
   const spyContents = props.navLinks.map(id => (
     <AnchorLink offset={-5} href={`#${id}`}>
-      <FontAwesomeIcon size='2x' icon={faKey} />
+      <FontAwesomeIcon size='2x' icon={faKey} alt='key' />
     </AnchorLink>
   ));
   
