@@ -5,7 +5,7 @@ import '../main.css';
 class Recap extends React.Component {
 
     animate = () => {
-        return (this.props.startAnimation) ? {opacity: [0,1], delay: 500 } : { opacity: [0,0]}
+        return (this.props.startAnimation) ? {opacity: [0,1], delay: anime.stagger(10000) } : { opacity: [0,0]}
     }
 
 
@@ -46,7 +46,7 @@ class Recap extends React.Component {
                         
                     </div>
                     </div>
-                    </Anime>
+                    
                 
                     <div className="columns is-vcentered container">
                     <div className="mid_font content-custom column">
@@ -69,6 +69,7 @@ class Recap extends React.Component {
                         Today, you’ve made the first step in learning about them! 
                     </div>
                     </div>
+                    </Anime>
                     <div className="columns is-vcentered container">
                     <div class="column"></div>
                     <div class="column"></div>
