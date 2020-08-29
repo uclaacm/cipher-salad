@@ -14,9 +14,9 @@ const CAPITAL_Z = 90;
 function Letter ({ key, char }) {
     return(
     <div className="control" key={key}>
-    <button className="button is-static is-medium is-family-secondary has-text-weight-bold" style={{width:58+'px'}}>
-        <p>{char}</p>
-    </button>
+        <div className="button is-static is-medium is-family-secondary has-text-weight-bold" style={{width:58+'px'}}>
+            <p>{char}</p>
+        </div>
     </div>
     )
 }
