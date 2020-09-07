@@ -33,15 +33,15 @@ function Intro(props) {
                         </div>
                     </div>
                 </div>
-                <div className="column"> 
+                <div className="column row_space"> 
                     {ciphers.map((cipher, i) => {
                         return(
-                            <div>
-                                <br/>
+                            <div className="row_space">
                                 <AnchorLink offset={-5} href={"#"+cipher}>
-                                    <button class="button is-static is-large is-family-secondary has-text-weight-bold">{cipherPretty[i]} Cipher</button>
+                                    <button class="button is-static is-large is-family-secondary has-text-weight-bold">
+                                        {cipherPretty[i]} Cipher
+                                    </button>
                                 </AnchorLink>
-                                <br/><br/><br/>
                             </div>
                         )
                     })}
