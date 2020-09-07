@@ -5,6 +5,7 @@ import caesar from './caesar.svg'
 import brutus from './brutus.svg'
 import "./caesar.css"
 import Anime, {anime} from 'react-anime'
+import { caesarShift } from "../../caesarShift.js";
 
 class Caesar extends Component {
     constructor(props) {
@@ -14,7 +15,9 @@ class Caesar extends Component {
         this.state = {
             offset: offset,
             animateMessage: false,
-            animated: false
+            animated: false,
+            finalMessage: "BRUTUS HOMIE WHAT IS UP",
+            shift: 3
         };
     } 
 
@@ -40,32 +43,33 @@ class Caesar extends Component {
     }
     
     render() {
-        let plaintext = "Brutus homie what is up";
-        let ciphertext = "EUXWXV KRPLH ZKDW LV XS";
+        let plaintext = this.state.finalMessage;
+        let ciphertext = caesarShift(this.state.finalMessage, this.state.shift);
         let finalPlaintext, finalCiphertext;
         let fadein = [0,1]
         let bounce = [-50,0]
+        let newShift = -1*this.state.shift;
         if (this.state.animateMessage) {
             fadein = [1,1]
             bounce = [0,0]
-            finalPlaintext = <div className="overlay is-inline-flex">
+            finalCiphertext = <div className="overlay is-inline-flex">
                 <Anime 
                     rotateY={[0,45]} 
                     opacity={[1,0]} 
                     duration="200" 
                     delay={anime.stagger(50)}
                     easing="easeOutSine">
-                        {this.putCharsInSpans(plaintext)}
+                        {this.putCharsInSpans(ciphertext)}
                 </Anime>
             </div>
-            finalCiphertext = <div className="overlay is-inline-flex">
+            finalPlaintext = <div className="overlay is-inline-flex">
                 <Anime 
                     rotateY={[-90,0]} 
                     opacity={[0,1]} 
                     duration="400" 
                     delay={anime.stagger(50)}
                     easing="easeOutSine">
-                        {this.putCharsInSpans(ciphertext)}
+                        {this.putCharsInSpans(plaintext)}
                 </Anime>
             </div>
         } else {
@@ -102,7 +106,7 @@ class Caesar extends Component {
                                 <Anime opacity={(this.props.startAnimation) ? fadein : [0,0]} delay={8000}>
                                 <button 
                                     className="button is-relative is-medium message-button has-background-grey-light has-text-black is-family-secondary"
-                                    onClick={() => {this.setState({animateMessage: true})}}>
+                                    onClick={() => {this.setState({animateMessage: true, finalMessage: ciphertext, shift: newShift})}}>
                                     {finalPlaintext}
                                     {finalCiphertext}
                                 </button>
