@@ -49,9 +49,11 @@ function ShareCipher() {
                                     <Link to={`${match.path}/create`} className='button is-large is-family-secondary has-text-weight-bold'>
                                         Create a cipher!
                                     </Link>
+                                    <div class="mb-4"></div>
                                     <Link to={`${match.path}/solve`} className='button is-large is-family-secondary has-text-weight-bold'>
                                         Crack a cipher!
                                     </Link>
+                                    <div class="mb-4"></div>
                                     <Link to='/' className='button is-large is-family-secondary has-text-weight-bold'>
                                         Go back
                                     </Link>

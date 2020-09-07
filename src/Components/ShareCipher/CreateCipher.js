@@ -27,10 +27,12 @@ function CreateCipher() {
 
     return (
         <div className='container'>
-            <h1 className='title is-size-1'>Create a cipher!</h1>
+            <div className="center">
+                <h1 className='title is-size-2 underline mt-4'>Create a Cipher!</h1>
+            </div>
             
             <section className='share-section'>
-                <p className='is-size-4'>Input your plaintext...</p>
+                <p className='is-size-4 mt-3'>Input your plaintext...</p>
 
                 <div className='my-3'></div>
 
