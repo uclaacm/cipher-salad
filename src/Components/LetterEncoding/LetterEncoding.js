@@ -3,11 +3,15 @@ import Anime, { anime } from 'react-anime'
 
     function LetterButton(props) {
         return (
-            <button className="button button-height is-static has-text-weight-bold is-family-secondary px-4 is-size-2"
+            <div
+                className="button button-height is-static has-text-weight-bold is-family-secondary px-4 is-size-2"
                 style={props.shouldHandleMouseEnter ? {pointerEvents: "auto"} : {}}
-                onMouseEnter={props.shouldHandleMouseEnter ? props.handleMouseEnter : null}>
+                tabIndex={0}
+                onMouseEnter={props.shouldHandleMouseEnter ? props.handleMouseEnter : null}
+                onFocus={props.shouldHandleMouseEnter ? props.handleMouseEnter : null}
+            >
                 {props.children}
-            </button>
+            </div>
         );
     }
 

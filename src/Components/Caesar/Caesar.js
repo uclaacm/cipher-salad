@@ -89,7 +89,7 @@ class Caesar extends Component {
                     <div className="columns is-vcentered">
                         <div className="column is-one-quarter">
                             <Anime opacity={(this.props.startAnimation) ? fadein : [0,0]} delay={2000}>
-                                <img src={caesar} alt="Caesar" id="caesar"/>
+                                <img src={caesar} alt="silhouette of julius caesar" id="caesar"/>
                             </Anime>
                         </div>
                         <div className="column columns is-centered">
@@ -112,7 +112,7 @@ class Caesar extends Component {
                         </div>
                         <div className="column is-one-quarter">
                         <Anime opacity={(this.props.startAnimation) ? fadein : [0,0]} delay={3000}>
-                            <img src={brutus} alt="Brutus"/></Anime>
+                            <img src={brutus} alt="silhouette of armored marcus junius brutus"/></Anime>
                         </div>
                         
                     </div> 

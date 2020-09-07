@@ -31,7 +31,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path='/game' component={ShareCipher} />
+        <Route path='/game'>
+          <ShareCipher />
+        </Route>
 
         <Route path='/'>
           <div className="App">
@@ -91,7 +93,7 @@ function App() {
                   to='/game'
                   className='button is-large is-family-secondary has-text-weight-bold'
                 >
-                  Let's get started!
+                  Launch the game!
                 </Link>
               </div>
             </section>

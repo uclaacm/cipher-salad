@@ -45,13 +45,14 @@ class Title extends Component {
             <div className="container">
               <div className= "columns is-vcentered">
                 <div className="column is-relative">
-                  <img src={laptop} alt="Laptop displaying title"/>
+                  <img src={laptop} alt="laptop typing"/>
                   <div className="is-overlay is-family-monospace position-text">
                     <div className="is-inline-block">
                       <div className="typing-animation typing-title">
                         <h1 className="title-size has-text-weight-bold title-color">cipher salad</h1>
                       </div>
                     </div>
+                    <br/>
                     <div className="is-inline-block">
                       <div className="typing-animation typing-subtitle">
                         <h2 className="is-size-5 has-text-weight-bold has-text-white">{this.state.subtitle}</h2>
