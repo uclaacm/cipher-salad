@@ -55,7 +55,7 @@ export const clickMe = (text, translate) => {
     return(
         <Anime loop={true} translateX={5} direction={"alternate"} >
             <br/>
-            <p class="is-size-3">{translate ? text : atbashEncode(text)}</p> 
+            <p class="is-size-3" style={{cursor:"pointer"}}>{translate ? text : atbashEncode(text)}</p> 
             <br/>
         </Anime>
     )
