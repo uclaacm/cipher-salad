@@ -120,14 +120,17 @@ class Vigenere extends Component {
                     </div> 
                     <div className="columns">
                         <div className="is-size-5 subtitle column">
+                            <p className="my-5">
                             And then in the 19th century, the cipher was misattributed to a French guy named 
                             <b> Vigenere</b> even though the idea was first described by <b>Giovan Bellaso</b>. 
-                            <br/><br/> ¯\_(ツ)_/¯ <br/>
-                            <div className="my-5"></div>
-                            <b>Now you’ve learned the Vigenere cipher, and 
-                            <br></br>
-                            it's time to try it yourself!</b>
-                            <div className="my-5"></div>
+                            </p>
+                            <p className="my-5">¯\_(ツ)_/¯</p> 
+                            <p>
+                                <b>Now you’ve learned the Vigenere cipher, and </b> 
+                            </p>
+                            <p className="mb-5">
+                                <b>it's time to try it yourself!</b>
+                            </p>
                         </div>
                     </div>
                 </div>
