@@ -170,7 +170,7 @@ class Atbash extends Component {
             <div class="tile is-parent is-vertical is-4" display="flex">
               <br/>
                 {finalCiphertext.map((v, i) => 
-                <div className="tile is-child is-6">
+                <div className="tile is-child is-6" style={{cursor:"pointer"}}>
                   <div className="is-size-4 my-5 " id={i} onClick={() => this.animateAt(i)}>{v}</div>
                   <div className="is-size-4 my-5 " key={"plaintext"+i}>{finalPlaintext[i]}</div> 
                   <br/>

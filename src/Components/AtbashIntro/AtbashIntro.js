@@ -9,8 +9,8 @@ class AtbashIntro extends React.Component {
         const firstPrompt = "click me"
         const secondPrompt = "click me next :o"
         this.state = {
-            clickList: [clickMe(firstPrompt, false), clickMe(firstPrompt, true), partTwo()],
-            clickList2: [clickMe(secondPrompt, false), clickMe(secondPrompt, true), partThree()],
+            clickList: [clickMe(firstPrompt, true), clickMe(firstPrompt, false), partTwo()],
+            clickList2: [clickMe(secondPrompt, true), clickMe(secondPrompt, false), partThree()],
             showIndex: [0, 0]
         }
     }
