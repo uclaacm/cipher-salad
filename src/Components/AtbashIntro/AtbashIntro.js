@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Anime from 'react-anime';
 import './atbashIntro.css'
 import { clickMe, partOne, partTwo, partThree} from './AtbashIntroSections.js'
+
+const ClickFunc = (props) => {
+    const [show, setShow] = useState(0);
+    return (
+        <div onClick={()=> {setShow(show < 2 ? show+1 : show); console.log(show)} }>
+            <Anime {...props.animate} >{props.clickList[show]}</Anime>
+        </div>  
+    );
+}
 
 class AtbashIntro extends React.Component {
     constructor(props) {
@@ -10,8 +19,7 @@ class AtbashIntro extends React.Component {
         const secondPrompt = "click me next :o"
         this.state = {
             clickList: [clickMe(firstPrompt, true), clickMe(firstPrompt, false), partTwo()],
-            clickList2: [clickMe(secondPrompt, true), clickMe(secondPrompt, false), partThree()],
-            showIndex: [0, 0]
+            clickList2: [clickMe(secondPrompt, true), clickMe(secondPrompt, false), partThree()]
         }
     }
 
@@ -24,27 +32,14 @@ class AtbashIntro extends React.Component {
         return(animeProps)
     }
 
-    handleShow = (index) => {
-        let currIndex = this.state.showIndex[index]
-        let newIndices = this.state.showIndex
-        newIndices.splice(index, 1, currIndex+1) 
-        if(currIndex < 2) {
-            this.setState({showIndex: newIndices })
-        }
-    }
-
     render() {
         let { clickList } = this.state
         let { clickList2 } = this.state
         return(
             <section className="container mb-6">
                 {partOne()}
-                <div onClick={()=>this.handleShow(0)}>
-                    {clickList.map((v, i) => (i === this.state.showIndex[0]) ? <Anime {...this.animate()} >{v}</Anime>: <div></div>)}
-                </div>
-                <div onClick={()=>this.handleShow(1)}>
-                    {clickList2.map((v, i) => (i === this.state.showIndex[1]) ? <Anime {...this.animate()} >{v}</Anime>: <div></div>)}
-                </div>
+                <ClickFunc clickList={clickList} animate={this.animate()} />
+                <ClickFunc clickList={clickList2} animate={this.animate()} />
             </section>
         )
     }
