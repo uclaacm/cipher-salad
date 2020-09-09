@@ -6,7 +6,7 @@ import { clickMe, partOne, partTwo, partThree} from './AtbashIntroSections.js'
 const ClickFunc = (props) => {
     const [show, setShow] = useState(0);
     return (
-        <div onClick={()=> {setShow(show < 2 ? show+1 : show); console.log(show)} }>
+        <div onClick={()=> {setShow(show < 2 ? show+1 : show)} }>
             <Anime {...props.animate} >{props.clickList[show]}</Anime>
         </div>  
     );
