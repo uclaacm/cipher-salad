@@ -15,8 +15,8 @@ const ClickFunc = (props) => {
 class AtbashIntro extends React.Component {
     constructor(props) {
         super(props);
-        const firstPrompt = "click me"
-        const secondPrompt = "click me next :o"
+        const firstPrompt = "click me :o"
+        const secondPrompt = "wrw blf xorxp srn gdrxv?"
         this.state = {
             clickList: [clickMe(firstPrompt, true), clickMe(firstPrompt, false), partTwo()],
             clickList2: [clickMe(secondPrompt, true), clickMe(secondPrompt, false), partThree()]
