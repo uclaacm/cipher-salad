@@ -59,7 +59,7 @@ class Caesar extends Component {
                     duration="200" 
                     delay={anime.stagger(50)}
                     easing="easeOutSine">
-                        {this.putCharsInSpans(ciphertext)}
+                        {Array.prototype.map.call(ciphertext, c => (c === " ") ? <span>&nbsp;</span> : <span key={c}>{c}</span>)}
                 </Anime>
             </div>
             finalPlaintext = <div className="overlay is-inline-flex">
@@ -69,7 +69,7 @@ class Caesar extends Component {
                     duration="400" 
                     delay={anime.stagger(50)}
                     easing="easeOutSine">
-                        {this.putCharsInSpans(plaintext)}
+                        {Array.prototype.map.call(plaintext, c => (c === " ") ? <span>&nbsp;</span> : <span key={c}>{c}</span>)}
                 </Anime>
             </div>
         } else {

@@ -3,7 +3,7 @@ import Anime from 'react-anime';
 import './atbashIntro.css'
 import { clickMe, partOne, partTwo, partThree} from './AtbashIntroSections.js'
 
-const ClickFunc = (props) => {
+const ClickMeComponent = (props) => {
     const [show, setShow] = useState(0);
     return (
         <div onClick={()=> {setShow(show < 2 ? show+1 : show)} }>
@@ -38,8 +38,8 @@ class AtbashIntro extends React.Component {
         return(
             <section className="container mb-6">
                 {partOne()}
-                <ClickFunc clickList={clickList} animate={this.animate()} />
-                <ClickFunc clickList={clickList2} animate={this.animate()} />
+                <ClickMeComponent clickList={clickList} animate={this.animate()} />
+                <ClickMeComponent clickList={clickList2} animate={this.animate()} />
             </section>
         )
     }

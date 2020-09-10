@@ -127,11 +127,11 @@ class Atbash extends Component {
     let transition;
     if(this.state.animateDecrypt[0] && this.state.animateDecrypt[1] && this.state.animateDecrypt[2]) {
       transition = <Anime opacity={[0,1]} translateX={[40, 0]} delay={anime.stagger(1000)}>
-        <br/>
+      <div class="my-5"></div>
       <p class="subtitle">Not too shabby!</p>
-      <br />
+      <div class="my-5"></div>
       <p class="subtitle">What's a <b>different</b> way you could transform one letter to another? </p>
-      <br/>
+      <div class="my-5"></div>
       <p class="subtitle">Let's visit the Roman empire and see what kind of ciphers they've come up with...</p>
     </Anime>
     }
@@ -140,7 +140,7 @@ class Atbash extends Component {
 
     return (
       <div className="container">
-        <br></br>
+        <div class="my-5"></div>
         <p class="title">Atbash Cipher: </p>
         <LetterBox default={true}
           offset={0}></LetterBox>
@@ -152,20 +152,19 @@ class Atbash extends Component {
         ></LetterBox>
         <GetInput
           cipher="atbash" />
-        <br />
-        <br />
+        <div class="my-6"></div>
         <div class="container">
           <p class="is-size-3" align="left">
             Can you crack these messages?
           </p>
           <div class="tile is-ancestor">
             <div class="tile is-parent is-vertical is-4" display="flex">
-              <br/>
+              
                 {finalCiphertext.map((v, i) => 
                 <div className="tile is-child is-6" style={{cursor:"pointer"}}>
+                  <div class="my-6"></div>
                   <div className="is-size-4 my-5 " id={i} onClick={() => this.animateAt(i)}>{v}</div>
                   <div className="is-size-4 my-5 " key={"plaintext"+i}>{finalPlaintext[i]}</div> 
-                  <br/>
                 </div>
                )}
             </div>

@@ -98,22 +98,21 @@ class Vigenere extends Component {
                         <div className="column is-one-third">
                             <img src="/vigenere_1.png" alt="shifting the alphabet by 3" className="is-3by2"/>
                         </div>
-                        <div className="subtitle is-two-thirds  column">
+                        <p className="subtitle is-two-thirds  column">
                             So far we’ve seen the ancient Atbash cipher and Caesar cipher. 
                             In 1553, an Italian guy named Giovan thought this wasn’t enough... 
                             So he made the Caesar cipher more secure by giving each letter a different shift.
-                        </div>
+                        </p>
                     </div>
                     <div className="columns is-vcentered">
-                        <div className="subtitle is-size-5 column">
+                        <p className="subtitle is-size-5 column">
                             He would code each shift in a letter:<br/> A equals 0, <br/> B equals 1, <br/> Z equals 25 <br/>.... 
                             and this would be the <b>key</b> to decoding his message.
-                            <br />
+                            <br/>
                             <br/>
                             Many ciphers use “keys,” an extra piece of information, to encrypt messages.
                             <br />
-                            
-                        </div>
+                        </p>
                         <div className="column is-half">
                             <img src="/vigenere_2.png" alt="demonstration of individual letter shifts"/>
                         </div>

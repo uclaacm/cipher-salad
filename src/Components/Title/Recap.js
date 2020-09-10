@@ -4,12 +4,6 @@ import '../main.css';
 
 class Recap extends React.Component {
 
-    animate = () => {
-        return (this.props.startAnimation) ? {opacity: [0,1], delay: anime.stagger(10000) } : { opacity: [0,0]}
-    }
-
-
-
     congratsEmoji = () => {
         return(
             <div class="column congrats_emoji">
@@ -31,7 +25,7 @@ class Recap extends React.Component {
         <div>
             <div className="container">
                 <div className="column">
-                    <Anime {...this.animate()}>
+                    <Anime {...(this.props.startAnimation) ? {opacity: [0,1], delay: anime.stagger(10000) } : { opacity: [0,0]}}>
                     <div className="columns is-vcentered container">
                     <div className="mid_font content-custom column container">
                         <br />

@@ -37,14 +37,14 @@ function App() {
 
         <Route path='/'>
           <div className="App">
-            <VertNav navLinks={['intro', 'atbash', 'caesar', 'vigenere', 'recap', 'decoding', 'game-link', 'closing']} 
+            <VertNav navLinks={['intro', 'atbash', 'caesar', 'vigenere', 'recap', 'decoding', 'gameLink', 'closing']} 
               callbacks={{
                 atbash: () => { setScrollAtbash(true); }, 
                 caesar: () => { setScrollCaesar(true); }, 
                 vigenere: () => { setScrollVigenere(true); }, 
                 recap: () => { setScrollRecap(true); }, 
                 decoding: () => { setScrollDecoding(true); }, 
-                'game-link': () => { setScrollGame(true); }, 
+                gameLink: () => { setScrollGame(true); }, 
                 closing: () => { setScrollClosing(true); }, 
               }}
             />
@@ -84,7 +84,7 @@ function App() {
                 </Anime>
               }
             </section>
-            <section id='game-link' className='section'>
+            <section id='gameLink' className='section'>
               <div className='container' startAnimation={scrollGame}>
                 <p className='title is-size-3'>
                   Now that we've learned about a few ciphers and how our computers can crack them easily, let's try making and solving ciphers from our friends!
