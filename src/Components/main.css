@@ -30,7 +30,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin: 30px 30px;
+    margin: 30px;
     align-items: center;
 }
 

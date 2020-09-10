@@ -12,12 +12,10 @@ class Atbash extends Component {
 
   constructor(props) {
     super(props);
-    this.timeouts = [ 0 ]
+    this.timeouts = [];
     this.decrypted = [false, false, false]
     this.state = {
       animateDecrypt: [false, false, false],
-      // animateDecrypt2: false,
-      // animateDecrypt3: true,
       messages: [
         atbashEncode("[ Getting the hang of this? ]"),
         atbashEncode("[ ...Or going bananas? ]"),
@@ -27,9 +25,7 @@ class Atbash extends Component {
   }
 
   componentWillUnmount() {
-    for(let i = 0; i < this.timeouts.length; i++) {
-      this.timeouts[i] = clearTimeout()
-    }
+    this.timeouts.forEach(t => clearTimeout(t));
   }
 
   backwardsAlpha = () => {
@@ -55,15 +51,11 @@ class Atbash extends Component {
   }
 
 
-  decryptHelper = (i, index) => {
-    let original = this.state.messages[i]
-    original = atbashEncode( original.substring(0, index+1)) + original.substring(index + 1);
-    //original = original.substring(0, index) + atbashEncode(original[index]) + original.substring(index + 1);
-    let newmsgs = Array.from(this.state.messages)
-    newmsgs.splice(i, 1, original)
-    console.log(newmsgs[i])
+  decryptHelper = (msgIdx, substrIdx) => {
+    let original = this.state.messages[msgIdx];
+    original = atbashEncode( original.substring(0, substrIdx+1)) + original.substring(substrIdx + 1);
     this.setState({
-      messages: newmsgs
+      messages: Array.from(this.state.messages).splice(msgIdx, 1, original),
     });
   }
 
