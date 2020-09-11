@@ -1,36 +1,61 @@
 import React from "react";
-import Anime from 'react-anime';
+import Anime, {anime} from 'react-anime';
 import '../main.css';
 
 class Recap extends React.Component {
+
+    congratsEmoji = () => {
+        return(
+            <div class="column congrats_emoji">
+            <Anime easing="linear" duration="900"
+                loop={true}
+                rotate='-30deg'
+                direction='alternate'
+            >
+                <span role="img" aria-label="congrats" className="congrats_emoji">🎉</span> 
+            </Anime>
+            </div>
+        )
+    }
+
+    // TODO: Make fit into one screen length, where new text replaces the old text
+
     render() {
         return (
         <div>
             <div className="container">
                 <div className="column">
+                    <Anime {...(this.props.startAnimation) ? {opacity: [0,1], delay: anime.stagger(10000) } : { opacity: [0,0]}}>
                     <div className="columns is-vcentered container">
                     <div className="mid_font content-custom column container">
                         <br />
-                        Today we learned about 3 different ciphers: 
                         <ul>
-                          <li> Caesar cipher <u>shift</u> the input by an amount. </li>
-                          <li> Atbash cipher <u>reverse</u> the input letters. </li>
-                          <li> Vigenere cipher <u>encode</u> every input with a key. </li>
+                            <Anime opacity={(this.props.startAnimation) ? [0,1] : [0,0]} delay={anime.stagger(3000)} translateX={[-20,20]} >
+                                <li> Today, we learned 3 different ciphers: </li>
+                                <li> Atbash cipher <u>reverses</u> the input letters. </li>
+                                <li> Caesar cipher <u>shifts</u> the input by an amount. </li>
+                                <li> Vigenere cipher <u>encodes</u> input with a key. </li>
+                            </Anime>
                         </ul>
+                        
                     </div>
                     </div>
+                    
+                
+                    <div className="columns is-vcentered container">
+                    <div className="mid_font content-custom column">
+                        Many ciphers, like the Vigenere cipher, use keys, <br/> but with even more complex math 
+                        
+                         <span role="img" aria-label="math">➗</span><span role="img" aria-label="math">➖</span><span role="img" aria-label="math">✖️</span><span role="img" aria-label="math">➕</span>. 
+                        <br/>
+                        Transforming them with a key encrypts <span role="img" aria-label="keywithlock">🔐</span> them, and transforming them back decrypts <span role="img" aria-label="key">🔑</span> them
+                    </div>
+                    </div> 
+
                     <div className="columns is-vcentered container">
                     <div className="mid_font content-custom column">
                         Computers are key to both encryption<span role="img" aria-label="lock">🔒</span> and decryption<span role="img" aria-label="unlock">🔓</span>. 
-                        In addition to the 3 ciphers, many more are used today 
-                        thanks to how fast<span role="img" aria-label="fast">⏱</span> computers can crunch the combinations. 
-                    </div>
-                    </div> 
-                    <div className="columns is-vcentered container">
-                    <div className="mid_font content-custom column">
-                        Many ciphers, similar to the Vigenere cipher, 
-                        use keys, but with even more complex math <span role="img" aria-label="math">➗</span><span role="img" aria-label="math">➖</span><span role="img" aria-label="math">✖️</span><span role="img" aria-label="math">➕</span>. 
-                        That’s where ciphers start to turn in cryptography<span role="img" aria-label="cryptography">🔐</span>. 
+                        Thanks to how fast<span role="img" aria-label="fast">⏱</span> computers can crunch the combinations, ciphers can turn into cryptography.<span role="img" aria-label="keywithlock">🔐</span>
                     </div>
                     </div> 
                     <div className="columns is-vcentered container">
@@ -38,32 +63,16 @@ class Recap extends React.Component {
                         Today, you’ve made the first step in learning about them! 
                     </div>
                     </div>
+                    </Anime>
                     <div className="columns is-vcentered container">
                     <div class="column"></div>
                     <div class="column"></div>
                     <div class="column"></div>
-                        <div class="column congrats_emoji">
-                        <Anime easing="linear" duration="900"
-                            loop={true}
-                            rotate='-30deg'
-                            direction='alternate'
-                        >
-                            <span role="img" aria-label="congrats" className="congrats_emoji">🎉</span> 
-                        </Anime>
-                        </div>
-                    
+                        {this.congratsEmoji()}
                         <div class="column large_font">
                             Congrats 
                         </div>
-                        <div class="column congrats_emoji">
-                        <Anime easing="linear" duration="900"
-                            loop={true}
-                            rotate='-30deg'
-                            direction='alternate'
-                        >
-                            <span role="img" aria-label="congrats" className="congrats_emoji">🎉</span> 
-                        </Anime>
-                        </div>
+                        {this.congratsEmoji()}
                     <div class="column"></div>
                     <div class="column"></div>
                     <div class="column"></div>
