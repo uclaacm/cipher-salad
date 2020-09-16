@@ -36,9 +36,9 @@ class Decoding extends Component {
         this.wrongMessage1 = caesarShift(this.encodedMessage, -wrongKey1);
         this.wrongMessage2 = atbashEncode(this.encodedMessage);
         this.wrongMessage3 = caesarShift(this.encodedMessage, -wrongKey3);
-        
-        this.state = { 
-            message: this.encodedMessage, 
+
+        this.state = {
+            message: this.encodedMessage,
             guessAnimationComplete: false,
             correctAnimationComplete: false,
             showKeyBox: false,
@@ -158,7 +158,7 @@ class Decoding extends Component {
         this.setState({
             showKeyBox: true,
             animateInKeyBox: true
-        }); 
+        });
     }
 
     startCorrectDecodingAnimation = () => {
@@ -230,7 +230,7 @@ class Decoding extends Component {
             newMessage = (Math.floor(Math.random() * this.messages.length));
         }
         this.chooseMessage = newMessage;
-        
+
         let message = this.messages[this.chooseMessage];
         let decodedMessage;
         if (this.props.name) {
@@ -256,7 +256,7 @@ class Decoding extends Component {
         this.wrongMessage3 = caesarShift(this.encodedMessage, -wrongKey3);
         this.setState({
             animateOutFinalInfo: true,
-            message: this.encodedMessage, 
+            message: this.encodedMessage,
             guessAnimationComplete: false,
             correctAnimationComplete: false,
             showKeyBox: false,
@@ -328,14 +328,14 @@ class Decoding extends Component {
         let finalInfo = null;
         if (this.state.animateOutFinalInfo) {
             finalInfo = <Anime opacity={[1,0]} translateY='2em' delay={anime.stagger(100, {direction: 'reverse'})} complete={(anim) => {this.setState({animateInDecodingOptions: true, animateOutFinalInfo: false})}}>
-                <div className="is-size-4 pt-6">Crazy fast right?</div> 
-                <div className="is-size-4 mt-4">And that was slowed down for demonstration; modern computers can run through all 25 shifts of the Ceasar Cipher ridiculously fast. That's why it's important to use a good cipher!</div>
+                <div className="is-size-4 pt-6">Crazy fast right?</div>
+                <div className="is-size-4 mt-4">And that was slowed down for demonstration; modern computers can run through all 25 shifts of the Caesar Cipher ridiculously fast. That's why it's important to use a good cipher!</div>
                 <button className="button is-medium is-family-secondary has-text-weight-bold mt-5">Try another message!</button>
             </Anime>
         } else if (this.state.correctAnimationComplete) {
             finalInfo = <Anime opacity={[0,1]} translateY="-2em" delay={anime.stagger(1000, {start: 1250})}>
-                <div className="is-size-4 pt-6">Crazy fast right?</div> 
-                <div className="is-size-4 mt-4">And that was slowed down for demonstration; modern computers can run through all 25 shifts of the Ceasar Cipher ridiculously fast. That's why it's important to use a good cipher!</div>
+                <div className="is-size-4 pt-6">Crazy fast right?</div>
+                <div className="is-size-4 mt-4">And that was slowed down for demonstration; modern computers can run through all 25 shifts of the Caesar Cipher ridiculously fast. That's why it's important to use a good cipher!</div>
                 <button className="button is-medium is-family-secondary has-text-weight-bold mt-5" onClick={this.handleTryAnotherClick}>Try another message!</button>
             </Anime>
         }
@@ -345,7 +345,7 @@ class Decoding extends Component {
                 <p className="is-size-4">{`So, ${name} you've learned 3 types of ciphers today! Can you decode what this message means?`}</p>
                 {finalmessage}
                 <DecodingOptions startKeyBoxAnimation={this.startKeyBoxAnimation} onStartCorrectDecodingClick={this.handleStartCorrectDecodingClick}
-                    button1Shift={button1Shift} button2Shift={button2Shift} button3Shift={button3Shift} 
+                    button1Shift={button1Shift} button2Shift={button2Shift} button3Shift={button3Shift}
                     onRefreshOptions={this.handleRefreshOptions} onShowCiphertext={this.handleShowCiphertext} guessButtonOnClick={this.handleGuessButtonClick}
                     startCorrectDecodingAnimation={this.startCorrectDecodingAnimation} animateIn={this.state.animateInDecodingOptions} animateInComplete={this.animateInDecodingOptionsComplete}/>
                 {finalKeyBox}
