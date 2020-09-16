@@ -19,7 +19,7 @@ class Caesar extends Component {
             finalMessage: "BRUTUS HOMIE WHAT IS UP",
             shift: 3
         };
-    } 
+    }
 
     handleOffsetChange = (n) => {
         let off = this.state.offset + n;
@@ -29,7 +29,7 @@ class Caesar extends Component {
       handleOffsetChangeWheel = (n) => {
           this.setState({ offset: n });
       }
-      
+
     putCharsInSpans = (string) => {
         let map = Array.prototype.map;
         let spans = map.call(string, char => {
@@ -41,7 +41,7 @@ class Caesar extends Component {
         });
         return spans;
     }
-    
+
     render() {
         let plaintext = this.state.finalMessage;
         let ciphertext = caesarShift(this.state.finalMessage, this.state.shift);
@@ -53,20 +53,20 @@ class Caesar extends Component {
             fadein = [1,1]
             bounce = [0,0]
             finalCiphertext = <div className="overlay is-inline-flex">
-                <Anime 
-                    rotateY={[0,45]} 
-                    opacity={[1,0]} 
-                    duration="200" 
+                <Anime
+                    rotateY={[0,45]}
+                    opacity={[1,0]}
+                    duration="200"
                     delay={anime.stagger(50)}
                     easing="easeOutSine">
                         {Array.prototype.map.call(ciphertext, c => (c === " ") ? <span>&nbsp;</span> : <span key={c}>{c}</span>)}
                 </Anime>
             </div>
             finalPlaintext = <div className="overlay is-inline-flex">
-                <Anime 
-                    rotateY={[-90,0]} 
-                    opacity={[0,1]} 
-                    duration="400" 
+                <Anime
+                    rotateY={[-90,0]}
+                    opacity={[0,1]}
+                    duration="400"
                     delay={anime.stagger(50)}
                     easing="easeOutSine">
                         {Array.prototype.map.call(plaintext, c => (c === " ") ? <span>&nbsp;</span> : <span key={c}>{c}</span>)}
@@ -76,7 +76,7 @@ class Caesar extends Component {
             finalPlaintext = <div className="overlay">{plaintext}</div>;
             finalCiphertext = null;
         }
-    
+
         return (
             <div id="caesar_cipher">
                 <div className="container mb-6">
@@ -84,7 +84,7 @@ class Caesar extends Component {
                         <div className="column">
                         <Anime opacity={(this.props.startAnimation) ? fadein : [0,0]} translateY={bounce}>
                             <p className="is-size-4">
-                                The Year is 39 B.C., and Roman general Julius Caesar 
+                                The Year is 39 B.C., and Roman general Julius Caesar
                                 wants to send a secret note to his friend Brutus.
                             </p>
                             </Anime>
@@ -100,11 +100,11 @@ class Caesar extends Component {
                             <div className="column is-four-fifths">
                             <Anime opacity={(this.props.startAnimation) ? fadein : [0,0]} delay={5000}>
                                 <p className="is-size-5">
-                                    So, he writes a note in code. Each A is turned to D, B turned to 
+                                    So, he writes a note in code. Each A is turned to D, B turned to
                                     E &mdash; notice the pattern?
                                 </p></Anime>
                                 <Anime opacity={(this.props.startAnimation) ? fadein : [0,0]} delay={8000}>
-                                <button 
+                                <button
                                     className="button is-relative is-medium message-button has-background-grey-light has-text-black is-family-secondary"
                                     onClick={() => {this.setState({animateMessage: true, finalMessage: ciphertext, shift: newShift})}}>
                                     {finalPlaintext}
@@ -118,32 +118,32 @@ class Caesar extends Component {
                         <Anime opacity={(this.props.startAnimation) ? fadein : [0,0]} delay={3000}>
                             <img src={brutus} alt="silhouette of armored marcus junius brutus"/></Anime>
                         </div>
-                        
-                    </div> 
-                    
+
+                    </div>
+
                     <div className="">
                         <div className="subtitle is-size-5">
                             <p>
-                                The Caesar cipher came up when Julius Caesar wanted to send 
+                                The Caesar cipher came up when Julius Caesar wanted to send
                                 secret messages to his people. He "shifted" each letter by 3 to throw unsuspecting readers off.
                             </p>
                             <br/>
                             <p>
-                                Now, we can encrypt letters by any number of shifts and use our own 
+                                Now, we can encrypt letters by any number of shifts and use our own
                                 Caesar cipher. Try it yourself!
                             </p>
                         </div>
-                    </div> 
+                    </div>
                 </div>
                 <div className="container">
                     <p className="title">Try it!</p>
                     <p className="subtitle is-6 has-text-weight-medium">Click and rotate the outer wheel to shift the letters!</p>
                     <CaesarWheel
-                        onOffsetChange={this.handleOffsetChangeWheel} 
+                        onOffsetChange={this.handleOffsetChangeWheel}
                         offset = {this.state.offset} />
                     <GetInput
                         offset={this.state.offset}
-                        cipher="ceasar" />
+                        cipher="caesar" />
                 </div>
             </div>
         );
