@@ -32,11 +32,9 @@ function SolveCipher() {
     // the current cipher hash.
     const [currentHash, setCurrentHash] = useState(hash);
 
-    const [shamt, setShamt] = useState(0);                          // current shift amount
     const [plaintext, setPlaintext] = useState(null);               // plaintext of the ciphered message
     const [ciphertext, setCiphertext] = useState(null);             // current guess at the deciphered message
     const [getStatus, setGetStatus] = useState(0);                  // 0 = no get in progress, 1 = get in progress, 2 = failed, 3 = success
-    const [firstTimeLoad, setFirstTime] = useState(1);              // show fade in effect on first time load, since rotate wheel cause reload
     // load the described cipher.
     
     // console.log(parseHashURL(currentHash))

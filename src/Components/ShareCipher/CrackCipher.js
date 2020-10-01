@@ -1,25 +1,11 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 import Anime from 'react-anime';
 import { caesarShift } from '../../caesarShift';
 import CaesarWheel from '../CaesarWheel/CaesarWheel';
-import { SERVER } from '../../constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import Congrats from './Congrats';
-
-const SOLVE_URL = `${SERVER}/game/solve/`;
-
-// Parse user input and return just the hash portion of
-// the URL or the string itself - if it is already the
-// hash of a cipher.
-// If the match of SOLVE_URL begins at the start of the
-// string, then slice off the SOLVE_URL portion and return
-// the hash. Otherwise, assume it is a hash.
-function parseHashURL(url) {
-    return !url.indexOf(SOLVE_URL) ? url.slice(SOLVE_URL.length) : url;
-}
 
 // CrackCipher is the interactive module for cracking a
 // sharable cipher. If props.hash is provided, then it
@@ -32,8 +18,8 @@ function CrackCipher(props) {
     // the current cipher hash.
 
     const [shamt, setShamt] = useState(0);                          // current shift amount
-    const [plaintext, setPlaintext] = useState(props.cipher[1]);               // plaintext of the ciphered message
-    const [ciphertext, setCiphertext] = useState(props.cipher[0]);             // current guess at the deciphered message
+    let plaintext = props.cipher[1];               // plaintext of the ciphered message
+    let ciphertext = props.cipher[0];             // current guess at the deciphered message
     const [firstTimeLoad, setFirstTime] = useState(1);              // show fade in effect on first time load, since rotate wheel cause reload
     // load the described cipher.
 

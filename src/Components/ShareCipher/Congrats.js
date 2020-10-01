@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Anime from 'react-anime';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
@@ -6,8 +6,8 @@ import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 
 function Congrats(props) {
 
-    const [plaintext, setPlaintext] = useState(props.cipher[1]);               // plaintext of the ciphered message
-    const [ciphertext, setCiphertext] = useState(props.cipher[0]);             // current guess at the deciphered message
+    let plaintext = props.cipher[1];               // plaintext of the ciphered message
+    let ciphertext = props.cipher[0];             // current guess at the deciphered message
     // load the described cipher.
     
     return (
