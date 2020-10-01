@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import Anime from 'react-anime';
-import { SERVER } from '../../constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,7 +8,6 @@ function Congrats(props) {
 
     const [plaintext, setPlaintext] = useState(props.cipher[1]);               // plaintext of the ciphered message
     const [ciphertext, setCiphertext] = useState(props.cipher[0]);             // current guess at the deciphered message
-    const [firstTimeLoad, setFirstTime] = useState(1);              // show fade in effect on first time load, since rotate wheel cause reload
     // load the described cipher.
     
     return (

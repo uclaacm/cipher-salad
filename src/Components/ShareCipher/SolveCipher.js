@@ -60,237 +60,234 @@ function SolveCipher() {
     
     return (
         <Switch>
-                <Route path={`${path}/crack`}>
-                    <Anime opacity={[0,1]}>
-                        <div className='my-5'></div>
-                                    
-                    <Route path={`${path}/crack`}>
-                        <CrackCipher cipher={[ciphertext, plaintext]}/>
-                    </Route>
-                            
-                    </Anime>
-
+            <Route path={`${path}/crack`}>
+                <Anime opacity={[0,1]}>
                     <div className='my-5'></div>
+                                
+                <Route path={`${path}/crack`}>
+                    <CrackCipher cipher={[ciphertext, plaintext]}/>
                 </Route>
-
-                <Route path={match.path}>
-                    <section className='container'>
-
-        <Anime easing="linear" duration="700" loop={false} opacity={['0%','100%']} >
-        <div className="container center">
-            <h1 className='title is-size-2 underline mt-4'>Can you solve my cipher?</h1>
-
-                <section className='share-section'>
-                    
-                    <p className='is-size-4 mb-3'>Your friend has encoded a cipher for you to crack, </p>
-                    <p className='is-size-4 mb-3'>the cipher is encrypted with <u>caesar</u> encoding. </p>
-                    <p className='is-size-4 mb-3'>Every letter in the ciphertext is shifted by a constant amount. </p>
-
-                    <div className="columns is-vcentered is-size-3">
-                    <div class="column"></div>
-                    <div class="column"></div>
-                    <div class="column" style={{color:'#CC0000'}}>
-                    <Anime easing="linear"
-                    loop={true}
-                    duration={8000}
-                    opacity={['0%','100%','0%','100%','0%','0%','0%','0%','0%','0%','0%','0%','0%','0%']}
-                    > P </Anime>
-                    </div>
-                    <div class="column"></div>
-                    <div class="column" style={{color:'#FFB800'}}>
-                    <Anime easing="linear"
-                    loop={true}
-                    duration={8000}
-                    opacity={['0%','0%','0%','0%','0%','100%','0%','100%','0%','0%','0%','0%','0%','0%']}
-                    > +3 </Anime>
-                    </div>
-                    <div class="column"></div>
-                    <div class="column" style={{color:'#6AA84F'}}>
-                    <Anime easing="linear"
-                    loop={true}
-                    duration={8000}
-                    opacity={['0%','0%','0%','0%','0%','0%','0%','0%','0%','100%','0%','100%','0%','0%']}
-                    > S </Anime>
-                    </div>
-                    <div class="column"></div>
-                    <div class="column"></div>
-                    </div>
-
-                    <div className="columns is-vcentered is-size-3">
-                    <div class="column"></div>
-                    <div class="column"></div>
-                    <div class="column" style={{color:'#CC0000'}}>
-                    <Anime easing="linear"
-                    loop={true}
-                    duration={8000}
-                    opacity={['0%','100%','0%','100%','0%','0%','0%','0%','0%','0%','0%','0%','0%','0%']}
-                    > X </Anime>
-                    </div>
-                    <div class="column"></div>
-                    <div class="column" style={{color:'#FFB800'}}>
-                    <Anime easing="linear"
-                    loop={true}
-                    duration={8000}
-                    opacity={['0%','0%','0%','0%','0%','100%','0%','100%','0%','0%','0%','0%','0%','0%']}
-                    > +3 </Anime>
-                    </div>
-                    <div class="column"></div>
-                    <div class="column" style={{color:'#6AA84F'}}>
-                    <Anime easing="linear"
-                    loop={true}
-                    duration={8000}
-                    opacity={['0%','0%','0%','0%','0%','0%','0%','0%','0%','100%','0%','100%','0%','0%']}
-                    > A </Anime>
-                    </div>
-                    <div class="column"></div>
-                    <div class="column"></div>
-                    </div>
-
-                    <div className="columns is-vcentered is-size-3">
-                    <div class="column"></div>
-                    <div class="column"></div>
-                    <div class="column" style={{color:'#CC0000'}}>
-                    <Anime easing="linear"
-                    loop={true}
-                    duration={8000}
-                    opacity={['0%','100%','0%','100%','0%','0%','0%','0%','0%','0%','0%','0%','0%','0%']}
-                    > I </Anime>
-                    </div>
-                    <div class="column"></div>
-                    <div class="column" style={{color:'#FFB800'}}>
-                    <Anime easing="linear"
-                    loop={true}
-                    duration={8000}
-                    opacity={['0%','0%','0%','0%','0%','100%','0%','100%','0%','0%','0%','0%','0%','0%']}
-                    > +3 </Anime>
-                    </div>
-                    <div class="column"></div>
-                    <div class="column" style={{color:'#6AA84F'}}>
-                    <Anime easing="linear"
-                    loop={true}
-                    duration={8000}
-                    opacity={['0%','0%','0%','0%','0%','0%','0%','0%','0%','100%','0%','100%','0%','0%']}
-                    > L </Anime>
-                    </div>
-                    <div class="column"></div>
-                    <div class="column"></div>
-                    </div>
-
-                    <div className="columns is-vcentered is-size-3">
-                    <div class="column"></div>
-                    <div class="column"></div>
-                    <div class="column" style={{color:'#CC0000'}}>
-                    <Anime easing="linear"
-                    loop={true}
-                    duration={8000}
-                    opacity={['0%','100%','0%','100%','0%','0%','0%','0%','0%','0%','0%','0%','0%','0%']}
-                    > X </Anime>
-                    </div>
-                    <div class="column"></div>
-                    <div class="column" style={{color:'#FFB800'}}>
-                    <Anime easing="linear"
-                    loop={true}
-                    duration={8000}
-                    opacity={['0%','0%','0%','0%','0%','100%','0%','100%','0%','0%','0%','0%','0%','0%']}
-                    > +3 </Anime>
-                    </div>
-                    <div class="column"></div>
-                    <div class="column" style={{color:'#6AA84F'}}>
-                    <Anime easing="linear"
-                    loop={true}
-                    duration={8000}
-                    opacity={['0%','0%','0%','0%','0%','0%','0%','0%','0%','100%','0%','100%','0%','0%']}
-                    > A </Anime>
-                    </div>
-                    <div class="column"></div>
-                    <div class="column"></div>
-                    </div>
-
-                    <div className="columns is-vcentered is-size-3">
-                    <div class="column"></div>
-                    <div class="column"></div>
-                    <div class="column" style={{color:'#CC0000'}}>
-                    <Anime easing="linear"
-                    loop={true}
-                    duration={8000}
-                    opacity={['0%','100%','0%','100%','0%','0%','0%','0%','0%','0%','0%','0%','0%','0%']}
-                    > A </Anime>
-                    </div>
-                    <div class="column"></div>
-                    <div class="column" style={{color:'#FFB800'}}>
-                    <Anime easing="linear"
-                    loop={true}
-                    duration={8000}
-                    opacity={['0%','0%','0%','0%','0%','100%','0%','100%','0%','0%','0%','0%','0%','0%']}
-                    > +3 </Anime>
-                    </div>
-                    <div class="column"></div>
-                    <div class="column" style={{color:'#6AA84F'}}>
-                    <Anime easing="linear"
-                    loop={true}
-                    duration={8000}
-                    opacity={['0%','0%','0%','0%','0%','0%','0%','0%','0%','100%','0%','100%','0%','0%']}
-                    > D </Anime>
-                    </div>
-                    <div class="column"></div>
-                    <div class="column"></div>
-                    </div>
-
-                    <p className='is-size-4 mb-3'>Are you ready to be a cipher chef and crack the mystery code?</p>
-                
-
-                    <section className='share-section'>
-                        <p className='is-size-4 mb-3'>
-                            First, let's load our cipher! 
-                        </p>
-                    
-                    <input
-                        className='input'
-                        type='text'
-                        name='hash'
-                        placeholder="Paste friend's cipher code or cipher link here!"
-                        value={currentHash}
-                        onChange={e => setCurrentHash(e.target.value)}
-                    />
-                    {
-                        currentHash && getStatus === 0 &&
-                        <button className='button mt-3' onClick={loadCurrentHash}>Load the cipher!</button>
-                    }
-                    {
-                        getStatus === 1 &&
-                        <Anime opacity={[0,1]} color={'#FFB800'}>
-                            <p className='mt-3'>Loding cipher </p>
-                        </Anime>
-                    }
-
-                    {
-                        getStatus === 2 &&
-                        <Anime opacity={[0,1]} color={'#c00'}>
-                            <p className='mt-3'>Failed to get the cipher... </p>
-                            <p className='mt-2'>Did your friend give you the right link?</p>
-                        </Anime>
-                    }
-                    {
-                        getStatus === 3 &&
-                        <Anime opacity={[0,1]} color={'#228B22'}>
-                            <p className='mt-3'>Loaded successfully </p>
-                        </Anime>
                         
-                    }
-                    </section>
+                </Anime>
 
+                <div className='my-5'></div>
+            </Route>
 
-                    <div class="mb-4"></div>
-                    {
-                        getStatus === 3 &&
-                        <Link to={`${path}/crack`} className='button is-large is-family-secondary has-text-weight-bold'>
-                            Next
-                        </Link>
-                    }
-                </section>
-            </div>
-        </Anime>
+            <Route path={match.path}>
+                <section className='container'>
 
+                    <Anime easing="linear" duration="700" loop={false} opacity={['0%','100%']} >
+                    <div className="container center">
+                        <h1 className='title is-size-2 underline mt-4'>Can you solve my cipher?</h1>
+            
+                            <section className='share-section'>
+                                <p className='is-size-4 mb-3'>Your friend has encoded a cipher for you to crack, </p>
+                                <p className='is-size-4 mb-3'>the cipher is encrypted with <u>caesar</u> encoding. </p>
+                                <p className='is-size-4 mb-3'>Every letter in the ciphertext is shifted by a constant amount. </p>
+            
+                                <div className="columns is-vcentered is-size-3">
+                                <div class="column"></div>
+                                <div class="column"></div>
+                                <div class="column" style={{color:'#CC0000'}}>
+                                <Anime easing="linear"
+                                loop={true}
+                                duration={8000}
+                                opacity={['0%','100%','0%','100%','0%','0%','0%','0%','0%','0%','0%','0%','0%','0%']}
+                                > P </Anime>
+                                </div>
+                                <div class="column"></div>
+                                <div class="column" style={{color:'#FFB800'}}>
+                                <Anime easing="linear"
+                                loop={true}
+                                duration={8000}
+                                opacity={['0%','0%','0%','0%','0%','100%','0%','100%','0%','0%','0%','0%','0%','0%']}
+                                > +3 </Anime>
+                                </div>
+                                <div class="column"></div>
+                                <div class="column" style={{color:'#6AA84F'}}>
+                                <Anime easing="linear"
+                                loop={true}
+                                duration={8000}
+                                opacity={['0%','0%','0%','0%','0%','0%','0%','0%','0%','100%','0%','100%','0%','0%']}
+                                > S </Anime>
+                                </div>
+                                <div class="column"></div>
+                                <div class="column"></div>
+                                </div>
+            
+                                <div className="columns is-vcentered is-size-3">
+                                <div class="column"></div>
+                                <div class="column"></div>
+                                <div class="column" style={{color:'#CC0000'}}>
+                                <Anime easing="linear"
+                                loop={true}
+                                duration={8000}
+                                opacity={['0%','100%','0%','100%','0%','0%','0%','0%','0%','0%','0%','0%','0%','0%']}
+                                > X </Anime>
+                                </div>
+                                <div class="column"></div>
+                                <div class="column" style={{color:'#FFB800'}}>
+                                <Anime easing="linear"
+                                loop={true}
+                                duration={8000}
+                                opacity={['0%','0%','0%','0%','0%','100%','0%','100%','0%','0%','0%','0%','0%','0%']}
+                                > +3 </Anime>
+                                </div>
+                                <div class="column"></div>
+                                <div class="column" style={{color:'#6AA84F'}}>
+                                <Anime easing="linear"
+                                loop={true}
+                                duration={8000}
+                                opacity={['0%','0%','0%','0%','0%','0%','0%','0%','0%','100%','0%','100%','0%','0%']}
+                                > A </Anime>
+                                </div>
+                                <div class="column"></div>
+                                <div class="column"></div>
+                                </div>
+            
+                                <div className="columns is-vcentered is-size-3">
+                                <div class="column"></div>
+                                <div class="column"></div>
+                                <div class="column" style={{color:'#CC0000'}}>
+                                <Anime easing="linear"
+                                loop={true}
+                                duration={8000}
+                                opacity={['0%','100%','0%','100%','0%','0%','0%','0%','0%','0%','0%','0%','0%','0%']}
+                                > I </Anime>
+                                </div>
+                                <div class="column"></div>
+                                <div class="column" style={{color:'#FFB800'}}>
+                                <Anime easing="linear"
+                                loop={true}
+                                duration={8000}
+                                opacity={['0%','0%','0%','0%','0%','100%','0%','100%','0%','0%','0%','0%','0%','0%']}
+                                > +3 </Anime>
+                                </div>
+                                <div class="column"></div>
+                                <div class="column" style={{color:'#6AA84F'}}>
+                                <Anime easing="linear"
+                                loop={true}
+                                duration={8000}
+                                opacity={['0%','0%','0%','0%','0%','0%','0%','0%','0%','100%','0%','100%','0%','0%']}
+                                > L </Anime>
+                                </div>
+                                <div class="column"></div>
+                                <div class="column"></div>
+                                </div>
+            
+                                <div className="columns is-vcentered is-size-3">
+                                <div class="column"></div>
+                                <div class="column"></div>
+                                <div class="column" style={{color:'#CC0000'}}>
+                                <Anime easing="linear"
+                                loop={true}
+                                duration={8000}
+                                opacity={['0%','100%','0%','100%','0%','0%','0%','0%','0%','0%','0%','0%','0%','0%']}
+                                > X </Anime>
+                                </div>
+                                <div class="column"></div>
+                                <div class="column" style={{color:'#FFB800'}}>
+                                <Anime easing="linear"
+                                loop={true}
+                                duration={8000}
+                                opacity={['0%','0%','0%','0%','0%','100%','0%','100%','0%','0%','0%','0%','0%','0%']}
+                                > +3 </Anime>
+                                </div>
+                                <div class="column"></div>
+                                <div class="column" style={{color:'#6AA84F'}}>
+                                <Anime easing="linear"
+                                loop={true}
+                                duration={8000}
+                                opacity={['0%','0%','0%','0%','0%','0%','0%','0%','0%','100%','0%','100%','0%','0%']}
+                                > A </Anime>
+                                </div>
+                                <div class="column"></div>
+                                <div class="column"></div>
+                                </div>
+            
+                                <div className="columns is-vcentered is-size-3">
+                                <div class="column"></div>
+                                <div class="column"></div>
+                                <div class="column" style={{color:'#CC0000'}}>
+                                <Anime easing="linear"
+                                loop={true}
+                                duration={8000}
+                                opacity={['0%','100%','0%','100%','0%','0%','0%','0%','0%','0%','0%','0%','0%','0%']}
+                                > A </Anime>
+                                </div>
+                                <div class="column"></div>
+                                <div class="column" style={{color:'#FFB800'}}>
+                                <Anime easing="linear"
+                                loop={true}
+                                duration={8000}
+                                opacity={['0%','0%','0%','0%','0%','100%','0%','100%','0%','0%','0%','0%','0%','0%']}
+                                > +3 </Anime>
+                                </div>
+                                <div class="column"></div>
+                                <div class="column" style={{color:'#6AA84F'}}>
+                                <Anime easing="linear"
+                                loop={true}
+                                duration={8000}
+                                opacity={['0%','0%','0%','0%','0%','0%','0%','0%','0%','100%','0%','100%','0%','0%']}
+                                > D </Anime>
+                                </div>
+                                <div class="column"></div>
+                                <div class="column"></div>
+                                </div>
+            
+                                <p className='is-size-4 mb-3'>Are you ready to be a cipher chef and crack the mystery code?</p>
+                            
+            
+                                <section className='share-section'>
+                                    <p className='is-size-4 mb-3'>
+                                        First, let's load our cipher! 
+                                    </p>
+                                
+                                <input
+                                    className='input'
+                                    type='text'
+                                    name='hash'
+                                    placeholder="Paste friend's cipher code or cipher link here!"
+                                    value={currentHash}
+                                    onChange={e => setCurrentHash(e.target.value)}
+                                />
+                                {
+                                    currentHash && getStatus === 0 &&
+                                    <button className='button mt-3' onClick={loadCurrentHash}>Load the cipher!</button>
+                                }
+                                {
+                                    getStatus === 1 &&
+                                    <Anime opacity={[0,1]} color={'#FFB800'}>
+                                        <p className='mt-3'>Loding cipher </p>
+                                    </Anime>
+                                }
+            
+                                {
+                                    getStatus === 2 &&
+                                    <Anime opacity={[0,1]} color={'#c00'}>
+                                        <p className='mt-3'>Failed to get the cipher... </p>
+                                        <p className='mt-2'>Did your friend give you the right link?</p>
+                                    </Anime>
+                                }
+                                {
+                                    getStatus === 3 &&
+                                    <Anime opacity={[0,1]} color={'#228B22'}>
+                                        <p className='mt-3'>Loaded successfully </p>
+                                    </Anime>
+                                    
+                                }
+                                </section>
+            
+                                <div class="mb-4"></div>
+                                {
+                                    getStatus === 3 &&
+                                    <Link to={`${path}/crack`} className='button is-large is-family-secondary has-text-weight-bold'>
+                                        Next
+                                    </Link>
+                                }
+                            </section>
+                        </div>
+                    </Anime>
                 </section>
             </Route>
         </Switch>
