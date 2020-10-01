@@ -5,8 +5,8 @@ import {atbashEncode} from '../../atbashEncode.js'
 class GetInput extends Component {
   constructor(props) {
     super(props);
-    
-    this.firstClick = true;     
+
+    this.firstClick = true;
     this.state = {
       inputStr: 'Click here to type!'
     };
@@ -28,7 +28,7 @@ class GetInput extends Component {
   render() {
     let plaintext = this.state.inputStr.toUpperCase();
     let ciphertext;
-    if (this.props.cipher==="ceasar") {
+    if (this.props.cipher==="caesar") {
       ciphertext = caesarShift(plaintext, this.props.offset);
     } else if (this.props.cipher==="atbash") {
       ciphertext = atbashEncode(plaintext);
@@ -43,7 +43,7 @@ class GetInput extends Component {
         <div className="column is-half">
           <p>Your ciphered text is:</p>
           <p className= "has-text-weight-semibold is-size-4" id="output">{ciphertext}</p>
-        </div>    
+        </div>
       </div>
     );
   }

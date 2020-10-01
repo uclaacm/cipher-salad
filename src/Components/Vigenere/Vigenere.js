@@ -98,33 +98,38 @@ class Vigenere extends Component {
                         <div className="column is-one-third">
                             <img src="/vigenere_1.png" alt="shifting the alphabet by 3" className="is-3by2"/>
                         </div>
-                        <div className="is-two-thirds is-size-5 content-custom column">
-                            So far we’ve seen the ancient caesar cipher and atbash cipher. 
-                            In 1553, an Italian guy named Giovan thought this wasn’t enough. 
-                            And he made the caesar cipher more secure by giving each letter a different shift.
-                        </div>
+                        <p className="subtitle is-two-thirds  column">
+                            So far we’ve seen the ancient Atbash cipher and Caesar cipher. 
+                            In 1553, an Italian guy named Giovan thought this wasn’t enough... 
+                            So he made the Caesar cipher more secure by giving each letter a different shift.
+                        </p>
                     </div>
                     <div className="columns is-vcentered">
-                        <div className="is-size-5 content-custom column">
-                            He would code each shift in a letter - A equals 0, B equals 1, z equals 25 .... 
-                            and this would be the *key* to decoding his message.
-                            <br />
+                        <p className="subtitle is-size-5 column">
+                            He would code each shift in a letter:<br/> A equals 0, <br/> B equals 1, <br/> Z equals 25 <br/>.... 
+                            and this would be the <b>key</b> to decoding his message.
+                            <br/>
+                            <br/>
                             Many ciphers use “keys,” an extra piece of information, to encrypt messages.
                             <br />
-                            
-                        </div>
+                        </p>
                         <div className="column is-half">
                             <img src="/vigenere_2.png" alt="demonstration of individual letter shifts"/>
                         </div>
                     </div> 
                     <div className="columns">
-                        <div className="is-size-5 content-custom column">
+                        <div className="is-size-5 subtitle column">
+                            <p className="my-5">
                             And then in the 19th century, the cipher was misattributed to a French guy named 
-                            Vigenere even though the idea was first described by Giovan. 
-                            <div className="my-5"></div>
-                            Now you’ve learned the Vigenere cipher and 
-                            <br />
-                            it's time to try it yourself!
+                            <b> Vigenere</b> even though the idea was first described by <b>Giovan Bellaso</b>. 
+                            </p>
+                            <p className="my-5">¯\_(ツ)_/¯</p> 
+                            <p>
+                                <b>Now you’ve learned the Vigenere cipher, and </b> 
+                            </p>
+                            <p className="mb-5">
+                                <b>it's time to try it yourself!</b>
+                            </p>
                         </div>
                     </div>
                 </div>

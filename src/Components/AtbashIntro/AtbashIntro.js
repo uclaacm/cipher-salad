@@ -1,55 +1,49 @@
-import React from 'react'
-import hieroglyph1 from './hieroglyphs1.svg'
-import hieroglyph2 from './hieroglyphs2.svg'
-import LetterEncoding from '../LetterEncoding/LetterEncoding.js'
+import React, { useState } from 'react'
+import Anime from 'react-anime';
 import './atbashIntro.css'
+import { clickMe, partOne, partTwo, partThree} from './AtbashIntroSections.js'
 
-function AtbashIntro() {
+const ClickMeComponent = (props) => {
+    const [show, setShow] = useState(0);
     return (
-        <section className="container mb-6">
-            <div className="columns is-variable is-5">
-                <div className="column is-one-third">
-                    <img src={hieroglyph1} alt="ancient hieroglyphs" />
-                    <img src={hieroglyph2} alt="ancient hieroglyphs" className="position-img" />
-                </div>
-                <div className="column">
-                    <div className="content"> 
-                        <p className="is-size-5">
-                            Cryptography is ancient, and has existed as long as people have wanted to 
-                            communicate in secret.
-                        </p>
-                        <p className="is-size-5">
-                            One of the oldest ciphers was designed before the English alphabet, but we can 
-                            easily translate it over: the Atbash cipher
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div className="columns">
-                <div className="column is-two-thirds">
-                    <div className="content">
-                        <p className="is-size-5">
-                            Originally made for Hebrew, people would replace the first letter, aleph, with 
-                            the last letter tav. The second letter, bet, would be replaced with the 
-                            second-to-last letter, shin...
-                        </p>
-                        <p className="is-size-5">
-                            Can you guess how these letters would match up in an 
-                            English Atbash cipher?
-                        </p>
-                    </div>
-                </div>
-                <div className="column is-relative">
-                    <div className="position-letter-encodings">
-                        <LetterEncoding decodedLetter="A" encodedLetter="Z" hoverReveal={false}/> 
-                        <LetterEncoding decodedLetter="B" encodedLetter="Y" hoverReveal={true} num="1"/>
-                        <LetterEncoding decodedLetter="C" encodedLetter="X" hoverReveal={true} num="2"/>
-                        <p className="is-size-6">Hover over the letters to reveal!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div onClick={()=> {setShow(show < 2 ? show+1 : show)} }>
+            <Anime {...props.animate} >{props.clickList[show]}</Anime>
+        </div>  
     );
+}
+
+class AtbashIntro extends React.Component {
+    constructor(props) {
+        super(props);
+        const firstPrompt = "click me :o"
+        const secondPrompt = "wrw blf xorxp srn gdrxv?"
+        this.state = {
+            clickList: [clickMe(firstPrompt, true), clickMe(firstPrompt, false), partTwo()],
+            clickList2: [clickMe(secondPrompt, true), clickMe(secondPrompt, false), partThree()]
+        }
+    }
+
+    animate = () => {
+        let animeProps = {
+            opacity: [1, 1],
+            translateX: [-64, 0],
+            delay: (el, i) => i * 500
+        }
+        return(animeProps)
+    }
+
+    render() {
+        let { clickList } = this.state
+        let { clickList2 } = this.state
+        return(
+            <section className="container mb-6">
+                {partOne()}
+                <ClickMeComponent clickList={clickList} animate={this.animate()} />
+                <ClickMeComponent clickList={clickList2} animate={this.animate()} />
+            </section>
+        )
+    }
+
 }
 
 export default AtbashIntro;
