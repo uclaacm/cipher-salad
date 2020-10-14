@@ -4,6 +4,7 @@ import { createCipher } from '../../firestore';
 import { caesarShift } from '../../caesarShift';
 import { SERVER } from '../../constants';
 import CaesarWheel from '../CaesarWheel/CaesarWheel';
+import './shareCipher.scss';
 
 const PLACEHOLDER_TEXT = 'TYPE HERE TO CREATE A CIPHER';
 
@@ -26,11 +27,13 @@ function CreateCipher() {
     const [copyStatus, setCopyStatus] = useState(0);
 
     return (
-        <div className='container'>
-            <h1 className='title is-size-1'>Create a cipher!</h1>
+        <div className=' cipher-container'>
+            <div className="center">
+                <h1 className='title is-size-2 underline mt-4'>Create a Cipher!</h1>
+            </div>
             
             <section className='share-section'>
-                <p className='is-size-4'>Input your plaintext...</p>
+                <p className='is-size-4 mt-3'>Input your plaintext...</p>
 
                 <div className='my-3'></div>
 
@@ -59,10 +62,15 @@ function CreateCipher() {
 
             </section>
             
-            <section className='share-section'>
-                <p className='is-size-4'>
-                    {`This will be encoded as ${plaintext ? caesarShift(plaintext.toUpperCase(), shamt) : caesarShift(PLACEHOLDER_TEXT, shamt)}`}
+            <section className='share-section center'>
+                <p className='is-size-4 mb-4'>
+                    {`This will be encoded as: `}
                 </p>
+                
+                <p className='is-size-4' style={{color:'#228B22'}}>
+                    {`${plaintext ? caesarShift(plaintext.toUpperCase(), shamt) : caesarShift(PLACEHOLDER_TEXT, shamt)}`}
+                </p>
+                
             </section>
 
             <section className='share-section'>

@@ -1,127 +1,112 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 import Anime from 'react-anime';
-import { getCipher } from '../../firestore';
 import { caesarShift } from '../../caesarShift';
 import CaesarWheel from '../CaesarWheel/CaesarWheel';
-import { SERVER } from '../../constants';
-
-const SOLVE_URL = `${SERVER}/game/solve/`;
-
-// Parse user input and return just the hash portion of
-// the URL or the string itself - if it is already the
-// hash of a cipher.
-// If the match of SOLVE_URL begins at the start of the
-// string, then slice off the SOLVE_URL portion and return
-// the hash. Otherwise, assume it is a hash.
-function parseHashURL(url) {
-    return !url.indexOf(SOLVE_URL) ? url.slice(SOLVE_URL.length) : url;
-}
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import Congrats from './Congrats';
 
 // CrackCipher is the interactive module for cracking a
 // sharable cipher. If props.hash is provided, then it
 // will automatically try to load the cipher pointed to
 // by the provided hash.
-function CrackCipher() {
-    let { hash } = useParams();
+function CrackCipher(props) {
+    let match = useRouteMatch();
+    let path = match.path;
 
     // the current cipher hash.
-    const [currentHash, setCurrentHash] = useState(hash);
 
     const [shamt, setShamt] = useState(0);                          // current shift amount
-    const [plaintext, setPlaintext] = useState(null);               // plaintext of the ciphered message
-    const [ciphertext, setCiphertext] = useState(null);             // current guess at the deciphered message
-    const [getStatus, setGetStatus] = useState(0);                  // 0 = no get in progress, 1 = get in progress, 2 = failed
-
+    let plaintext = props.cipher[1];               // plaintext of the ciphered message
+    let ciphertext = props.cipher[0];             // current guess at the deciphered message
+    const [firstTimeLoad, setFirstTime] = useState(1);              // show fade in effect on first time load, since rotate wheel cause reload
     // load the described cipher.
-    const loadCurrentHash = async () => {
-        if (getStatus === 1)
-            return;
-        setGetStatus(1);
-        let cipherData = await getCipher(parseHashURL(currentHash));
-        if (!cipherData)
-            setGetStatus(2);
-        else {
-            setGetStatus(0);
-            setPlaintext(cipherData.plaintext);
-            setCiphertext(caesarShift(cipherData.plaintext.toUpperCase(), cipherData.shamt));
-        }
-    }
 
-    // if provided a hash, then try to load it.
-    if (hash && !getStatus && !ciphertext)
-        loadCurrentHash();
+    const shiftResult = caesarShift(ciphertext ? ciphertext : '', shamt) === (plaintext? plaintext : '').toUpperCase();
+    const shiftText = caesarShift((ciphertext ? ciphertext : '').toUpperCase(), shamt);
 
-    // If the user navigated directly to this page
-    if (plaintext === null) {
-        return (
-            <div className='container'>
-                <input
-                    className='input'
-                    type='text'
-                    name='hash'
-                    placeholder="Paste friend's cipher code or cipher link!"
-                    value={currentHash}
-                    onChange={e => setCurrentHash(e.target.value)}
-                />
-                <button className='button' onClick={loadCurrentHash}>
-                    {
-                        getStatus === 1 ?
-                        "Loading cipher..." :
-                        "Load the cipher!"
-                    }
-                </button>
-
-                {
-                    getStatus === 2 &&
-                    <Anime opacity={[0,1]} color={'#c00'}>
-                        <p>Failed to get the cipher... Did your friend give you the right link?</p>
-                    </Anime>
-                }
-            </div>
-        );
-    }
-    
     // if the user was provided a valid hash
     return (
-        <div className='container'>
-            <h1 className='title'>Let's get cracking!</h1>
-
-            <div className='my-3'></div>
-
-            <section className='share-section'>
-                <p className='is-size-3'>
-                    Your secret ciphertext is:
-                    <br />
-                    '{ciphertext}'
-                </p>
-
-                <div className='my-3'></div>
-
-                <p className='is-size-5'>
-                    Let's crack the encryption by decoding it with the <b>Caesar Cipher</b>! Rotate the wheel to give it a try. The decoded text will turn green when you've got it!
-                </p>
-            </section>
-
-            <div className='my-3'></div>
-
-            <CaesarWheel onOffsetChange={ n => setShamt(n) } />
-
-            <div className='my-3'></div>
-
-            <section className='share-section'>
-                <Anime
-                    color={(caesarShift(ciphertext ? ciphertext : '', shamt) === plaintext.toUpperCase()) ? '#6aa84f' : '#c00'}
-                >
-                    <p className='is-size-3'>
-                        {shamt ?
-                        caesarShift(ciphertext.toUpperCase(), shamt) :
-                        ciphertext
-                        }
-                    </p>
+            <Switch>
+            <Route path={`${path}/success`}>
+                <Anime opacity={[0,1]}>
+                    <div className='my-5'></div>
+                                
+                <Route path={`${path}/success`}>
+                    <Congrats cipher={[ciphertext, plaintext]}/>
+                </Route>
+                        
                 </Anime>
-            </section>
-        </div>
+
+                <div className='my-5'></div>
+            </Route>
+
+            <Route path={match.path}>
+                <section className='container'>
+
+                    <Anime easing="linear" duration="700" loop={false} opacity={firstTimeLoad ? [0,1] : [1]} >
+                    <div className="cipher-container center">
+                        <h1 className='title is-size-2 underline mt-4'>Let's Get Cracking!</h1>
+        
+                            <section className='share-section'>
+                                <p className='is-size-4'>Your secret ciphertext is:</p>
+                                <p className='is-size-3 mb-2'>'{ciphertext}'</p>
+        
+                                <div className='my-3'></div>
+                                <Anime easing="linear" duration="1500" loop={true} opacity={['0%','100%', '0%']} >
+                                    <FontAwesomeIcon icon={faArrowDown} alt='down arrow' size="2x" color="#0" ></FontAwesomeIcon>             
+                                </Anime>
+                                <p className='is-size-5 mt-1 mb-1'> <i><b>Rotate</b></i> the Ceasar wheel to decode the cipher, </p>
+                                <p className='is-size-5 mt-1 mb-1'> until the text below turns <div style={{display:'inline', color:'#6AA84F'}}>green</div>. </p>
+                                <Anime easing="linear" duration="1500" loop={true} opacity={['0%','100%', '0%']} >
+                                    <FontAwesomeIcon icon={faArrowDown} alt='down arrow' size="2x" color="#0" ></FontAwesomeIcon>             
+                                </Anime>
+                            </section>
+        
+                            <div className='my-3'></div>
+        
+                            <CaesarWheel onOffsetChange={ n => {
+                                setShamt(n); 
+                                setFirstTime(0);} } 
+                            />
+        
+                            <div className='my-3'></div>
+        
+                            <section className='share-section'>
+                                {
+                                    !shiftResult && 
+                                    <Anime color={'#c00'}>
+                                        <p className='is-size-3'>
+                                            { shamt ? shiftText : ciphertext }
+                                        </p>
+                                    </Anime>
+                                }
+                                {
+                                    shiftResult && 
+                                    <Anime color={'#6aa84f'}>
+                                        <p className='is-size-3 mb-4'>
+                                            {plaintext}
+                                        </p>
+                                        <p className='is-size-3'>
+                                            Did you solve the secret cipher...?
+                                        </p>
+                                    </Anime>
+                                }
+        
+                                <div class="mb-4"></div>
+                                {
+                                    shiftResult &&
+                                    <Link to={`${path}/success`} className='button is-large is-family-secondary has-text-weight-bold'>
+                                        Next
+                                    </Link>
+                                }
+                            </section>
+                        </div>
+                    </Anime>
+                </section>
+            </Route>
+        </Switch>
     );
 }
 

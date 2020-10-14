@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 import Anime from 'react-anime';
 import CreateCipher from './CreateCipher';
-import CrackCipher from './CrackCipher';
+import SolveCipher from './SolveCipher';
 import bbq from './barbecue.svg';
 import './shareCipher.scss';
 
@@ -19,7 +19,7 @@ function ShareCipher() {
                         <div className='my-5'></div>
                                     
                     <Route path={`${match.path}/create`} component={CreateCipher} />
-                    <Route path={`${match.path}/solve/:hash?`} component={CrackCipher} />
+                    <Route path={`${match.path}/solve/:hash?`} component={SolveCipher} />
                             
                     <div className='my-5'></div>
 
@@ -49,9 +49,11 @@ function ShareCipher() {
                                     <Link to={`${match.path}/create`} className='button is-large is-family-secondary has-text-weight-bold'>
                                         Create a cipher!
                                     </Link>
+                                    <div class="mb-4"></div>
                                     <Link to={`${match.path}/solve`} className='button is-large is-family-secondary has-text-weight-bold'>
                                         Crack a cipher!
                                     </Link>
+                                    <div class="mb-4"></div>
                                     <Link to='/' className='button is-large is-family-secondary has-text-weight-bold'>
                                         Go back
                                     </Link>
